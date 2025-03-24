@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "JXnXrSHti/jdooR6BfZ2tPFcxzwv/u2Tn3ayFDn4Vhw=",
+  "Source": "CatalogueServer",
+  "BasePath": "_content/CatalogueServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
