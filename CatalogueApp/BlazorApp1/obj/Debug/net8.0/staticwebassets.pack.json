@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CatalogueApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\CatalogueApp.9l2fr0el84.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CatalogueApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CatalogueApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.CatalogueApp.props",
+      "PackagePath": "build\\CatalogueApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.CatalogueApp.props",
+      "PackagePath": "buildMultiTargeting\\CatalogueApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.CatalogueApp.props",
+      "PackagePath": "buildTransitive\\CatalogueApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

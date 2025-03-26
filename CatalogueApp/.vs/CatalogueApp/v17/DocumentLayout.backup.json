@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4553B35F-B82E-4500-82D3-A7903E967221}|BlazorApp1\\CatalogueApp.csproj|d:\\facultate\\aniii\\sem_ii\\mpi\\agile-grade-manager\\catalogueapp\\blazorapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4553B35F-B82E-4500-82D3-A7903E967221}|BlazorApp1\\CatalogueApp.csproj|solutionrelative:blazorapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{518AEA78-7C6C-4006-8E53-59E854F2183D}|CatalogueServer\\CatalogueServer.csproj|d:\\facultate\\aniii\\sem_ii\\mpi\\agile-grade-manager\\catalogueapp\\catalogueserver\\models\\databasemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{518AEA78-7C6C-4006-8E53-59E854F2183D}|CatalogueServer\\CatalogueServer.csproj|solutionrelative:catalogueserver\\models\\databasemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{518AEA78-7C6C-4006-8E53-59E854F2183D}|CatalogueServer\\CatalogueServer.csproj|d:\\facultate\\aniii\\sem_ii\\mpi\\agile-grade-manager\\catalogueapp\\catalogueserver\\models\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{518AEA78-7C6C-4006-8E53-59E854F2183D}|CatalogueServer\\CatalogueServer.csproj|solutionrelative:catalogueserver\\models\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{518AEA78-7C6C-4006-8E53-59E854F2183D}|CatalogueServer\\CatalogueServer.csproj|d:\\facultate\\aniii\\sem_ii\\mpi\\agile-grade-manager\\catalogueapp\\catalogueserver\\models\\grademodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{518AEA78-7C6C-4006-8E53-59E854F2183D}|CatalogueServer\\CatalogueServer.csproj|solutionrelative:catalogueserver\\models\\grademodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{518AEA78-7C6C-4006-8E53-59E854F2183D}|CatalogueServer\\CatalogueServer.csproj|d:\\facultate\\aniii\\sem_ii\\mpi\\agile-grade-manager\\catalogueapp\\catalogueserver\\models\\classmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{518AEA78-7C6C-4006-8E53-59E854F2183D}|CatalogueServer\\CatalogueServer.csproj|solutionrelative:catalogueserver\\models\\classmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{518AEA78-7C6C-4006-8E53-59E854F2183D}|CatalogueServer\\CatalogueServer.csproj|d:\\facultate\\aniii\\sem_ii\\mpi\\agile-grade-manager\\catalogueapp\\catalogueserver\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{518AEA78-7C6C-4006-8E53-59E854F2183D}|CatalogueServer\\CatalogueServer.csproj|solutionrelative:catalogueserver\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4553B35F-B82E-4500-82D3-A7903E967221}|BlazorApp1\\CatalogueApp.csproj|d:\\facultate\\aniii\\sem_ii\\mpi\\agile-grade-manager\\catalogueapp\\blazorapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4553B35F-B82E-4500-82D3-A7903E967221}|BlazorApp1\\CatalogueApp.csproj|solutionrelative:blazorapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{518AEA78-7C6C-4006-8E53-59E854F2183D}|CatalogueServer\\CatalogueServer.csproj|d:\\facultate\\aniii\\sem_ii\\mpi\\agile-grade-manager\\catalogueapp\\catalogueserver\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +58,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DatabaseModel.cs",
+              "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\CatalogueServer\\Models\\DatabaseModel.cs",
+              "RelativeDocumentMoniker": "CatalogueServer\\Models\\DatabaseModel.cs",
+              "ToolTip": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\CatalogueServer\\Models\\DatabaseModel.cs",
+              "RelativeToolTip": "CatalogueServer\\Models\\DatabaseModel.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwA0AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T22:39:35.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Assignment.cs",
+              "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\CatalogueServer\\Models\\Assignment.cs",
+              "RelativeDocumentMoniker": "CatalogueServer\\Models\\Assignment.cs",
+              "ToolTip": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\CatalogueServer\\Models\\Assignment.cs",
+              "RelativeToolTip": "CatalogueServer\\Models\\Assignment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T22:21:47.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GradeModel.cs",
+              "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\CatalogueServer\\Models\\GradeModel.cs",
+              "RelativeDocumentMoniker": "CatalogueServer\\Models\\GradeModel.cs",
+              "ToolTip": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\CatalogueServer\\Models\\GradeModel.cs",
+              "RelativeToolTip": "CatalogueServer\\Models\\GradeModel.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T22:20:03.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClassModel.cs",
+              "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\CatalogueServer\\Models\\ClassModel.cs",
+              "RelativeDocumentMoniker": "CatalogueServer\\Models\\ClassModel.cs",
+              "ToolTip": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\CatalogueServer\\Models\\ClassModel.cs",
+              "RelativeToolTip": "CatalogueServer\\Models\\ClassModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T22:03:41.587Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "UserModel.cs",
               "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\CatalogueServer\\Models\\UserModel.cs",
               "RelativeDocumentMoniker": "CatalogueServer\\Models\\UserModel.cs",
@@ -59,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\CatalogueServer\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "CatalogueServer\\Controllers\\WeatherForecastController.cs",
@@ -71,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\Program.cs",
               "RelativeDocumentMoniker": "BlazorApp1\\Program.cs",
@@ -84,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "_Imports.razor",
               "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\Components\\_Imports.razor",
               "RelativeDocumentMoniker": "BlazorApp1\\Components\\_Imports.razor",
@@ -96,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "CatalogueServer.http",
               "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\CatalogueServer\\CatalogueServer.http",
               "RelativeDocumentMoniker": "CatalogueServer\\CatalogueServer.http",
@@ -108,7 +176,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "CatalogueApp.csproj",
               "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\CatalogueApp.csproj",
               "RelativeDocumentMoniker": "BlazorApp1\\CatalogueApp.csproj",
@@ -120,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "app.css",
               "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\app.css",
               "RelativeDocumentMoniker": "BlazorApp1\\wwwroot\\app.css",
@@ -132,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "BlazorApp1\\Properties\\launchSettings.json",
