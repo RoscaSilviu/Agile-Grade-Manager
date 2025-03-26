@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "buJ71seS3ss=",
+  "dgSpecHash": "s198IyPtfH0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\CatalogueApp.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\CatalogueApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\umbre\\.nuget\\packages\\sqlite-net-pcl\\1.9.172\\sqlite-net-pcl.1.9.172.nupkg.sha512",
+    "C:\\Users\\umbre\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.1.2\\sqlitepclraw.bundle_green.2.1.2.nupkg.sha512",
+    "C:\\Users\\umbre\\.nuget\\packages\\sqlitepclraw.core\\2.1.2\\sqlitepclraw.core.2.1.2.nupkg.sha512",
+    "C:\\Users\\umbre\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.2\\sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",
+    "C:\\Users\\umbre\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.2\\sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512",
+    "C:\\Users\\umbre\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
   "logs": []
 }
