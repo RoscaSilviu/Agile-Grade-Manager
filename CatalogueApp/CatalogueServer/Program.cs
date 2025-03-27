@@ -1,11 +1,16 @@
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddSingleton<Database>();
 
 var app = builder.Build();
 
@@ -21,5 +26,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Initialize the database on startup
+var db = app.Services.GetRequiredService<Database>();
+Console.WriteLine("Database initialized!");
 
 app.Run();
