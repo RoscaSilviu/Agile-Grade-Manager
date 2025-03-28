@@ -42,4 +42,38 @@ public class DatabaseController : ControllerBase
 
         return Ok(classes);
     }
+
+
+    [HttpGet("users")]
+    public IActionResult GetUsers()
+    {
+        var db = _database.GetConnection();
+        var users = db.Table<User>().ToList();
+        return Ok(users);
+    }
+
+    [HttpGet("classes")]
+    public IActionResult GetClasses()
+    {
+        var db = _database.GetConnection();
+        var classes = db.Table<Class>().ToList();
+        return Ok(classes);
+    }
+
+    [HttpGet("grades")]
+    public IActionResult GetGrades()
+    {
+        var db = _database.GetConnection();
+        var grades = db.Table<Grade>().ToList();
+        return Ok(grades);
+    }
+
+    [HttpGet("assignments")]
+    public IActionResult GetAssignments()
+    {
+        var db = _database.GetConnection();
+        var assignments = db.Table<Assignment>().ToList();
+        return Ok(assignments);
+    }
+
 }
