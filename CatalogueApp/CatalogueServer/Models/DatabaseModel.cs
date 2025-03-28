@@ -1,11 +1,16 @@
 ﻿using System;
 using System.IO;
-using CatalogueServer.Helpers;
 using SQLite;
+using CatalogueServer.Repositories;
 
 public class Database
 {
     private readonly SQLiteConnection _db;
+
+    public UserRepository Users { get; }
+    public ClassRepository Classes { get; }
+    public AssignmentRepository Assignments { get; }
+    public GradeRepository Grades { get; }
 
     public Database()
     {
@@ -20,52 +25,13 @@ public class Database
         _db.CreateTable<Class>();
         _db.CreateTable<Grade>();
         _db.CreateTable<Assignment>();
+
+        // Initialize repositories (use the correct types)
+        Users = new UserRepository(_db);
+        Classes = new ClassRepository(_db);
+        Assignments = new AssignmentRepository(_db);
+        Grades = new GradeRepository(_db);
     }
 
     public SQLiteConnection GetConnection() => _db;
-
-    // crud methods
-
-    public void Insert<T>(T obj)
-    {
-        _db.Insert(obj);
-    }
-
-    public void Update<T>(T obj)
-    {
-        _db.Update(obj);
-    }
-
-    public void Delete<T>(T obj)
-    {
-        _db.Delete(obj);
-    }
-
-    public void DeleteAll<T>()
-    {
-        _db.DeleteAll<T>();
-    }
-
-    public TableQuery<T> Table<T>() where T : new()
-    {
-        return _db.Table<T>();
-    }
-
-    public void AddUser(string email, string password, string role, string name, string surname, string token)
-    {
-        var user = new User
-        {
-            Email = email,
-            Password = PasswordHelper.HashPassword(password),
-            Role = role,
-            Name = name,
-            Surname = surname,
-            Token = token,
-            LastLogin = DateTime.Now
-        };
-        Insert(user);
-    }
-
-
-
 }
