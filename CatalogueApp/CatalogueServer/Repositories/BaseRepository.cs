@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CatalogueServer.Helpers.Repositories
+namespace CatalogueServer.Repositories
 {
     public class BaseRepository<T> where T : new()
     {

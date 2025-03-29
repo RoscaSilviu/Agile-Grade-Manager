@@ -16,3 +16,15 @@ public class User
     public string Token { get; set; }
     public DateTime LastLogin { get; set; }
 }
+
+public class PasswordHelper
+{
+    public static string HashPassword(string password)
+    {
+        return BCrypt.Net.BCrypt.HashPassword(password);
+    }
+    public static bool ValidatePassword(string password, string correctHash)
+    {
+        return BCrypt.Net.BCrypt.Verify(password, correctHash);
+    }
+}

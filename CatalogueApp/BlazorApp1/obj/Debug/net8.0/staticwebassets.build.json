@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "q+ld1JeAjfGuKaofjZB0bisT3PeaeUsfXj+WmeMMyrE=",
+  "Hash": "DxAHDvcV5Q8qIM2JiM7Bu3M9X107rqmCiZTrs9v6BkQ=",
   "Source": "CatalogueApp",
   "BasePath": "_content/CatalogueApp",
   "Mode": "Default",
@@ -619,7 +619,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 29 Mar 2025 14:40:20 GMT"
+          "Value": "Sat, 29 Mar 2025 18:40:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -664,7 +664,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 29 Mar 2025 14:40:20 GMT"
+          "Value": "Sat, 29 Mar 2025 18:40:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -701,7 +701,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 29 Mar 2025 15:57:47 GMT"
+          "Value": "Sat, 29 Mar 2025 18:40:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -746,7 +746,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 29 Mar 2025 15:57:47 GMT"
+          "Value": "Sat, 29 Mar 2025 18:40:55 GMT"
         },
         {
           "Name": "Cache-Control",

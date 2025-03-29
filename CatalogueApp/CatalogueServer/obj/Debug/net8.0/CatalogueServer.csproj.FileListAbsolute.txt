@@ -35,6 +35,14 @@ C:\Users\silvi\Git-projects\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj
 C:\Users\silvi\Git-projects\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.pdb
 C:\Users\silvi\Git-projects\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.genruntimeconfig.cache
 C:\Users\silvi\Git-projects\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\ref\CatalogueServer.dll
+D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.csproj.AssemblyReference.cache
+D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.AssemblyInfoInputs.cache
+D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.AssemblyInfo.cs
+D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.csproj.CoreCompileInputs.cache
+D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.MvcApplicationPartsAssemblyInfo.cs
+D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.MvcApplicationPartsAssemblyInfo.cache
+D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.sourcelink.json
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\appsettings.Development.json
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\appsettings.json
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\CatalogueServer.staticwebassets.endpoints.json
@@ -43,6 +51,7 @@ D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\b
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\CatalogueServer.runtimeconfig.json
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\CatalogueServer.dll
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\CatalogueServer.pdb
+D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\BCrypt.Net-Core.dll
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\SQLite-net.dll
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\SQLitePCLRaw.batteries_v2.dll
@@ -78,14 +87,6 @@ D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\b
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\runtimes\osx-x64\native\SQLite.Interop.dll
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\runtimes\win-x64\native\SQLite.Interop.dll
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\bin\Debug\net8.0\runtimes\win-x86\native\SQLite.Interop.dll
-D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.csproj.AssemblyReference.cache
-D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.GeneratedMSBuildEditorConfig.editorconfig
-D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.AssemblyInfoInputs.cache
-D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.AssemblyInfo.cs
-D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.csproj.CoreCompileInputs.cache
-D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.MvcApplicationPartsAssemblyInfo.cs
-D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.MvcApplicationPartsAssemblyInfo.cache
-D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\CatalogueServer.sourcelink.json
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\scopedcss\bundle\CatalogueServer.styles.css
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\staticwebassets.build.json
 D:\Facultate\AnIII\Sem_II\MPI\Agile-Grade-Manager\CatalogueApp\CatalogueServer\obj\Debug\net8.0\staticwebassets.development.json

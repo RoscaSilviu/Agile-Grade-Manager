@@ -1,8 +1,7 @@
 ﻿namespace CatalogueServer.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using CatalogueServer.Helpers.Repositories;
-    using CatalogueServer.Helpers;
+    using CatalogueServer.Repositories;
 
     [Route("api/[controller]")]
     [ApiController]
@@ -10,7 +9,7 @@
     {
         private readonly UserRepository _userRepository;
 
-        public AuthController(UserRepository userRepository)
+        public AuthController(UserRepository userRepository )
         {
             _userRepository = userRepository;
         }
@@ -20,7 +19,6 @@
         {
 
             var user = _userRepository.GetUserByEmail(request.Email);
-            //user.email= request.newemail
             if (user == null)
             {
                 return Unauthorized("Invalid email or password");
@@ -35,7 +33,7 @@
             user.Token = Guid.NewGuid().ToString();
             user.LastLogin = DateTime.Now;
 
-            _userRepository.UpdateUser(user);
+            _userRepository.Update(user);
 
             return Ok(new { Token = user.Token, Role = user.Role });
         }
