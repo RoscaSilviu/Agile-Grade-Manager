@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ply4m5gc11RY+I6tCjFqzZ5C4IqCHrHd8T6HpMtHgvQ=",
+  "Hash": "q+ld1JeAjfGuKaofjZB0bisT3PeaeUsfXj+WmeMMyrE=",
   "Source": "CatalogueApp",
   "BasePath": "_content/CatalogueApp",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CatalogueApp\\wwwroot",
       "Source": "CatalogueApp",
-      "ContentRoot": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/CatalogueApp",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CatalogueApp.styles.css",
+      "Identity": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CatalogueApp.styles.css",
       "SourceId": "CatalogueApp",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CatalogueApp",
       "RelativePath": "CatalogueApp#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -35,13 +35,13 @@
       "Integrity": "3dXkjOkH2JZ0sTwK6haW7AYc0pNPD/95jPBn4msqaYM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CatalogueApp.styles.css"
+      "OriginalItemSpec": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CatalogueApp.styles.css"
     },
     {
-      "Identity": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CatalogueApp.bundle.scp.css",
+      "Identity": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CatalogueApp.bundle.scp.css",
       "SourceId": "CatalogueApp",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CatalogueApp",
       "RelativePath": "CatalogueApp#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -56,13 +56,13 @@
       "Integrity": "3dXkjOkH2JZ0sTwK6haW7AYc0pNPD/95jPBn4msqaYM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CatalogueApp.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CatalogueApp.bundle.scp.css"
     },
     {
-      "Identity": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\app.css",
       "SourceId": "CatalogueApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/CatalogueApp",
       "RelativePath": "app#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "CatalogueApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/CatalogueApp",
       "RelativePath": "bootstrap/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "CatalogueApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/CatalogueApp",
       "RelativePath": "bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -122,10 +122,52 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\css\\app.css",
       "SourceId": "CatalogueApp",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
+      "BasePath": "_content/CatalogueApp",
+      "RelativePath": "css/app#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "755autzxi5",
+      "Integrity": "ixr40tNg4mNjcLN0bqUYQehj9+dnrcNZWCYuehjrmd4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\app.css"
+    },
+    {
+      "Identity": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\css\\login.css",
+      "SourceId": "CatalogueApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
+      "BasePath": "_content/CatalogueApp",
+      "RelativePath": "css/login#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9c3v79eiab",
+      "Integrity": "qa2ynCceKyoQHp0FNCfnJ/vyXRtX9L00I3k5xFgPwS4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\favicon.png",
+      "SourceId": "CatalogueApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\",
       "BasePath": "_content/CatalogueApp",
       "RelativePath": "favicon#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -146,7 +188,7 @@
   "Endpoints": [
     {
       "Route": "app.css",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\app.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -167,7 +209,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 11:46:12 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -183,7 +225,7 @@
     },
     {
       "Route": "app.da95v2qkru.css",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\app.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -204,7 +246,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 11:46:12 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -228,7 +270,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -249,7 +291,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 11:46:12 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -273,7 +315,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -294,7 +336,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 11:46:12 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -310,7 +352,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -331,7 +373,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 11:46:12 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -355,7 +397,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css.map",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -376,7 +418,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 11:46:12 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -392,7 +434,7 @@
     },
     {
       "Route": "CatalogueApp.9l2fr0el84.bundle.scp.css",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CatalogueApp.bundle.scp.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CatalogueApp.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -413,7 +455,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 21:41:03 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -437,7 +479,7 @@
     },
     {
       "Route": "CatalogueApp.9l2fr0el84.styles.css",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CatalogueApp.styles.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CatalogueApp.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -458,7 +500,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 21:41:03 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -482,7 +524,7 @@
     },
     {
       "Route": "CatalogueApp.bundle.scp.css",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CatalogueApp.bundle.scp.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CatalogueApp.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -503,7 +545,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 21:41:03 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -519,7 +561,7 @@
     },
     {
       "Route": "CatalogueApp.styles.css",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CatalogueApp.styles.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CatalogueApp.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -540,7 +582,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 26 Mar 2025 21:41:03 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -555,8 +597,172 @@
       ]
     },
     {
+      "Route": "css/app.755autzxi5.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\css\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "319"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ixr40tNg4mNjcLN0bqUYQehj9+dnrcNZWCYuehjrmd4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 14:40:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "755autzxi5"
+        },
+        {
+          "Name": "label",
+          "Value": "css/app.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ixr40tNg4mNjcLN0bqUYQehj9+dnrcNZWCYuehjrmd4="
+        }
+      ]
+    },
+    {
+      "Route": "css/app.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\css\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "319"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ixr40tNg4mNjcLN0bqUYQehj9+dnrcNZWCYuehjrmd4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 14:40:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ixr40tNg4mNjcLN0bqUYQehj9+dnrcNZWCYuehjrmd4="
+        }
+      ]
+    },
+    {
+      "Route": "css/login.9c3v79eiab.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\css\\login.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1250"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qa2ynCceKyoQHp0FNCfnJ/vyXRtX9L00I3k5xFgPwS4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 15:57:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9c3v79eiab"
+        },
+        {
+          "Name": "label",
+          "Value": "css/login.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qa2ynCceKyoQHp0FNCfnJ/vyXRtX9L00I3k5xFgPwS4="
+        }
+      ]
+    },
+    {
+      "Route": "css/login.css",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\css\\login.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1250"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qa2ynCceKyoQHp0FNCfnJ/vyXRtX9L00I3k5xFgPwS4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 29 Mar 2025 15:57:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qa2ynCceKyoQHp0FNCfnJ/vyXRtX9L00I3k5xFgPwS4="
+        }
+      ]
+    },
+    {
       "Route": "favicon.ifv42okdf2.png",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\favicon.png",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\favicon.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -577,7 +783,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 11:46:12 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -601,7 +807,7 @@
     },
     {
       "Route": "favicon.png",
-      "AssetFile": "D:\\Facultate\\AnIII\\Sem_II\\MPI\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\favicon.png",
+      "AssetFile": "C:\\Users\\silvi\\Git-projects\\Agile-Grade-Manager\\CatalogueApp\\BlazorApp1\\wwwroot\\favicon.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -622,7 +828,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Mar 2025 11:46:12 GMT"
+          "Value": "Mon, 24 Mar 2025 15:40:27 GMT"
         },
         {
           "Name": "Cache-Control",
