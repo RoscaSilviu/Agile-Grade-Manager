@@ -18,7 +18,9 @@
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequest request)
         {
+
             var user = _userRepository.GetUserByEmail(request.Email);
+            //user.email= request.newemail
             if (user == null)
             {
                 return Unauthorized("Invalid email or password");

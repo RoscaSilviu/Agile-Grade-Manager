@@ -1,4 +1,4 @@
-@CatalogueServer_HostAddress = http://localhost:5271
+@CatalogueServer_HostAddress = http://localhost:5001
 
 GET {{CatalogueServer_HostAddress}}/weatherforecast/
 Accept: application/json
