@@ -7,8 +7,8 @@ namespace CatalogueServer.Helpers.Repositories
 {
     public class UserRepository : BaseRepository<User>
     {
-        public UserRepository(SQLiteConnection db) : base(db) { }
-
+        public UserRepository(Database database)
+                : base(database.GetConnection()) { }
         public void AddUser(string email, string password, string role, string name, string surname, string token)
         {
             var user = new User
