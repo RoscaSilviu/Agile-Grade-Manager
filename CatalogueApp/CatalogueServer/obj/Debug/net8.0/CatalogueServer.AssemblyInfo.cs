@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CatalogueServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63ea3d867882446d38ec6fd7f828631cb5252b61")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d56e3e97ae5f9edc6c78745d6498e93d6cafa46a")]
 [assembly: System.Reflection.AssemblyProductAttribute("CatalogueServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CatalogueServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

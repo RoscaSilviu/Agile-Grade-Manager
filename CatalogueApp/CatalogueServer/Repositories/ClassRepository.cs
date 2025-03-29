@@ -5,7 +5,7 @@ namespace CatalogueServer.Repositories
 {
     public class ClassRepository : BaseRepository<Class>
     {
-        public ClassRepository(SQLiteConnection db) : base(db) { }
+        public ClassRepository(Database database) : base(database.Connection) { }
 
         // Get all classes for a specific teacher
         public List<Class> GetClassesByTeacherId(int teacherId)

@@ -7,7 +7,7 @@ namespace CatalogueServer.Repositories
 
     public class UserRepository : BaseRepository<User>
     {
-        public UserRepository(SQLiteConnection db) : base(db) { }
+        public UserRepository(Database database) : base(database.Connection) { }
 
         // Get user by email
         public User GetUserByEmail(string email)

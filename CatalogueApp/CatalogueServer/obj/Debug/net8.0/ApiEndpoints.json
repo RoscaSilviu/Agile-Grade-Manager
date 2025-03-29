@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "CatalogueServer.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "CatalogueServer.Controllers.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DatabaseController",
     "Method": "GetAssignments",
     "RelativePath": "api/Database/assignments",

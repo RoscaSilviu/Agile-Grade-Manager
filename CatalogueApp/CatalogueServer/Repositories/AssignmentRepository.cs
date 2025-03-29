@@ -7,7 +7,8 @@ namespace CatalogueServer.Repositories
 {
     public class AssignmentRepository : BaseRepository<Assignment>
     {
-        public AssignmentRepository(SQLiteConnection db) : base(db) { }
+        public AssignmentRepository(Database database) : base(database.Connection) { }
+
 
         // Get all assignments for a class
         public List<Assignment> GetAssignmentsByClassId(int classId)

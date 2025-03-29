@@ -6,7 +6,7 @@ namespace CatalogueServer.Repositories
 {
     public class GradeRepository : BaseRepository<Grade>
     {
-        public GradeRepository(SQLiteConnection db) : base(db) { }
+        public GradeRepository(Database database) : base(database.Connection) { }
 
         // Get all grades for a teacher
         public List<Grade> GetGradesByTeacherId(int teacherId)
