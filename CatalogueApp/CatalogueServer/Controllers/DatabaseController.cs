@@ -14,6 +14,10 @@ public class DatabaseController : ControllerBase
     public DatabaseController(Database database)
     {
         _database = database;
+        _userRepository = new UserRepository(database);
+        _assignmentRepository = new AssignmentRepository(database);
+        _classRepository = new ClassRepository(database);
+        _gradeRepository = new GradeRepository(database);
 
     }
 

@@ -25,6 +25,9 @@ namespace CatalogueServer.Repositories
                     select u).Distinct().ToList();
         }
 
-
+        public User GetUserByToken(string token)
+        {
+            return _db.Table<User>().FirstOrDefault(u => u.Token == token);
+        }
     }
 }
