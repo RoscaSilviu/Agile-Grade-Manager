@@ -29,8 +29,27 @@ namespace CatalogueApp.Components.Services
             var result = await _httpClient.GetFromJsonAsync<UserResult>("api/Profile");
             return result;
         }
-    }
 
+        public async Task<bool> ChangePasswordAsync(string currentPassword, string newPassword)
+        {
+            // Ensure the auth token is set on the request headers
+            var token = await _localStorage.GetItemAsync<string>("authToken");
+            if (string.IsNullOrWhiteSpace(token))
+                return false;
+
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            var requestData = new
+            {
+                CurrentPassword = currentPassword,
+                NewPassword = newPassword
+            };
+
+            var response = await _httpClient.PostAsJsonAsync("api/Profile/ChangePassword", requestData);
+            return response.IsSuccessStatusCode;
+        }
+    }
     public class UserResult
     {
         public string Name { get; set; } = string.Empty;
