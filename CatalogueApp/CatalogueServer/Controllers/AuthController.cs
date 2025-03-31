@@ -24,8 +24,7 @@
                 return Unauthorized("Invalid email or password");
             }
 
-            var hashedPassword = PasswordHelper.HashPassword(request.Password);
-            if (user.Password != hashedPassword)
+            if (!PasswordHelper.ValidatePassword(request.Password, user.Password))
             {
                 return Unauthorized("Invalid email or password");
             }
