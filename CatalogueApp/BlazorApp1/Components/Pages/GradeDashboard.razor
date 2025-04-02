@@ -1,0 +1,87 @@
+﻿@page "/grades"
+@inject HttpClient Http
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+<link href="css/grades.css" rel="stylesheet" />
+
+<div class="grades-container">
+    <div class="grades-card">
+        <h3 class="text-center mb-4">Grade Dashboard</h3>
+
+        @if (grades == null)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var grade in grades)
+                    {
+                        <tr>
+                            <td>@grade.Subject</td>
+                            <td>@grade.Score</td>
+                            <td>@grade.Date.ToShortDateString()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger mt-3">@errorMessage</div>
+        }
+    </div>
+</div>
+
+@code {
+    private List<Grade> grades;
+    private string? errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var token = await LocalStorage.GetItemAsync<string>("authToken");
+            if (string.IsNullOrEmpty(token))
+            {
+                Navigation.NavigateTo("/login");
+                return;
+            }
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, "api/Database/grades");
+            requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            var response = await Http.SendAsync(requestMessage);
+            if (response.IsSuccessStatusCode)
+            {
+                grades = await response.Content.ReadFromJsonAsync<List<Grade>>();
+            }
+            else
+            {
+                errorMessage = "Failed to load grades.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
+    }
+
+    public class Grade
+    {
+        public string Subject { get; set; }
+        public int Score { get; set; }
+        public DateTime Date { get; set; }
+    }
+}
