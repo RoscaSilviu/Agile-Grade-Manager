@@ -29,18 +29,23 @@ namespace CatalogueApp.Components.Services
             return result;
         }
 
-        //public async Task<bool> AddClassAsync(string className)
-        //{
-        //    Ensure the auth token is set on the request headers
-        //   var token = await _localStorage.GetItemAsync<string>("authToken");
-        //    if (string.IsNullOrWhiteSpace(token))
-        //        return false;
-        //    _httpClient.DefaultRequestHeaders.Authorization =
-        //        new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-        //    var response = await _httpClient.PostAsJsonAsync("api/Class", classModel);
-        //    return response.IsSuccessStatusCode;
+        public async Task<bool> AddClassAsync(string className)
+        {
+            var token = await _localStorage.GetItemAsync<string>("authToken");
+            if (string.IsNullOrWhiteSpace(token))
+                return false;
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-        //}
+            var requestData = new
+            {
+                Name = className
+            };
+
+            var response = await _httpClient.PostAsJsonAsync("api/Class/AddClass", className);
+            return response.IsSuccessStatusCode;
+
+        }
 
 
     }

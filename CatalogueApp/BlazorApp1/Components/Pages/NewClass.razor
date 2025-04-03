@@ -1,0 +1,65 @@
+﻿@page "/new-class"
+@inject CatalogueApp.Components.Services.ClassService ClassService
+@inject NavigationManager Navigation
+@inject IJSRuntime jsRuntime
+@rendermode InteractiveServer
+@using CatalogueApp.ViewModels
+
+<link href="css/profile.css" rel="stylesheet" />
+
+<div class="profile-container">
+    <div class="profile-card">
+        <h3>Create New Class</h3>
+
+        @if (viewModel.IsLoading)
+        {
+            <p>Initializing class creation...</p>
+        }
+        else
+        {
+            <EditForm Model="viewModel" OnValidSubmit="SubmitNewClass">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group">
+                    <label>Class Name</label>
+                    <InputText @bind-Value="viewModel.ClassName" class="form-control" />
+                    <ValidationMessage For="@(() => viewModel.ClassName)" class="validation-message" />
+                </div>
+
+                <div class="button-group mt-4">
+                    <button type="submit" class="btn btn-primary">Create Class</button>
+                    <button type="button" class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+                </div>
+
+                @if (!string.IsNullOrEmpty(viewModel.ErrorMessage))
+                {
+                    <div class="alert alert-danger mt-3">@viewModel.ErrorMessage</div>
+                }
+                @if (!string.IsNullOrEmpty(viewModel.SuccessMessage))
+                {
+                    <div class="alert alert-success mt-3">@viewModel.SuccessMessage</div>
+                }
+            </EditForm>
+        }
+    </div>
+</div>
+
+@code {
+    private CreateClassViewModel viewModel = new CreateClassViewModel();
+
+    private async Task SubmitNewClass()
+    {
+        await viewModel.CreateClassAsync(ClassService);
+        if (viewModel.Success)
+        {
+            await Task.Delay(1500); // Show success message briefly
+            Navigation.NavigateTo("/my-classes");
+        }
+    }
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/my-classes");
+    }
+}

@@ -40,17 +40,24 @@ namespace CatalogueServer.Controllers
                 return Unauthorized("Invalid token");
             }
 
-            var classes = _classRepository.GetClassesByTeacherId(user.Id - 6);
+            var classes = _classRepository.GetClassesByTeacherId(user.Id);
             return Ok(classes);
         }
 
         [HttpPost("AddClass")]
         public IActionResult PostClass([FromBody] string name)
         {
+            string authHeader = Request.Headers["Authorization"];
+            if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+            {
+                return Unauthorized("Missing or invalid token");
+            }
+
+            string token = authHeader.Substring("Bearer ".Length).Trim();
             Class newClass = new Class
             {
                 Name = name,
-                TeacherId = _userRepository.GetUserByToken(_token).Id
+                TeacherId = _userRepository.GetUserByToken(token).Id
             };
             _classRepository.Insert(newClass);
             return Ok();

@@ -11,7 +11,7 @@
 <div class="login-container">
     <div class="login-card">
         <h3 class="text-center mb-4" style="color: white;">Here are your active classes</h3>
-
+        <button class="btn btn-primary mb-4" @onclick="() => Navigation.NavigateTo(navigationUrl)">Create New Class</button>
         <div class="space-y-2">
             @foreach (var classItem in classes)
             {
@@ -30,6 +30,9 @@
 </div>
 
 @code {
+
+    private string navigationUrl = "/new-class";
+
     private CatalogueApp.Components.Models.ClassModel ClassModel = new();
     private List<ClassModel> classes = new();
 
