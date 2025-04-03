@@ -2,33 +2,34 @@
 @inject CatalogueApp.Components.Services.AuthService AuthService
 @inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 @inject NavigationManager Navigation
+@rendermode InteractiveServer
 
 <link href="css/login.css" rel="stylesheet" />
 
 <div class="login-container">
     <div class="login-card">
         <h3 class="text-center mb-4" style="color: white;">Welcome Back</h3>
-        
-        <EditForm Model="@loginModel" OnValidSubmit="HandleLogin" FormName="LoginForm">
+
+        <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
             <DataAnnotationsValidator />
             <ValidationSummary class="text-danger" />
 
             <div class="form-group">
                 <label>Email</label>
-                <InputText @bind="loginModel.Email" ValueExpression="() => loginModel.Email" class="form-control" />
+                <InputText @bind-Value="loginModel.Email" class="form-control" />
                 <ValidationMessage For="@(() => loginModel.Email)" class="validation-message" />
             </div>
 
             <div class="form-group">
                 <label>Password</label>
-                <InputText type="password" @bind="loginModel.Password" ValueExpression="() => loginModel.Password" class="form-control" />
+                <InputText type="password" @bind-Value="loginModel.Password" class="form-control" />
                 <ValidationMessage For="@(() => loginModel.Password)" class="validation-message" />
             </div>
 
             <button type="submit" class="btn btn-primary">Login</button>
         </EditForm>
 
-        @if (errorMessage != null)
+        @if (!string.IsNullOrEmpty(errorMessage))
         {
             <div class="alert alert-danger mt-3">@errorMessage</div>
         }
@@ -44,9 +45,10 @@
         errorMessage = null;
         var token = await AuthService.LoginAsync(loginModel.Email, loginModel.Password);
 
-        if (token != null)
+        if (!string.IsNullOrEmpty(token))
         {
-            Navigation.NavigateTo("/");
+            await LocalStorage.SetItemAsync("authToken", token);
+            Navigation.NavigateTo("/profile");
         }
         else
         {

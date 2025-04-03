@@ -1,0 +1,60 @@
+﻿@page "/my-classes"
+@inject CatalogueApp.Components.Services.ClassService ClassService
+
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inject NavigationManager Navigation
+@using CatalogueApp.Components.Models
+@rendermode InteractiveServer
+
+<link href="css/login.css" rel="stylesheet" />
+
+<div class="login-container">
+    <div class="login-card">
+        <h3 class="text-center mb-4" style="color: white;">Here are your active classes</h3>
+
+        <div class="space-y-2">
+            @foreach (var classItem in classes)
+            {
+                <div class="flex items-center justify-between bg-blue-500 text-white px-4 py-2 rounded-lg shadow">
+                    <button class="w-full text-left" @onclick="() => ViewClass(classItem.Name)">
+                        @classItem.Name
+                    </button>
+                    <button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow" @onclick="() => EditClass(classItem.Name)">
+                        ✏️
+                    </button>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+@code {
+    private CatalogueApp.Components.Models.ClassModel ClassModel = new();
+    private List<ClassModel> classes = new();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            classes = await ClassService.GetClassesAsync(0);
+            StateHasChanged();
+        }
+    }
+
+    
+    
+
+
+    private void ViewClass(string name)
+    {
+        Console.WriteLine($"Viewing class {name}");
+        // Navigate or load class details
+    }
+
+    private void EditClass(string name)
+    {
+        Console.WriteLine($"Editing class {name}");
+        // Open edit modal or navigate
+    }
+}
