@@ -4,7 +4,7 @@ using SQLite;
 
 namespace CatalogueServer.Repositories
 {
-    public class GradeRepository : BaseRepository<Grade>
+    public class GradeRepository : BaseRepository<Grade>, IGradeRepository
     {
         public GradeRepository(Database database) : base(database.Connection) { }
 

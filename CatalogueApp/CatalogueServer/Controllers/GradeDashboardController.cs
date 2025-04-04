@@ -7,10 +7,10 @@ namespace CatalogueServer.Controllers
     [ApiController]
     public class GradeDashboardController : ControllerBase
     {
-        private readonly UserRepository _userRepository;
-        private readonly GradeRepository _gradeRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IGradeRepository _gradeRepository;
 
-        public GradeDashboardController(UserRepository userRepository, GradeRepository gradeRepository)
+        public GradeDashboardController(IUserRepository userRepository, IGradeRepository gradeRepository)
         {
             _userRepository = userRepository;
             _gradeRepository = gradeRepository;
