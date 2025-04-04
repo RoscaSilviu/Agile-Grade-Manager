@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Xunit;
 using CatalogueServer.Controllers;
-using CatalogueServer.Repositories;
 
 namespace CatalogueServer.Tests.Controllers
 {

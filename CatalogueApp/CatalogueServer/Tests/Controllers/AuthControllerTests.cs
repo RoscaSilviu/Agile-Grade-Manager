@@ -1,10 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Xunit;
 using Moq;
 using CatalogueServer.Controllers;
-using CatalogueServer.Repositories;
 
 namespace CatalogueServer.Tests.Controllers
 {
