@@ -173,4 +173,11 @@ public class DatabaseController : ControllerBase
         var grades = _gradeRepository.GetGradesByStudentId(studentId); 
         return Ok(grades);
     }
+
+    [HttpGet("student/{studentId}/averagegrades")]
+    public IActionResult GetStudentAverageGrades(int studentId)
+    {
+        var averageGrades = _gradeRepository.GetStudentAverageGrades(studentId);
+        return Ok(averageGrades);
+    }
 }

@@ -1,3 +1,4 @@
+using CatalogueServer.Controllers;
 using CatalogueServer.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
