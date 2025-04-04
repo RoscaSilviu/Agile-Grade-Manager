@@ -1,12 +1,43 @@
 ﻿@page "/my-classes"
 @inject CatalogueApp.Components.Services.ClassService ClassService
-
-@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 @inject NavigationManager Navigation
 @using CatalogueApp.Components.Models
 @rendermode InteractiveServer
 
 <link href="css/login.css" rel="stylesheet" />
+
+<style>
+    .management-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    }
+
+    .management-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    }
+
+    .student-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    }
+</style>
 
 <div class="login-container">
     <div class="login-card">
@@ -16,52 +47,122 @@
             @foreach (var classItem in classes)
             {
                 <div class="flex items-center justify-between bg-blue-500 text-white px-4 py-2 rounded-lg shadow">
-                    <label class="w-full text-left" >
+                    <label class="w-full text-left">
                         @classItem.Name
                     </label>
                     <button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow" @onclick="() => EditClass(classItem.Name)">
                         ✏️
                     </button>
 
-					<button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow" @onclick="() => DeleteClassAsync(classItem.Name)">
-						🗑️
+                    <button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow" @onclick="() => DeleteClassAsync(classItem.Name)">
+                        🗑️
                     </button>
 
                     <button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow" @onclick="() => ViewClassDetailsAsync(classItem.Name)">
                         👁️
-					</button>
-
-					<button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow" @onclick="() => AddStudentsToClassAsync()">
-						➕
                     </button>
 
-
+                    <button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow"
+                    @onclick="() => ShowManagementModal(classItem.Name)">
+                        👥 Manage
+                    </button>
                 </div>
             }
         </div>
-
     </div>
 </div>
 
+@if (showManagementModal)
+{
+    <div class="management-modal">
+        <div class="management-content">
+            <div class="flex justify-between mb-4">
+                <h3>Manage Students in @selectedClassName</h3>
+                <button @onclick="CloseManagementModal" class="text-gray-500">✖</button>
+            </div>
+
+            <!-- Add Student Section -->
+            <div class="mb-4 flex gap-2">
+                <select class="form-control flex-1" @bind="selectedStudentToAdd">
+                    <option value="">Select Student to Add</option>
+                    @foreach (var student in availableStudents)
+                    {
+                        <option value="@($"{student.Name}|{student.Surname}")">
+                            @student.Name @student.Surname
+                        </option>
+                    }
+                </select>
+                <button class="btn btn-success" @onclick="AddStudentsToClassAsync">➕ Add</button>
+            </div>
+
+            <!-- Student List -->
+            <div class="space-y-2">
+                @foreach (var student in classStudents)
+                {
+                    <div class="student-item">
+                        <span>@student.Name @student.Surname</span>
+                        <button class="btn btn-danger btn-sm"
+                        @onclick="() => RemoveStudentFromClass(student.Name,student.Surname)">
+                            ➖ Remove
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
 @code {
 
     private string navigationUrl = "/new-class";
-
+    private bool showManagementModal;
+    private string selectedClassName;
+    private List<StudentModel> classStudents = new();
+    private List<StudentModel> availableStudents = new();
+    private string selectedStudentToAdd;
     private CatalogueApp.Components.Models.ClassModel ClassModel = new();
     private List<ClassModel> classes = new();
-	private List<StudentModel> students = new();
+    private List<StudentModel> students = new();
+
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             classes = await ClassService.GetClassesAsync(0);
-			students = await ClassService.GetStudentsAsync();
+            students = await ClassService.GetStudentsAsync();
             StateHasChanged();
         }
     }
-    
-    
+
+    private async Task ShowManagementModal(string className)
+    {
+        if (string.IsNullOrEmpty(className)) return;
+
+        selectedClassName = className;
+        showManagementModal = true;
+
+        classStudents = await ClassService.GetStudentsInClassAsync(className)
+            ?? new List<StudentModel>(); // Null coalescing
+
+        var allStudents = await ClassService.GetAllStudentsAsync()
+            ?? new List<StudentModel>();
+
+        availableStudents = allStudents
+            .Where(s => !classStudents.Any(cs =>
+                cs.Name == s.Name && cs.Surname == s.Surname))
+            .ToList();
+
+        StateHasChanged();
+    }
+
+    private void CloseManagementModal()
+    {
+        showManagementModal = false;
+        selectedClassName = null;
+        classStudents.Clear();
+        availableStudents.Clear();
+        selectedStudentToAdd = null;
+    }
 
 
     private void ViewClassDetailsAsync(string name)
@@ -76,34 +177,16 @@
         // Open edit modal or navigate
     }
 
-	private async Task DeleteClassAsync( string name)
-	{
-		Console.WriteLine($"Deleting class {name}");
-		// Call delete method and refresh the list
-		
-        await ClassService.DeleteClassAsync(name);
-		classes = await ClassService.GetClassesAsync(0);
-		StateHasChanged();
-	}
-
-    private bool showManagementModal;
-    private string selectedClassName;
-    private List<StudentModel> classStudents = new();
-    private List<StudentModel> availableStudents = new();
-    private string selectedStudentToAdd;
-
-   
-    private async Task ShowManagementModal(string className)
+    private async Task DeleteClassAsync( string name)
     {
-        selectedClassName = className;
-        showManagementModal = true;
-
-        classStudents = await ClassService.GetStudentsInClassAsync(className);
-        availableStudents = (await ClassService.GetAllStudentsAsync())
-            .Where(s => !classStudents.Any(cs =>
-                cs.Name == s.Name && cs.Surname == s.Surname))
-            .ToList();
+        Console.WriteLine($"Deleting class {name}");
+        await ClassService.DeleteClassAsync(name);
+        classes = await ClassService.GetClassesAsync(0);
+        StateHasChanged();
     }
+
+
+
 
     private async Task AddStudentsToClassAsync()
     {
@@ -115,9 +198,9 @@
         }
     }
 
-    private async Task RemoveStudentFromClass(string fullName)
+    private async Task RemoveStudentFromClass(string firstName, string lastName)
     {
-        var (firstName, lastName) = SplitFullName(fullName);
+
         await ClassService.RemoveStudentFromClassAsync(selectedClassName, firstName, lastName);
         await RefreshStudentLists();
     }
@@ -130,12 +213,10 @@
 
     private async Task RefreshStudentLists()
     {
-        classStudents = await ClassService.GetStudentsInClassAsync(selectedClassName);
-        var allStudents = await ClassService.GetAllStudentsAsync();
-        availableStudents = allStudents
-            .Where(s => !classStudents.Any(cs =>
-                cs.Name == s.Name && cs.Surname == s.Surname))
-            .ToList();
+
+        availableStudents = await ClassService.GetAllStudentsNotInClassAsync(selectedClassName);
+        classStudents = await ClassService.GetStudentsInClassAsync(selectedClassName)
+			?? new List<StudentModel>();
         StateHasChanged();
     }
 }

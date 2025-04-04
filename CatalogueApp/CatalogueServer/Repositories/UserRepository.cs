@@ -33,8 +33,13 @@ namespace CatalogueServer.Repositories
         public List<User> GetAllStudents()
         {
             return (from u in _db.Table<User>()
-                    where u.Role == "Student"
+                    where u.Role == "student"
                     select u).ToList();
+        }
+
+        public User GetStudentByName(string name, string surname)
+        {
+            return _db.Table<User>().FirstOrDefault(u => u.Name == name && u.Surname == surname && u.Role == "student");
         }
     }
 }
