@@ -17,6 +17,7 @@ builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<Login>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<ProfileService>();
+builder.Services.AddScoped<GradeDashboardService>();
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7054/") });
 var app = builder.Build();
 

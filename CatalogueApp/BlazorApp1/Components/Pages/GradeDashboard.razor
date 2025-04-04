@@ -1,7 +1,8 @@
 ﻿@page "/grades"
-@inject HttpClient Http
-@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inject GradeDashboardService GradeService
 @inject NavigationManager Navigation
+@using CatalogueApp.Components.Services
+@using CatalogueApp.Components.ViewModels
 @rendermode InteractiveServer
 
 <link href="css/grades.css" rel="stylesheet" />
@@ -10,78 +11,45 @@
     <div class="grades-card">
         <h3 class="text-center mb-4">Grade Dashboard</h3>
 
-        @if (grades == null)
+        @if (viewModel.IsLoading)
         {
             <p>Loading...</p>
         }
-        else
+        else if (viewModel.Grades != null)
         {
             <table class="table">
                 <thead>
                     <tr>
                         <th>Subject</th>
-                        <th>Grade</th>
-                        <th>Date</th>
+                        <th>Average Grade</th>
+                        <th>Last Graded</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var grade in grades)
+                    @foreach (var grade in viewModel.Grades)
                     {
                         <tr>
                             <td>@grade.Subject</td>
-                            <td>@grade.Score</td>
-                            <td>@grade.Date.ToShortDateString()</td>
+                            <td>@grade.AverageGrade.ToString("F1")</td>
+                            <td>@grade.LastGraded.ToShortDateString()</td>
                         </tr>
                     }
                 </tbody>
             </table>
         }
 
-        @if (!string.IsNullOrEmpty(errorMessage))
+        @if (!string.IsNullOrEmpty(viewModel.ErrorMessage))
         {
-            <div class="alert alert-danger mt-3">@errorMessage</div>
+            <div class="alert alert-danger mt-3">@viewModel.ErrorMessage</div>
         }
     </div>
 </div>
 
 @code {
-    private List<Grade> grades;
-    private string? errorMessage;
+    private GradeDashboardViewModel viewModel = new GradeDashboardViewModel();
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            var token = await LocalStorage.GetItemAsync<string>("authToken");
-            if (string.IsNullOrEmpty(token))
-            {
-                Navigation.NavigateTo("/login");
-                return;
-            }
-
-            var requestMessage = new HttpRequestMessage(HttpMethod.Get, "api/Database/grades");
-            requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-
-            var response = await Http.SendAsync(requestMessage);
-            if (response.IsSuccessStatusCode)
-            {
-                grades = await response.Content.ReadFromJsonAsync<List<Grade>>();
-            }
-            else
-            {
-                errorMessage = "Failed to load grades.";
-            }
-        }
-        catch (Exception ex)
-        {
-            errorMessage = $"An error occurred: {ex.Message}";
-        }
-    }
-
-    public class Grade
-    {
-        public string Subject { get; set; }
-        public int Score { get; set; }
-        public DateTime Date { get; set; }
+        await viewModel.LoadGradesAsync(GradeService, Navigation);
     }
 }

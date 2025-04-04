@@ -46,5 +46,26 @@ namespace CatalogueServer.Repositories
         {
             _db.InsertAll(grades);
         }
+
+        public List<(string Subject, double AverageGrade, DateTime LastGraded)> GetStudentAverageGrades(int studentId)
+        {
+            var grades = GetGradesByStudentId(studentId);
+
+            // Join with assignments to get subject information
+            var query = from g in grades
+                        join a in _db.Table<Assignment>()
+                        on g.AssignmentId equals a.Id
+                        join c in _db.Table<Class>()
+                        on a.ClassId equals c.Id
+                        group new { g.Value, g.Date } by c.Name into subjectGroup
+                        select new
+                        {
+                            Subject = subjectGroup.Key,
+                            AverageGrade = subjectGroup.Average(x => x.Value),
+                            LastGraded = subjectGroup.Max(x => x.Date)
+                        };
+
+            return query.Select(x => (x.Subject, x.AverageGrade, x.LastGraded)).ToList();
+        }
     }
 }
