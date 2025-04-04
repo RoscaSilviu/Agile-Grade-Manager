@@ -28,7 +28,7 @@
                 <tbody>
                     @foreach (var grade in viewModel.Grades)
                     {
-                        <tr>
+                        <tr style="cursor: pointer" @onclick="() => NavigateToHistory(grade.Subject)">
                             <td>@grade.Subject</td>
                             <td>@grade.AverageGrade.ToString("F1")</td>
                             <td>@grade.LastGraded.ToShortDateString()</td>
@@ -51,5 +51,10 @@
     protected override async Task OnInitializedAsync()
     {
         await viewModel.LoadGradesAsync(GradeService, Navigation);
+    }
+
+    private void NavigateToHistory(string subject)
+    {
+        Navigation.NavigateTo($"/grades/{Uri.EscapeDataString(subject)}");
     }
 }

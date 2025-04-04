@@ -67,5 +67,35 @@ namespace CatalogueServer.Repositories
 
             return query.Select(x => (x.Subject, x.AverageGrade, x.LastGraded)).ToList();
         }
+
+        public List<GradeDetail> GetStudentGradesBySubject(int studentId, string subject)
+        {
+            var query = from g in _db.Table<Grade>()
+                        join a in _db.Table<Assignment>()
+                        on g.AssignmentId equals a.Id
+                        join c in _db.Table<Class>()
+                        on a.ClassId equals c.Id
+                        where g.StudentId == studentId && c.Name == subject
+                        select new GradeDetail
+                        {
+                            Subject = c.Name,
+                            Value = g.Value,
+                            Date = g.Date,
+                            AssignmentName = a.Name,
+                            Comments = a.Description
+                        };
+
+            return query.ToList();
+        }
+
+        public class GradeDetail
+        {
+            public string Subject { get; set; } = string.Empty;
+            public int Value { get; set; }
+            public DateTime Date { get; set; }
+            public string AssignmentName { get; set; } = string.Empty;
+            public string TeacherName { get; set; } = string.Empty;
+            public string? Comments { get; set; }
+        }
     }
 }
