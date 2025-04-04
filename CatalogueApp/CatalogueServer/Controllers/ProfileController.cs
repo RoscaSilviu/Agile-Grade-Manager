@@ -7,9 +7,9 @@ namespace CatalogueServer.Controllers
     [ApiController]
     public class ProfileController : ControllerBase
     {
-        private readonly UserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
 
-        public ProfileController(UserRepository userRepository)
+        public ProfileController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }

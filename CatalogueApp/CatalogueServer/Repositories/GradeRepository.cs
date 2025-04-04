@@ -4,7 +4,7 @@ using SQLite;
 
 namespace CatalogueServer.Repositories
 {
-    public class GradeRepository : BaseRepository<Grade>
+    public class GradeRepository : BaseRepository<Grade>, IGradeRepository
     {
         public GradeRepository(Database database) : base(database.Connection) { }
 
@@ -45,6 +45,57 @@ namespace CatalogueServer.Repositories
         public void BulkGradeAssignments(List<Grade> grades)
         {
             _db.InsertAll(grades);
+        }
+
+        public List<(string Subject, double AverageGrade, DateTime LastGraded)> GetStudentAverageGrades(int studentId)
+        {
+            var grades = GetGradesByStudentId(studentId);
+
+            // Join with assignments to get subject information
+            var query = from g in grades
+                        join a in _db.Table<Assignment>()
+                        on g.AssignmentId equals a.Id
+                        join c in _db.Table<Class>()
+                        on a.ClassId equals c.Id
+                        group new { g.Value, g.Date } by c.Name into subjectGroup
+                        select new
+                        {
+                            Subject = subjectGroup.Key,
+                            AverageGrade = subjectGroup.Average(x => x.Value),
+                            LastGraded = subjectGroup.Max(x => x.Date)
+                        };
+
+            return query.Select(x => (x.Subject, x.AverageGrade, x.LastGraded)).ToList();
+        }
+
+        public List<GradeDetail> GetStudentGradesBySubject(int studentId, string subject)
+        {
+            var query = from g in _db.Table<Grade>()
+                        join a in _db.Table<Assignment>()
+                        on g.AssignmentId equals a.Id
+                        join c in _db.Table<Class>()
+                        on a.ClassId equals c.Id
+                        where g.StudentId == studentId && c.Name == subject
+                        select new GradeDetail
+                        {
+                            Subject = c.Name,
+                            Value = g.Value,
+                            Date = g.Date,
+                            AssignmentName = a.Name,
+                            Comments = a.Description
+                        };
+
+            return query.ToList();
+        }
+
+        public class GradeDetail
+        {
+            public string Subject { get; set; } = string.Empty;
+            public int Value { get; set; }
+            public DateTime Date { get; set; }
+            public string AssignmentName { get; set; } = string.Empty;
+            public string TeacherName { get; set; } = string.Empty;
+            public string? Comments { get; set; }
         }
     }
 }

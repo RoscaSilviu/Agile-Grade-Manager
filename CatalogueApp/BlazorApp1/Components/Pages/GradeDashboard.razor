@@ -1,0 +1,60 @@
+﻿@page "/grades"
+@inject GradeDashboardService GradeService
+@inject NavigationManager Navigation
+@using CatalogueApp.Components.Services
+@using CatalogueApp.Components.ViewModels
+@rendermode InteractiveServer
+
+<link href="css/grades.css" rel="stylesheet" />
+
+<div class="grades-container">
+    <div class="grades-card">
+        <h3 class="text-center mb-4">Grade Dashboard</h3>
+
+        @if (viewModel.IsLoading)
+        {
+            <p>Loading...</p>
+        }
+        else if (viewModel.Grades != null)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Average Grade</th>
+                        <th>Last Graded</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var grade in viewModel.Grades)
+                    {
+                        <tr style="cursor: pointer" @onclick="() => NavigateToHistory(grade.Subject)">
+                            <td>@grade.Subject</td>
+                            <td>@grade.AverageGrade.ToString("F1")</td>
+                            <td>@grade.LastGraded.ToShortDateString()</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        @if (!string.IsNullOrEmpty(viewModel.ErrorMessage))
+        {
+            <div class="alert alert-danger mt-3">@viewModel.ErrorMessage</div>
+        }
+    </div>
+</div>
+
+@code {
+    private GradeDashboardViewModel viewModel = new GradeDashboardViewModel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await viewModel.LoadGradesAsync(GradeService, Navigation);
+    }
+
+    private void NavigateToHistory(string subject)
+    {
+        Navigation.NavigateTo($"/grades/{Uri.EscapeDataString(subject)}");
+    }
+}

@@ -16,12 +16,26 @@
             @foreach (var classItem in classes)
             {
                 <div class="flex items-center justify-between bg-blue-500 text-white px-4 py-2 rounded-lg shadow">
-                    <button class="w-full text-left" @onclick="() => ViewClass(classItem.Name)">
+                    <label class="w-full text-left" >
                         @classItem.Name
-                    </button>
+                    </label>
                     <button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow" @onclick="() => EditClass(classItem.Name)">
                         ✏️
                     </button>
+
+					<button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow" @onclick="() => DeleteClassAsync(classItem.Name)">
+						🗑️
+                    </button>
+
+                    <button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow" @onclick="() => ViewClassDetailsAsync(classItem.Name)">
+                        👁️
+					</button>
+
+					<button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow" @onclick="() => AddStudentsToClassAsync()">
+						➕
+                    </button>
+
+
                 </div>
             }
         </div>
@@ -35,21 +49,22 @@
 
     private CatalogueApp.Components.Models.ClassModel ClassModel = new();
     private List<ClassModel> classes = new();
+	private List<StudentModel> students = new();
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             classes = await ClassService.GetClassesAsync(0);
+			students = await ClassService.GetStudentsAsync();
             StateHasChanged();
         }
     }
-
     
     
 
 
-    private void ViewClass(string name)
+    private void ViewClassDetailsAsync(string name)
     {
         Console.WriteLine($"Viewing class {name}");
         // Navigate or load class details
@@ -59,5 +74,68 @@
     {
         Console.WriteLine($"Editing class {name}");
         // Open edit modal or navigate
+    }
+
+	private async Task DeleteClassAsync( string name)
+	{
+		Console.WriteLine($"Deleting class {name}");
+		// Call delete method and refresh the list
+		
+        await ClassService.DeleteClassAsync(name);
+		classes = await ClassService.GetClassesAsync(0);
+		StateHasChanged();
+	}
+
+    private bool showManagementModal;
+    private string selectedClassName;
+    private List<StudentModel> classStudents = new();
+    private List<StudentModel> availableStudents = new();
+    private string selectedStudentToAdd;
+
+   
+    private async Task ShowManagementModal(string className)
+    {
+        selectedClassName = className;
+        showManagementModal = true;
+
+        classStudents = await ClassService.GetStudentsInClassAsync(className);
+        availableStudents = (await ClassService.GetAllStudentsAsync())
+            .Where(s => !classStudents.Any(cs =>
+                cs.Name == s.Name && cs.Surname == s.Surname))
+            .ToList();
+    }
+
+    private async Task AddStudentsToClassAsync()
+    {
+        if (!string.IsNullOrEmpty(selectedStudentToAdd))
+        {
+            var (firstName, lastName) = SplitFullName(selectedStudentToAdd);
+            await ClassService.AddStudentToClassAsync(selectedClassName, firstName, lastName);
+            await RefreshStudentLists();
+        }
+    }
+
+    private async Task RemoveStudentFromClass(string fullName)
+    {
+        var (firstName, lastName) = SplitFullName(fullName);
+        await ClassService.RemoveStudentFromClassAsync(selectedClassName, firstName, lastName);
+        await RefreshStudentLists();
+    }
+
+    private (string FirstName, string LastName) SplitFullName(string fullName)
+    {
+        var parts = fullName.Split(new[] { "|" }, 2, StringSplitOptions.RemoveEmptyEntries);
+        return parts.Length == 2 ? (parts[0], parts[1]) : (fullName, string.Empty);
+    }
+
+    private async Task RefreshStudentLists()
+    {
+        classStudents = await ClassService.GetStudentsInClassAsync(selectedClassName);
+        var allStudents = await ClassService.GetAllStudentsAsync();
+        availableStudents = allStudents
+            .Where(s => !classStudents.Any(cs =>
+                cs.Name == s.Name && cs.Surname == s.Surname))
+            .ToList();
+        StateHasChanged();
     }
 }

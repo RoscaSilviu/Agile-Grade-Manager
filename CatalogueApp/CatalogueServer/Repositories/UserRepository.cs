@@ -5,7 +5,7 @@ using SQLite;
 namespace CatalogueServer.Repositories
 {
 
-    public class UserRepository : BaseRepository<User>
+    public class UserRepository : BaseRepository<User>, IUserRepository
     {
         public UserRepository(Database database) : base(database.Connection) { }
 
@@ -28,6 +28,13 @@ namespace CatalogueServer.Repositories
         public User GetUserByToken(string token)
         {
             return _db.Table<User>().FirstOrDefault(u => u.Token == token);
+        }
+
+        public List<User> GetAllStudents()
+        {
+            return (from u in _db.Table<User>()
+                    where u.Role == "Student"
+                    select u).ToList();
         }
     }
 }

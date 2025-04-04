@@ -1,3 +1,4 @@
+using CatalogueServer.Controllers;
 using CatalogueServer.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,10 @@ builder.Services.AddScoped<ClassRepository>();
 
 
 builder.Services.AddSingleton<Database>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IGradeRepository, GradeRepository>();
+
 
 var app = builder.Build();
 

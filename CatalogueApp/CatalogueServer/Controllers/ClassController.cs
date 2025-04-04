@@ -34,7 +34,7 @@ namespace CatalogueServer.Controllers
             _token = token;
             // Retrieve the user based on the token.
             var user = _userRepository.GetUserByToken(token);
-            
+
             if (user == null)
             {
                 return Unauthorized("Invalid token");
@@ -60,6 +60,33 @@ namespace CatalogueServer.Controllers
                 TeacherId = _userRepository.GetUserByToken(token).Id
             };
             _classRepository.Insert(newClass);
+            return Ok();
+        }
+
+        [HttpGet("GetStudents")]
+        
+        public IActionResult GetStudents()
+        {
+            var students = _userRepository.GetAllStudents();
+            return Ok(students);
+        }
+
+
+        [HttpDelete("DeleteClass")]
+        public IActionResult DeleteClass([FromQuery] string name)
+        {
+            string authHeader = Request.Headers["Authorization"];
+            if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+            {
+                return Unauthorized("Missing or invalid token");
+            }
+            string token = authHeader.Substring("Bearer ".Length).Trim();
+            Class classToDelete = _classRepository.GetClassByNameAndTeacherId(name, _userRepository.GetUserByToken(token).Id);
+            if (classToDelete == null)
+            {
+                return NotFound("Class not found");
+            }
+            _classRepository.Delete(classToDelete);
             return Ok();
         }
 

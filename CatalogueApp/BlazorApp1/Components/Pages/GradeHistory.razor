@@ -1,0 +1,74 @@
+﻿@page "/grades/{subject}"
+@inject GradeHistoryService GradeService
+@inject NavigationManager Navigation
+@using CatalogueApp.Components.Services
+@using CatalogueApp.Components.ViewModels
+@rendermode InteractiveServer
+
+<link href="css/grades.css" rel="stylesheet" />
+
+<div class="grades-container">
+    <div class="grades-card">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3>Grade History - @viewModel.Subject</h3>
+            <button class="btn btn-secondary" @onclick="NavigateBack">Back to Dashboard</button>
+        </div>
+
+        @if (viewModel.IsLoading)
+        {
+            <p>Loading...</p>
+        }
+        else if (viewModel.Grades.Any())
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Assignment</th>
+                        <th>Grade</th>
+                        <th>Teacher</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var grade in viewModel.Grades.OrderByDescending(g => g.Date))
+                    {
+                        <tr>
+                            <td>@grade.Date.ToShortDateString()</td>
+                            <td>@grade.AssignmentName</td>
+                            <td>@grade.Grade</td>
+                            <td>@grade.TeacherName</td>
+                            <td>@grade.Comments</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No grades found for this subject.</p>
+        }
+
+        @if (!string.IsNullOrEmpty(viewModel.ErrorMessage))
+        {
+            <div class="alert alert-danger mt-3">@viewModel.ErrorMessage</div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Subject { get; set; } = string.Empty;
+
+    private GradeHistoryViewModel viewModel = new GradeHistoryViewModel();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await viewModel.LoadGradeHistoryAsync(GradeService, Subject, Navigation);
+    }
+
+    private void NavigateBack()
+    {
+        Navigation.NavigateTo("/grades");
+    }
+}

@@ -18,6 +18,8 @@ builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<Login>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<ProfileService>();
+builder.Services.AddScoped<GradeDashboardService>();
+builder.Services.AddScoped<GradeHistoryService>();
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7054/") });
 
 builder.Services.AddScoped<TeacherMainPage>();
@@ -28,8 +30,6 @@ builder.Services.AddScoped<ClassService>();
 
 
 var app = builder.Build();
-
-
 
 
 // Configure the HTTP request pipeline.
