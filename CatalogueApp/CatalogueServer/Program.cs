@@ -20,6 +20,10 @@ builder.Services.AddScoped<ClassRepository>();
 
 builder.Services.AddSingleton<Database>();
 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IGradeRepository, GradeRepository>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
