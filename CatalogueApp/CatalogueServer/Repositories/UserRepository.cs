@@ -5,7 +5,7 @@ using SQLite;
 namespace CatalogueServer.Repositories
 {
 
-    public class UserRepository : BaseRepository<User>
+    public class UserRepository : BaseRepository<User>, IUserRepository
     {
         public UserRepository(Database database) : base(database.Connection) { }
 

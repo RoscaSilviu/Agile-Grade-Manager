@@ -7,9 +7,9 @@
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly UserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
 
-        public AuthController(UserRepository userRepository )
+        public AuthController(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }
