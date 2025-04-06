@@ -26,6 +26,7 @@ builder.Services.AddScoped<TeacherMainPage>();
 builder.Services.AddScoped<ClassModel>();
 
 builder.Services.AddScoped<ClassService>();
+builder.Services.AddScoped<AssignmentService>();
 
 
 

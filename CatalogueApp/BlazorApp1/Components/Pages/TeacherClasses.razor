@@ -66,7 +66,18 @@
                     @onclick="() => ShowManagementModal(classItem.Name)">
                         👥 Manage
                     </button>
+
+                    <button class="ml-2 p-2 bg-white text-blue-500 rounded-full shadow"
+                            @onclick="() => NavigateToAssignments(classItem.Name)">
+                        📝 Assignments
+                    </button>
+
+
+
                 </div>
+
+
+
             }
         </div>
     </div>
@@ -108,11 +119,14 @@
                     </div>
                 }
             </div>
+
+
+
         </div>
     </div>
 }
-@code {
 
+@code {
     private string navigationUrl = "/new-class";
     private bool showManagementModal;
     private string selectedClassName;
@@ -122,6 +136,15 @@
     private CatalogueApp.Components.Models.ClassModel ClassModel = new();
     private List<ClassModel> classes = new();
     private List<StudentModel> students = new();
+
+
+    private void NavigateToAssignments(string className)
+    {
+        if (string.IsNullOrWhiteSpace(className)) return;
+
+        var url = $"/manage-assignments/{Uri.EscapeDataString(className)}";
+        Navigation.NavigateTo(url);
+    }
 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

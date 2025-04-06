@@ -18,6 +18,21 @@ namespace CatalogueApp.Components.Services
             _httpClient = httpClient;
             _localStorage = localStorage;
         }
+
+        public async Task<ClassModel> GetClassByNameAsync(string className)
+        {
+            // Retrieve the token from local storage.
+            var token = await _localStorage.GetItemAsync<string>("authToken");
+            if (string.IsNullOrWhiteSpace(token))
+                return null;
+            // Add the token as a Bearer token to the request headers.
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            // Call the profile endpoint and deserialize the result.
+            var result = await _httpClient.GetFromJsonAsync<ClassModel>($"api/Class/{className}");
+            return result;
+        }
+
         public async Task<List<ClassModel>> GetClassesAsync(int teacherId)
         {
             // Retrieve the token from local storage.
@@ -176,6 +191,51 @@ namespace CatalogueApp.Components.Services
 
 
             return response.IsSuccessStatusCode;
+        }
+
+        public async Task<List<AssignmentModel>> GetAssignmentsForClassAsync(string className)
+        {
+            var token = await _localStorage.GetItemAsync<string>("authToken");
+            if (string.IsNullOrWhiteSpace(token)) return new List<AssignmentModel>();
+
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", token);
+
+            return await _httpClient.GetFromJsonAsync<List<AssignmentModel>>(
+                $"api/Class/{className}/assignments") ?? new List<AssignmentModel>();
+        }
+
+        public async Task AddAssignmentToClassAsync(AssignmentModel assignment)
+        {
+            var token = await _localStorage.GetItemAsync<string>("authToken");
+            if (string.IsNullOrWhiteSpace(token)) return;
+
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", token);
+
+            await _httpClient.PostAsJsonAsync("api/Class/AddAssignment", assignment);
+        }
+
+        public async Task UpdateAssignmentAsync(AssignmentModel assignment)
+        {
+            var token = await _localStorage.GetItemAsync<string>("authToken");
+            if (string.IsNullOrWhiteSpace(token)) return;
+
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", token);
+
+            await _httpClient.PutAsJsonAsync($"api/Class/UpdateAssignment/{assignment.Id}", assignment);
+        }
+
+        public async Task DeleteAssignmentAsync(int assignmentId)
+        {
+            var token = await _localStorage.GetItemAsync<string>("authToken");
+            if (string.IsNullOrWhiteSpace(token)) return;
+
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", token);
+
+            await _httpClient.DeleteAsync($"api/Class/DeleteAssignment/{assignmentId}");
         }
 
     }

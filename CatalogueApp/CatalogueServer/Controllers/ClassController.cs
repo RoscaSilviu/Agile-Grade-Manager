@@ -10,14 +10,48 @@ namespace CatalogueServer.Controllers
     {
         private readonly ClassRepository _classRepository;
         private readonly UserRepository _userRepository;
+        private readonly AssignmentRepository _assignmentRepository;
 
         private string _token;
 
-        public ClassController(ClassRepository classRepository, UserRepository userRepository)
+        public ClassController(ClassRepository classRepository, UserRepository userRepository, AssignmentRepository assignmentRepository)
         {
             _classRepository = classRepository;
             _userRepository = userRepository;
+            _assignmentRepository = assignmentRepository;
+        }
 
+        private string GetTokenFromHeader()
+        {
+            var authHeader = Request.Headers["Authorization"];
+            return authHeader.Count > 0 && authHeader[0].StartsWith("Bearer ")
+                ? authHeader[0].Substring("Bearer ".Length).Trim()
+                : null;
+        }
+
+
+        [HttpGet("{name}")]
+        public ActionResult GetClassByName(string name)
+
+        {
+            string authHeader = Request.Headers["Authorization"];
+            if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+            {
+                return Unauthorized("Missing or invalid token");
+            }
+            string token = GetTokenFromHeader();
+            // Retrieve the user based on the token.
+            var user = _userRepository.GetUserByToken(token);
+            if (user == null)
+            {
+                return Unauthorized("Invalid token");
+            }
+            var classObj = _classRepository.GetClassByNameAndTeacherId(name, user.Id);
+            if (classObj == null)
+            {
+                return NotFound("Class not found");
+            }
+            return Ok(classObj);
         }
 
         [HttpGet]
@@ -64,7 +98,7 @@ namespace CatalogueServer.Controllers
         }
 
         [HttpGet("GetStudents")]
-        
+
         public IActionResult GetStudents()
         {
             var students = _userRepository.GetAllStudents();
@@ -90,13 +124,7 @@ namespace CatalogueServer.Controllers
             return Ok();
         }
 
-        private string GetTokenFromHeader()
-        {
-            var authHeader = Request.Headers["Authorization"];
-            return authHeader.Count > 0 && authHeader[0].StartsWith("Bearer ")
-                ? authHeader[0].Substring("Bearer ".Length).Trim()
-                : null;
-        }
+
 
 
         [HttpPost("AddStudentToClass")]
@@ -213,6 +241,65 @@ namespace CatalogueServer.Controllers
             }
         }
 
+        [HttpGet("{className}/assignments")]
+        public IActionResult GetClassAssignments(string className)
+        {
+            string token = GetTokenFromHeader();
+            var teacher = _userRepository.GetUserByToken(token);
+            var classObj = _classRepository.GetClassByNameAndTeacherId(className, teacher.Id);
+
+
+            var assignments = _assignmentRepository.GetAssignmentsByClassId(classObj.Id);
+            return Ok(assignments);
+        }
+
+        [HttpPost("AddAssignment")]
+        public IActionResult AddAssignment([FromBody] AssignmentResponse assignment)
+        {
+            string token = GetTokenFromHeader();
+            var teacher = _userRepository.GetUserByToken(token);
+
+
+            // Resolve class by name and teacher
+            var classObj = _classRepository.GetClassByNameAndTeacherId(assignment.ClassName, teacher.Id);
+            if (classObj == null)
+            {
+                return NotFound("Class not found");
+            }
+
+            Assignment newAssignment = new Assignment
+            {
+                Name = assignment.Title,
+                Description = assignment.Description,
+                DueDate = assignment.DueDate,
+                ClassId = classObj.Id
+            };
+
+            _assignmentRepository.Insert(newAssignment);
+
+            return Ok();
+        }
+
+
+        [HttpPut("UpdateAssignment/{id}")]
+        public IActionResult UpdateAssignment(int id, [FromBody] Assignment assignment)
+        {
+            if (id != assignment.Id) return BadRequest();
+
+            _assignmentRepository.Update(assignment);
+            return NoContent();
+        }
+
+        [HttpDelete("DeleteAssignment/{id}")]
+        public IActionResult DeleteAssignment(int id)
+        {
+            var assignment = _assignmentRepository.GetById(id);
+            if (assignment == null) return NotFound();
+
+            _assignmentRepository.Delete(assignment);
+            return NoContent();
+        }
+
     }
 
     public class StudentClassRequest
@@ -222,4 +309,12 @@ namespace CatalogueServer.Controllers
         public string LastName { get; set; }
     }
 
+    public class AssignmentResponse
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime DueDate { get; set; }
+        public string ClassName { get; set; }
+    }
 }
