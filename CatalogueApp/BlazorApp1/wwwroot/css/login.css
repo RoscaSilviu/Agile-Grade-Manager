@@ -1,4 +1,22 @@
-﻿.login-container {
+﻿/* Global Reset for Cross-Browser Consistency */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Base styles for body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Login container */
+.login-container {
     background-color: #000;
     min-height: 100vh;
     display: flex;
@@ -7,27 +25,42 @@
     padding: 20px;
 }
 
+/* Login card */
 .login-card {
     background-color: #1a1a1a;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 400px;
 }
 
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Form group */
 .form-group label {
     color: #fff;
     font-weight: 500;
     margin-bottom: 0.5rem;
+    display: block;
 }
 
+/* Form controls */
 .form-control {
     background-color: #333;
     border: 1px solid #444;
     color: #fff;
     border-radius: 5px;
     padding: 0.75rem 1rem;
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease-in-out;
 }
 
     .form-control:focus {
@@ -35,30 +68,46 @@
         border-color: #0d6efd;
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
         color: #fff;
+        outline: none;
     }
 
+/* Button styles */
 .btn-primary {
     width: 100%;
     padding: 0.75rem;
     font-weight: 600;
     background-color: #0d6efd;
     border: none;
-    margin-top: 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out;
 }
 
     .btn-primary:hover {
         background-color: #0b5ed7;
+        cursor: pointer;
     }
 
+/* Error alert */
 .alert-danger {
     background-color: #2b0b0e;
     border-color: #842029;
     color: #dc3545;
     margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    font-size: 0.95rem;
 }
 
+/* Validation message */
 .validation-message {
     color: #dc3545;
     font-size: 0.875rem;
     margin-top: 0.25rem;
+}
+
+/* Touch tap highlight fix for iOS */
+button,
+input {
+    -webkit-tap-highlight-color: transparent;
 }
