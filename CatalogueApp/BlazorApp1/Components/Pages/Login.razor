@@ -1,4 +1,5 @@
-﻿@page "/login"
+﻿@page "/"
+@page "/login"
 @inject CatalogueApp.Components.Services.AuthService AuthService
 @inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 @inject NavigationManager Navigation
@@ -43,12 +44,16 @@
     private async Task HandleLogin()
     {
         errorMessage = null;
-        var token = await AuthService.LoginAsync(loginModel.Email, loginModel.Password);
+        var (token , role) = await AuthService.LoginAsync(loginModel.Email, loginModel.Password);
 
         if (!string.IsNullOrEmpty(token))
         {
             await LocalStorage.SetItemAsync("authToken", token);
-            Navigation.NavigateTo("/profile");
+
+            if (role == "teacher")
+                Navigation.NavigateTo("/teacher");
+            else
+                Navigation.NavigateTo("/grades");
         }
         else
         {

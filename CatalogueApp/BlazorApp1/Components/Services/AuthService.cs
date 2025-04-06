@@ -14,7 +14,7 @@ namespace CatalogueApp.Components.Services
             _localStorage = localStorage;
         }
 
-        public async Task<string?> LoginAsync(string email, string password)
+        public async Task<(string?,string?)> LoginAsync(string email, string password)
         {
             var response = await _httpClient.PostAsJsonAsync(
                 "api/Auth/login",
@@ -25,9 +25,9 @@ namespace CatalogueApp.Components.Services
             {
                 var result = await response.Content.ReadFromJsonAsync<LoginResult>();
                 await _localStorage.SetItemAsync("authToken", result!.Token);
-                return result.Token; 
+                return (result.Token , result.Role); 
             }
-            return null; 
+            return (null,null); 
         }
     }
 
