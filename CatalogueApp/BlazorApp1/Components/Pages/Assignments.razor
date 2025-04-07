@@ -1,0 +1,246 @@
+﻿@page "/manage-assignments"
+@page "/manage-assignments/{ClassName}"
+@inject CatalogueApp.Components.Services.ClassService ClassService
+@inject CatalogueApp.Components.Services.AssignmentService AssignmentService
+@inject NavigationManager Navigation
+@using CatalogueApp.Components.Models
+@rendermode InteractiveServer
+
+<link href="css/login.css" rel="stylesheet" />
+
+<style>
+    .management-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .management-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 800px;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .assignment-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-card">
+        <h3 class="text-center mb-4" style="color: white;">Manage Class Assignments</h3>
+        
+    </div>
+</div>
+
+
+    <div class="management-modal">
+        <div class="management-content">
+            <div class="flex justify-between mb-4">
+            <h3>Assignments for @ClassName</h3>
+                
+            </div>
+
+            <!-- Add Assignment Form -->
+        <div class="mb-2">
+            <label for="title">Title</label>
+            <input id="title" class="form-control" @bind="newAssignment.Title" />
+        </div>
+
+        <div class="mb-2">
+            <label for="description">Description</label>
+            <textarea id="description" class="form-control" @bind="newAssignment.Description"></textarea>
+        </div>
+
+        <div class="mb-2">
+            <label for="dueDate">Due Date</label>
+            <input id="dueDate" type="date" class="form-control" @bind="newAssignment.DueDate" />
+        </div>
+
+        <div class="mb-2">
+            <label for="maxPoints">Max Points</label>
+            <input id="maxPoints" type="number" class="form-control" @bind="newAssignment.MaxPoints" />
+        </div>
+
+		<div class="mb-4">
+			<button class="btn btn-primary" @onclick="AddAssignment">Add Assignment</button>
+		</div>
+
+
+            <!-- Assignments List -->
+            <div class="space-y-2">
+                @foreach (var assignment in classAssignments)
+                {
+                    <div class="assignment-item">
+                        <div class="flex-1">
+                            <h4>@assignment.Title</h4>
+                            <p>@assignment.Description</p>
+                            <small>Due: @assignment.DueDate.ToString("f")</small>
+                            <span class="badge bg-secondary">@assignment.MaxPoints points</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="btn btn-sm btn-warning"
+                                    @onclick="() => EditAssignment(assignment)">
+                                ✏️ Edit
+                            </button>
+                            <button class="btn btn-sm btn-danger"
+                                    @onclick="() => DeleteAssignment(assignment.Id)">
+                                🗑️ Delete
+                            </button>
+                        <button class="btn btn-secondary ml-2" @onclick="() => OpenGradeModal(assignment)">
+                            🎓 Grade
+                        </button>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+@if (showGradeModal)
+{
+    <div class="management-modal">
+        <div class="management-content">
+            <div class="flex justify-between mb-4">
+                <h3>Grades for: @selectedAssignmentForGrading.Title</h3>
+                <button @onclick="CloseGradeModal" class="text-gray-500">✖</button>
+            </div>
+
+            <div class="space-y-2">
+                @foreach (var grade in studentGrades)
+                {
+                    <div class="flex items-center justify-between">
+                        <span>@grade.StudentName</span>
+                        <input type="number" class="form-control w-20"
+                               @bind="grade.Grade"
+                               placeholder="N/A" />
+                    </div>
+                }
+            </div>
+
+            <div class="mt-4 text-right">
+                <button class="btn btn-primary" @onclick="SaveGradesAsync">💾 Save</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+@code {
+    [Parameter]
+    public string ClassName { get; set; }
+
+    private ClassModel currentClass = new();
+    private List<AssignmentModel> classAssignments = new();
+    private AssignmentModel newAssignment = new();
+    private AssignmentModel editAssignment = null;
+
+    private AssignmentModel selectedAssignmentForGrading;
+    private bool showGradeModal = false;
+    private List<StudentGradeModel> studentGrades = new(); // Define a model for student + grade
+
+    private async Task OpenGradeModal(AssignmentModel assignment)
+    {
+        selectedAssignmentForGrading = assignment;
+        studentGrades = await AssignmentService.GetGradesForAssignmentAsync(assignment.Id);
+        showGradeModal = true;
+    }
+
+    private void CloseGradeModal()
+    {
+        selectedAssignmentForGrading = null;
+        studentGrades.Clear();
+        showGradeModal = false;
+    }
+
+	private async Task SaveGradesAsync()
+	{
+		await AssignmentService.SaveGradesAsync(selectedAssignmentForGrading.Id, studentGrades);
+		showGradeModal = false;
+		StateHasChanged();
+	}
+
+
+	//on initial load, get the class name from the URL
+    private bool _loaded = false;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !_loaded && !string.IsNullOrEmpty(ClassName))
+        {
+            currentClass = await ClassService.GetClassByNameAsync(ClassName);
+            classAssignments = await ClassService.GetAssignmentsForClassAsync(ClassName);
+            _loaded = true;
+            StateHasChanged(); // Refresh UI after data load
+        }
+    }
+
+   
+
+    private async Task AddAssignment()
+    {
+        if (!string.IsNullOrEmpty(newAssignment.Title))
+        {
+            newAssignment.ClassName = currentClass.Name;
+            await ClassService.AddAssignmentToClassAsync(newAssignment);
+            classAssignments = await ClassService.GetAssignmentsForClassAsync(currentClass.Name);
+            newAssignment = new AssignmentModel();
+            StateHasChanged();
+        }
+    }
+
+    private async Task DeleteAssignment(int assignmentId)
+    {
+        await ClassService.DeleteAssignmentAsync(assignmentId);
+        classAssignments = await ClassService.GetAssignmentsForClassAsync(currentClass.Name);
+        StateHasChanged();
+    }
+
+    private void EditAssignment(AssignmentModel assignment)
+    {
+        editAssignment = assignment;
+        newAssignment = new AssignmentModel
+            {
+                Id = assignment.Id,
+                Title = assignment.Title,
+                Description = assignment.Description,
+                DueDate = assignment.DueDate,
+                MaxPoints = assignment.MaxPoints
+            };
+    }
+
+    private async Task UpdateAssignment()
+    {
+        if (editAssignment != null)
+        {
+            editAssignment.Title = newAssignment.Title;
+            editAssignment.Description = newAssignment.Description;
+            editAssignment.DueDate = newAssignment.DueDate;
+            editAssignment.MaxPoints = newAssignment.MaxPoints;
+
+            await ClassService.UpdateAssignmentAsync(editAssignment);
+            classAssignments = await ClassService.GetAssignmentsForClassAsync(currentClass.Name);
+            newAssignment = new AssignmentModel();
+            editAssignment = null;
+            StateHasChanged();
+        }
+    }
+}
