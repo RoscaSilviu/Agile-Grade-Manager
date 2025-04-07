@@ -29,5 +29,17 @@ namespace CatalogueServer.Repositories
         {
             return _db.Table<User>().FirstOrDefault(u => u.Token == token);
         }
+
+        public List<User> GetAllStudents()
+        {
+            return (from u in _db.Table<User>()
+                    where u.Role == "student"
+                    select u).ToList();
+        }
+
+        public User GetStudentByName(string name, string surname)
+        {
+            return _db.Table<User>().FirstOrDefault(u => u.Name == name && u.Surname == surname && u.Role == "student");
+        }
     }
 }

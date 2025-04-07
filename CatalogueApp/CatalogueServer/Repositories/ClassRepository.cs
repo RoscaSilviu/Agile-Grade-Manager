@@ -50,5 +50,11 @@ namespace CatalogueServer.Repositories
                     select c).ToList();
         }
 
+
+        // Get a class by its name and teacher ID
+        public Class GetClassByNameAndTeacherId(string name, int teacherId)
+        {
+            return _db.Table<Class>().FirstOrDefault(c => c.Name == name && c.TeacherId == teacherId);
+        }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using SQLite;
 
+
 [Table("ClassStudents")]
 public class ClassStudent
 {
-    [PrimaryKey, AutoIncrement]
+    [PrimaryKey]
+    [AutoIncrement]
     public int Id { get; set; }
 
     [Indexed]
@@ -11,4 +13,5 @@ public class ClassStudent
 
     [Indexed]
     public int StudentId { get; set; }
+
 }

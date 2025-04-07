@@ -1,5 +1,6 @@
 using Blazored.LocalStorage;
 using CatalogueApp.Components;
+using CatalogueApp.Components.Models;
 using CatalogueApp.Components.Pages;
 using CatalogueApp.Components.Services;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -20,7 +21,17 @@ builder.Services.AddScoped<ProfileService>();
 builder.Services.AddScoped<GradeDashboardService>();
 builder.Services.AddScoped<GradeHistoryService>();
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7054/") });
+
+builder.Services.AddScoped<TeacherMainPage>();
+builder.Services.AddScoped<ClassModel>();
+
+builder.Services.AddScoped<ClassService>();
+builder.Services.AddScoped<AssignmentService>();
+
+
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

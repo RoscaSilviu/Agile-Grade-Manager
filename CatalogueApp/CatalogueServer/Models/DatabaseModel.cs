@@ -26,5 +26,6 @@ public class Database
         Connection.CreateTable<Class>();
         Connection.CreateTable<Grade>();
         Connection.CreateTable<Assignment>();
+        Connection.CreateTable<ClassStudent>();
     }
 }
