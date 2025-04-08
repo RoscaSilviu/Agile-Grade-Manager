@@ -1,0 +1,104 @@
+﻿@page "/teacher-grade-history"
+@using BlazorApp1.Components.ViewModels
+@using BlazorApp1.Components.Services
+@using CatalogueServer.Repositories
+@inject TeacherGradeHistoryService GradeService
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+<div class="grades-container">
+    <div class="grades-card">
+        <h3>Teacher Grade History</h3>
+
+        @if (viewModel.IsLoading)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Subject</th>
+                            <th>Assignment</th>
+                            <th>Grade</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var grade in viewModel.Grades)
+                        {
+                            <tr>
+                                <td>@grade.StudentName</td>
+                                <td>@grade.Subject</td>
+                                <td>@grade.AssignmentName</td>
+                                <td>
+                                    @if (viewModel.EditingGradeId == grade.GradeId)
+                                    {
+                                        <input type="number" @bind="viewModel.EditValue"
+                                               class="form-control" min="0" max="100" />
+                                    }
+                                    else
+                                    {
+                                        @grade.Value
+                                    }
+                                </td>
+                                <td>@grade.Date.ToShortDateString()</td>
+                                <td>
+                                    @if (viewModel.EditingGradeId == grade.GradeId)
+                                    {
+                                        <button class="btn btn-success btn-sm"
+                                                @onclick="async () => await viewModel.SaveEditAsync(GradeService)">
+                                            Save
+                                        </button>
+                                        <button class="btn btn-secondary btn-sm"
+                                                @onclick="() => viewModel.CancelEdit()">
+                                            Cancel
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-primary btn-sm"
+                                                @onclick="() => viewModel.StartEdit(grade)">
+                                            Edit
+                                        </button>
+                                        <button class="btn btn-danger btn-sm"
+                                                @onclick="async () => await viewModel.DeleteGradeAsync(GradeService, grade.GradeId)">
+                                            Delete
+                                        </button>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(viewModel.ErrorMessage))
+        {
+            <div class="alert alert-danger mt-3">@viewModel.ErrorMessage</div>
+        }
+    </div>
+</div>
+
+@code {
+    private TeacherGradeHistoryViewModel viewModel = new();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await viewModel.LoadGradesAsync(GradeService, Navigation);
+            StateHasChanged();
+        }   
+    }
+
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     await viewModel.LoadGradesAsync(GradeService, Navigation);
+    // }
+}

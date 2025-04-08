@@ -1,4 +1,6 @@
-﻿using CatalogueServer.Repositories;
+﻿using CatalogueServer.Controllers;
+using CatalogueServer.Repositories;
+using static CatalogueServer.Repositories.GradeRepository;
 
 /// <summary>
 /// Interface defining operations for managing grades in the system.
@@ -54,4 +56,7 @@ public interface IGradeRepository
     /// <param name="subject">The name of the subject.</param>
     /// <returns>A list of detailed grade information.</returns>
     List<GradeRepository.GradeDetail> GetStudentGradesBySubject(int studentId, string subject);
+    List<TeacherGradeDetail> GetTeacherGradeDetails(int teacherId);
+    void UpdateGrade(int gradeId, int newValue);
+    void DeleteGrade(int gradeId);
 }

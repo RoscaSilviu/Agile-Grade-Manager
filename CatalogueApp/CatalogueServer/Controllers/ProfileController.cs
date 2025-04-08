@@ -56,6 +56,7 @@ namespace CatalogueServer.Controllers
 
             var result = new UserResult
             {
+                Id = user.Id,
                 Name = user.Name,
                 Surname = user.Surname,
                 Email = user.Email,
@@ -144,6 +145,11 @@ namespace CatalogueServer.Controllers
     /// </remarks>
     public class UserResult
     {
+        /// <summary>
+        /// Gets or sets the user's first name.
+        /// </summary>
+        public int Id { get; set; }
+
         /// <summary>
         /// Gets or sets the user's first name.
         /// </summary>

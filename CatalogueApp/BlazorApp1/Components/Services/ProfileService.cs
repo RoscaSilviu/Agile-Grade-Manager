@@ -100,6 +100,14 @@ namespace CatalogueApp.Components.Services
         /// <remarks>
         /// Cannot be null, defaults to empty string if not specified.
         /// </remarks>
+        public int Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user's first name.
+        /// </summary>
+        /// <remarks>
+        /// Cannot be null, defaults to empty string if not specified.
+        /// </remarks>
         public string Name { get; set; } = string.Empty;
 
         /// <summary>

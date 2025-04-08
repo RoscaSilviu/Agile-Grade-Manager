@@ -39,6 +39,6 @@
     /// </remarks>
     public class FullBackupModel
     {
-        // Implementation to be added based on system requirements
+
     }
 }

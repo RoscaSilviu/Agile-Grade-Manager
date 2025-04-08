@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using CatalogueServer.Controllers;
 using SQLite;
 
 
@@ -93,6 +94,60 @@ namespace CatalogueServer.Repositories
                         };
 
             return query.ToList();
+        }
+
+        /// <summary>
+        /// Retrieves detailed grade information for a teacher's classes.
+        /// </summary>
+        /// <param name="teacherId">The ID of the teacher.</param>
+        /// <returns>A list of detailed grade information for the teacher's classes.</returns>
+        public List<TeacherGradeDetail> GetTeacherGradeDetails(int teacherId)
+        {
+            var query = from g in _db.Table<Grade>()
+                        join a in _db.Table<Assignment>() on g.AssignmentId equals a.Id
+                        join c in _db.Table<Class>() on a.ClassId equals c.Id
+                        join s in _db.Table<User>() on g.StudentId equals s.Id
+                        where c.TeacherId == teacherId
+                        select new TeacherGradeDetail
+                        {
+                            GradeId = g.Id,
+                            StudentName = $"{s.Name} {s.Surname}",
+                            AssignmentName = a.Name,
+                            Value = g.Value,
+                            Date = g.Date,
+                            Comments = a.Description
+                        };
+
+            return query.ToList();
+        }
+
+        /// <summary>
+        /// Updates the grade value for a specific grade entry.
+        /// </summary>
+        /// <param name="gradeId">The ID of the grade to update.</param>
+        /// <param name="newValue">The new grade value to assign.</param>
+        public void UpdateGrade(int gradeId, int newValue)
+        {
+            var grade = _db.Table<Grade>().FirstOrDefault(g => g.Id == gradeId);
+            if (grade != null)
+            {
+                grade.Value = newValue;
+                grade.Date = DateTime.Now; // Update the date to reflect the change
+                Update(grade);
+            }
+        }
+
+        /// <summary>
+        /// Deletes a specific grade entry from the database.
+        /// </summary>
+        /// <param name="gradeId">The ID of the grade to delete.</param>
+        public void DeleteGrade(int gradeId)
+        {
+            var grade = _db.Table<Grade>().FirstOrDefault(g => g.Id == gradeId);
+            if (grade != null)
+            {
+                Delete(grade);
+            }
         }
 
         /// <summary>

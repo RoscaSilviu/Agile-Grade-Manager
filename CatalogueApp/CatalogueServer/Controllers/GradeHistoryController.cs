@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CatalogueServer.Repositories;
+using static CatalogueServer.Repositories.GradeRepository;
 
 namespace CatalogueServer.Controllers
 {
@@ -73,6 +74,28 @@ namespace CatalogueServer.Controllers
 
             return Ok(result);
         }
+
+        // ========== TEACHER-SPECIFIC ==========
+
+        [HttpGet("teacher/{teacherId}")]
+        public ActionResult<List<TeacherGradeDetail>> GetTeacherGrades(int teacherId)
+        {
+            return _gradeRepository.GetTeacherGradeDetails(teacherId);
+        }
+
+        [HttpPut("teacher/update/{gradeId}")]
+        public IActionResult UpdateGrade(int gradeId, [FromBody] int newValue)
+        {
+            _gradeRepository.UpdateGrade(gradeId, newValue);
+            return Ok();
+        }
+
+        [HttpDelete("teacher/{gradeId}")]
+        public IActionResult DeleteGrade(int gradeId)
+        {
+            _gradeRepository.DeleteGrade(gradeId);
+            return Ok();
+        }
     }
 
     /// <summary>
@@ -119,6 +142,72 @@ namespace CatalogueServer.Controllers
         /// </summary>
         /// <remarks>
         /// Can be null if no comments were provided.
+        /// </remarks>
+        public string? Comments { get; set; }
+    }
+
+    /// <summary>
+    /// Represents detailed grade information for a teacher's class.
+    /// </summary>
+    /// <remarks>
+    /// This class is used to provide detailed information about grades
+    /// assigned by a teacher, including the student, assignment, and grade details.
+    /// </remarks>
+    public class TeacherGradeDetail
+    {
+        /// <summary>
+        /// Gets or sets the unique identifier for the grade.
+        /// </summary>
+        /// <remarks>
+        /// This is used to identify the grade entry for editing or deletion.
+        /// </remarks>
+        public int GradeId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the student who received the grade.
+        /// </summary>
+        /// <remarks>
+        /// This includes the student's first and last name for display purposes.
+        /// </remarks>
+        public string StudentName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the name of the subject associated with the grade.
+        /// </summary>
+        /// <remarks>
+        /// This is used to group grades by subject in the teacher's class.
+        /// </remarks>
+        public string Subject { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the name of the assignment for which the grade was given.
+        /// </summary>
+        /// <remarks>
+        /// This is used to identify the specific assignment in the teacher's class.
+        /// </remarks>
+        public string AssignmentName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the numerical value of the grade.
+        /// </summary>
+        /// <remarks>
+        /// Represents the score or grade assigned to the student for the assignment.
+        /// </remarks>
+        public int Value { get; set; }
+
+        /// <summary>
+        /// Gets or sets the date when the grade was assigned.
+        /// </summary>
+        /// <remarks>
+        /// This is used to track when the grade was recorded.
+        /// </remarks>
+        public DateTime Date { get; set; }
+
+        /// <summary>
+        /// Gets or sets any comments provided by the teacher regarding the grade.
+        /// </summary>
+        /// <remarks>
+        /// Comments can include feedback or notes about the student's performance.
         /// </remarks>
         public string? Comments { get; set; }
     }
