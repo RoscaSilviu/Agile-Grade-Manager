@@ -1,0 +1,329 @@
+\doxysection{Catalogue\+Server.\+Controllers.\+Class\+Controller Class Reference}
+\hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller}{}\label{class_catalogue_server_1_1_controllers_1_1_class_controller}\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+
+
+Controller responsible for managing class-\/related operations in the school management system. Provides endpoints for class management, student enrollment, and assignment handling.  
+
+
+Inheritance diagram for Catalogue\+Server.\+Controllers.\+Class\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_catalogue_server_1_1_controllers_1_1_class_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_acc0011b57a0c67b92b544e5c9948a136}{Class\+Controller}} (\mbox{\hyperlink{class_class_repository}{Class\+Repository}} class\+Repository, \mbox{\hyperlink{class_user_repository}{User\+Repository}} user\+Repository, \mbox{\hyperlink{class_assignment_repository}{Assignment\+Repository}} assignment\+Repository)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Class\+Controller. \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_a13ad9d2e5480d7477b6ac4eed167ece6}{Get\+Class\+By\+Name}} (string name)
+\begin{DoxyCompactList}\small\item\em Retrieves a specific class by its name for the authenticated teacher. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_a070d0959f7bd65315df369be3051613b}{Get\+Classes}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all classes for the authenticated teacher. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_a1908671e2c6c0fda65e33df310099410}{Post\+Class}} (\mbox{[}From\+Body\mbox{]} string name)
+\begin{DoxyCompactList}\small\item\em Creates a new class for the authenticated teacher. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_ae7c9aacf2c46d3e33a6b7d44c420ddbd}{Get\+Students}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all students in the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_ac1c80ff038e39a8f41e1331d081202d4}{Delete\+Class}} (\mbox{[}From\+Query\mbox{]} string name)
+\begin{DoxyCompactList}\small\item\em Deletes a class by its name. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_a80b895e790e7d8e6d83fc15ee1612c21}{Add\+Student\+To\+Class}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_student_class_request}{Student\+Class\+Request}} request)
+\begin{DoxyCompactList}\small\item\em Adds a student to a specific class. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_a8069f4040d1f2a4339dec6541eb58b8c}{Get\+Students\+In\+Class}} (string class\+Name)
+\begin{DoxyCompactList}\small\item\em Retrieves all students enrolled in a specific class. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_af9194f6027c92ed37389b2fa6b7f6e5c}{Get\+All\+Students\+Not\+In\+Class}} (string class\+Name)
+\begin{DoxyCompactList}\small\item\em Retrieves all students not enrolled in a specific class. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_a2576706b0a23e7c505bbdecb31666819}{Get\+All\+Students}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all students in the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_a19592cee2a66cc639b3cfe3b3ee0df86}{Remove\+Student\+From\+Class}} (\mbox{[}From\+Query\mbox{]} string class\+Name, \mbox{[}From\+Query\mbox{]} string first\+Name, \mbox{[}From\+Query\mbox{]} string last\+Name)
+\begin{DoxyCompactList}\small\item\em Removes a student from a class. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_a4755b018fadba77b3121eca011dc0211}{Get\+Class\+Assignments}} (string class\+Name)
+\begin{DoxyCompactList}\small\item\em Retrieves all assignments for a specific class. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_ac6322208130c852156e2ee3ce867d7df}{Add\+Assignment}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_assignment_response}{Assignment\+Response}} assignment)
+\begin{DoxyCompactList}\small\item\em Adds a new assignment to a class. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_a17d4aa538e7d81a82b315bc54403af84}{Update\+Assignment}} (int id, \mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_assignment}{Assignment}} assignment)
+\begin{DoxyCompactList}\small\item\em Updates an existing assignment. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_class_controller_a4d1489b2d2273c0583f242f1fc7aebb0}{Delete\+Assignment}} (int id)
+\begin{DoxyCompactList}\small\item\em Deletes an assignment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller responsible for managing class-\/related operations in the school management system. Provides endpoints for class management, student enrollment, and assignment handling. 
+
+Most endpoints require authentication via Bearer token and are designed for teacher access. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_acc0011b57a0c67b92b544e5c9948a136}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_acc0011b57a0c67b92b544e5c9948a136} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!ClassController@{ClassController}}
+\index{ClassController@{ClassController}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{ClassController()}{ClassController()}}
+{\footnotesize\ttfamily Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Class\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_class_repository}{Class\+Repository}}}]{class\+Repository,  }\item[{\mbox{\hyperlink{class_user_repository}{User\+Repository}}}]{user\+Repository,  }\item[{\mbox{\hyperlink{class_assignment_repository}{Assignment\+Repository}}}]{assignment\+Repository }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Class\+Controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Repository} & Repository for class operations.\\
+\hline
+{\em user\+Repository} & Repository for user operations.\\
+\hline
+{\em assignment\+Repository} & Repository for assignment operations.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when any repository is null.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_ac6322208130c852156e2ee3ce867d7df}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_ac6322208130c852156e2ee3ce867d7df} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!AddAssignment@{AddAssignment}}
+\index{AddAssignment@{AddAssignment}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{AddAssignment()}{AddAssignment()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Add\+Assignment (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_assignment_response}{Assignment\+Response}}}]{assignment }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a new assignment to a class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em assignment} & The assignment details.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK if created; 404 Not\+Found if class not found.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_a80b895e790e7d8e6d83fc15ee1612c21}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_a80b895e790e7d8e6d83fc15ee1612c21} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!AddStudentToClass@{AddStudentToClass}}
+\index{AddStudentToClass@{AddStudentToClass}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{AddStudentToClass()}{AddStudentToClass()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Add\+Student\+To\+Class (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_student_class_request}{Student\+Class\+Request}}}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a student to a specific class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The enrollment request containing class and student details.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK if added; 404 Not\+Found if class or student not found.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_a4d1489b2d2273c0583f242f1fc7aebb0}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_a4d1489b2d2273c0583f242f1fc7aebb0} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!DeleteAssignment@{DeleteAssignment}}
+\index{DeleteAssignment@{DeleteAssignment}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{DeleteAssignment()}{DeleteAssignment()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Delete\+Assignment (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes an assignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the assignment to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+204 No\+Content if deleted; 404 Not\+Found if not found.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_ac1c80ff038e39a8f41e1331d081202d4}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_ac1c80ff038e39a8f41e1331d081202d4} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!DeleteClass@{DeleteClass}}
+\index{DeleteClass@{DeleteClass}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{DeleteClass()}{DeleteClass()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Delete\+Class (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Query\mbox{]} string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes a class by its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the class to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK if deleted; 401 Unauthorized if token invalid; 404 Not\+Found if class not found.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_a2576706b0a23e7c505bbdecb31666819}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_a2576706b0a23e7c505bbdecb31666819} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!GetAllStudents@{GetAllStudents}}
+\index{GetAllStudents@{GetAllStudents}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{GetAllStudents()}{GetAllStudents()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Get\+All\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all students in the system. 
+
+\begin{DoxyReturn}{Returns}
+200 OK with list of students; 404 Not\+Found if no students found.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_af9194f6027c92ed37389b2fa6b7f6e5c}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_af9194f6027c92ed37389b2fa6b7f6e5c} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!GetAllStudentsNotInClass@{GetAllStudentsNotInClass}}
+\index{GetAllStudentsNotInClass@{GetAllStudentsNotInClass}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{GetAllStudentsNotInClass()}{GetAllStudentsNotInClass()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Get\+All\+Students\+Not\+In\+Class (\begin{DoxyParamCaption}\item[{string}]{class\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all students not enrolled in a specific class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Name} & The name of the class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with list of students; 404 Not\+Found if no students found.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_a4755b018fadba77b3121eca011dc0211}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_a4755b018fadba77b3121eca011dc0211} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!GetClassAssignments@{GetClassAssignments}}
+\index{GetClassAssignments@{GetClassAssignments}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{GetClassAssignments()}{GetClassAssignments()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Get\+Class\+Assignments (\begin{DoxyParamCaption}\item[{string}]{class\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all assignments for a specific class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Name} & The name of the class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with list of assignments.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_a13ad9d2e5480d7477b6ac4eed167ece6}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_a13ad9d2e5480d7477b6ac4eed167ece6} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!GetClassByName@{GetClassByName}}
+\index{GetClassByName@{GetClassByName}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{GetClassByName()}{GetClassByName()}}
+{\footnotesize\ttfamily Action\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Get\+Class\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a specific class by its name for the authenticated teacher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the class to retrieve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with class details; 401 Unauthorized if token invalid; 404 Not\+Found if class doesn\textquotesingle{}t exist.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_a070d0959f7bd65315df369be3051613b}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_a070d0959f7bd65315df369be3051613b} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!GetClasses@{GetClasses}}
+\index{GetClasses@{GetClasses}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{GetClasses()}{GetClasses()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Get\+Classes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all classes for the authenticated teacher. 
+
+\begin{DoxyReturn}{Returns}
+200 OK with list of classes; 401 Unauthorized if token invalid.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_ae7c9aacf2c46d3e33a6b7d44c420ddbd}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_ae7c9aacf2c46d3e33a6b7d44c420ddbd} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!GetStudents@{GetStudents}}
+\index{GetStudents@{GetStudents}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{GetStudents()}{GetStudents()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Get\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all students in the system. 
+
+\begin{DoxyReturn}{Returns}
+200 OK with list of students.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_a8069f4040d1f2a4339dec6541eb58b8c}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_a8069f4040d1f2a4339dec6541eb58b8c} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!GetStudentsInClass@{GetStudentsInClass}}
+\index{GetStudentsInClass@{GetStudentsInClass}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{GetStudentsInClass()}{GetStudentsInClass()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Get\+Students\+In\+Class (\begin{DoxyParamCaption}\item[{string}]{class\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all students enrolled in a specific class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Name} & The name of the class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with list of students; 404 Not\+Found if no students found.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_a1908671e2c6c0fda65e33df310099410}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_a1908671e2c6c0fda65e33df310099410} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!PostClass@{PostClass}}
+\index{PostClass@{PostClass}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{PostClass()}{PostClass()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Post\+Class (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new class for the authenticated teacher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the new class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK if created successfully; 401 Unauthorized if token invalid.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_a19592cee2a66cc639b3cfe3b3ee0df86}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_a19592cee2a66cc639b3cfe3b3ee0df86} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!RemoveStudentFromClass@{RemoveStudentFromClass}}
+\index{RemoveStudentFromClass@{RemoveStudentFromClass}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{RemoveStudentFromClass()}{RemoveStudentFromClass()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Remove\+Student\+From\+Class (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Query\mbox{]} string}]{class\+Name,  }\item[{\mbox{[}\+From\+Query\mbox{]} string}]{first\+Name,  }\item[{\mbox{[}\+From\+Query\mbox{]} string}]{last\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes a student from a class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Name} & The name of the class.\\
+\hline
+{\em first\+Name} & The student\textquotesingle{}s first name.\\
+\hline
+{\em last\+Name} & The student\textquotesingle{}s last name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK if removed; various error status codes for different failure cases.
+\end{DoxyReturn}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_class_controller_a17d4aa538e7d81a82b315bc54403af84}\label{class_catalogue_server_1_1_controllers_1_1_class_controller_a17d4aa538e7d81a82b315bc54403af84} 
+\index{CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}!UpdateAssignment@{UpdateAssignment}}
+\index{UpdateAssignment@{UpdateAssignment}!CatalogueServer.Controllers.ClassController@{CatalogueServer.Controllers.ClassController}}
+\doxysubsubsection{\texorpdfstring{UpdateAssignment()}{UpdateAssignment()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Class\+Controller.\+Update\+Assignment (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_assignment}{Assignment}}}]{assignment }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates an existing assignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the assignment to update.\\
+\hline
+{\em assignment} & The updated assignment details.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+204 No\+Content if updated; 400 Bad\+Request if ID mismatch.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Catalogue\+Server/\+Controllers/Class\+Controller.\+cs\end{DoxyCompactItemize}

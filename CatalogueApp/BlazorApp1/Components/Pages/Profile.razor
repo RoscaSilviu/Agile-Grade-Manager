@@ -60,19 +60,33 @@
 </div>
 
 @code {
+    /// <summary>
+    /// ViewModel for managing the state and data of the user profile page.
+    /// </summary>
     private ProfileViewModel viewModel = new ProfileViewModel();
 
+    /// <summary>
+    /// Loads the user's profile information after the component is rendered for the first time.
+    /// </summary>
+    /// <param name="firstRender">Indicates whether this is the first render of the component.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
+            // Load the user's profile information using the ProfileService.
             await viewModel.LoadProfileAsync(ProfileService);
             StateHasChanged();
         }
     }
 
+    /// <summary>
+    /// Handles the submission of the change password form.
+    /// </summary>
+    /// <returns>A task representing the asynchronous operation.</returns>
     private async Task SubmitChangePassword()
     {
+        // Attempt to change the user's password using the ProfileService.
         await viewModel.ChangePasswordAsync(ProfileService);
         StateHasChanged();
     }

@@ -1,0 +1,200 @@
+\doxysection{User\+Repository Class Reference}
+\hypertarget{class_user_repository}{}\label{class_user_repository}\index{UserRepository@{UserRepository}}
+
+
+Repository implementation for managing users and user-\/related operations.  
+
+
+Inheritance diagram for User\+Repository\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.691843cm]{class_user_repository}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user_repository_accc9a16c3da7688d17eb99e9f6c5fb87}{User\+Repository}} (\mbox{\hyperlink{class_database}{Database}} database)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_user_repository}{User\+Repository} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user}{User}} \mbox{\hyperlink{class_user_repository_a3389ea6336a2326465df772c8f5f6a6d}{Get\+User\+By\+Email}} (string email)
+\begin{DoxyCompactList}\small\item\em Retrieves a user by their email address. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{class_user_repository_a0a4517b47383cd80a1a4d727363a7f76}{Get\+Students\+By\+Teacher\+Id}} (int teacher\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all students enrolled in classes taught by a specific teacher. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user}{User}} \mbox{\hyperlink{class_user_repository_a3fc07c833265bf96a3decc07e14821e8}{Get\+User\+By\+Token}} (string token)
+\begin{DoxyCompactList}\small\item\em Retrieves a user by their authentication token. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{class_user_repository_af1c5d84c3b62505fc3893a09022e03c9}{Get\+All\+Students}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all users with the student role. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user}{User}} \mbox{\hyperlink{class_user_repository_a18cc3c558f569b16a7913d1bdb577627}{Get\+Student\+By\+Name}} (string name, string surname)
+\begin{DoxyCompactList}\small\item\em Retrieves a student by their full name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository$<$ User $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_ac987e2b265fe3ac5d014e68f6721d8ea}{Base\+Repository}} (SQLite\+Connection db)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Base\+Repository class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_accb38eb4bb1da6d7ab13c6aabc13f51e}{Insert}} (T entity)
+\begin{DoxyCompactList}\small\item\em Inserts a new entity into the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_ad6c8f9d46a3217576e5a931fd4bb3cbe}{Update}} (T entity)
+\begin{DoxyCompactList}\small\item\em Updates an existing entity in the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a9ef314ada88f8f55c73fa1d7ca66fac6}{Delete}} (T entity)
+\begin{DoxyCompactList}\small\item\em Deletes an entity from the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a6470872959018cdf913ae9e9fabbe3f8}{Delete\+All}} ()
+\begin{DoxyCompactList}\small\item\em Deletes all entities of type T from the database. \end{DoxyCompactList}\item 
+List$<$ T $>$ \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a8a0befc9493db3049c5417ecdf558b33}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all entities of type T from the database. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_abf482f27a78572fbeffe7d6e81555d05}{Get\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Retrieves an entity by its ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interface_i_user_repository}{IUser\+Repository}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_user}{User}} \mbox{\hyperlink{interface_i_user_repository_a5304b178df62c85c9ceff2c2305809b0}{Get\+User\+By\+Email}} (string email)
+\begin{DoxyCompactList}\small\item\em Retrieves a user by their email address. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{interface_i_user_repository_a9041ba0da3cd8661eefd9016f201bb80}{Get\+Students\+By\+Teacher\+Id}} (int teacher\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all students associated with a specific teacher. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user}{User}} \mbox{\hyperlink{interface_i_user_repository_aef717296dba4f3af4d032c4bf4038e62}{Get\+User\+By\+Token}} (string token)
+\begin{DoxyCompactList}\small\item\em Retrieves a user by their authentication token. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_i_user_repository_a81baedd81b7b418c972f92cdd1134b68}{Update}} (\mbox{\hyperlink{class_user}{User}} user)
+\begin{DoxyCompactList}\small\item\em Updates an existing user\textquotesingle{}s information. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_i_user_repository_a41ffe0e58386f6c469bb12f13d332d84}{Insert}} (\mbox{\hyperlink{class_user}{User}} entity)
+\begin{DoxyCompactList}\small\item\em Inserts a new user into the system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_i_user_repository_ac707b46cbe493ac8101c7a1e2e0009c4}{Delete}} (\mbox{\hyperlink{class_user}{User}} entity)
+\begin{DoxyCompactList}\small\item\em Deletes a user from the system. \end{DoxyCompactList}\item 
+void {\bfseries Delete\+All} ()
+\begin{DoxyCompactList}\small\item\em Deletes all users from the system. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{interface_i_user_repository_acad99a40ad6c2c842f566d23cdc5bae4}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all users in the system. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user}{User}} \mbox{\hyperlink{interface_i_user_repository_a42909c21051fc5035027d34ba0196cc1}{Get\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Retrieves a user by their ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository$<$ User $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+readonly SQLite\+Connection \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a216737b1c9b3d99cc8ba8374716b19c7}{\+\_\+db}}
+\begin{DoxyCompactList}\small\item\em The SQLite database connection used for all database operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Repository implementation for managing users and user-\/related operations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_user_repository_accc9a16c3da7688d17eb99e9f6c5fb87}\label{class_user_repository_accc9a16c3da7688d17eb99e9f6c5fb87} 
+\index{UserRepository@{UserRepository}!UserRepository@{UserRepository}}
+\index{UserRepository@{UserRepository}!UserRepository@{UserRepository}}
+\doxysubsubsection{\texorpdfstring{UserRepository()}{UserRepository()}}
+{\footnotesize\ttfamily User\+Repository.\+User\+Repository (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_database}{Database}}}]{database }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the \doxylink{class_user_repository}{User\+Repository} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em database} & The database instance containing the connection.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_user_repository_af1c5d84c3b62505fc3893a09022e03c9}\label{class_user_repository_af1c5d84c3b62505fc3893a09022e03c9} 
+\index{UserRepository@{UserRepository}!GetAllStudents@{GetAllStudents}}
+\index{GetAllStudents@{GetAllStudents}!UserRepository@{UserRepository}}
+\doxysubsubsection{\texorpdfstring{GetAllStudents()}{GetAllStudents()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_user}{User}} $>$ User\+Repository.\+Get\+All\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all users with the student role. 
+
+\begin{DoxyReturn}{Returns}
+A list of all students in the system.
+\end{DoxyReturn}
+\Hypertarget{class_user_repository_a18cc3c558f569b16a7913d1bdb577627}\label{class_user_repository_a18cc3c558f569b16a7913d1bdb577627} 
+\index{UserRepository@{UserRepository}!GetStudentByName@{GetStudentByName}}
+\index{GetStudentByName@{GetStudentByName}!UserRepository@{UserRepository}}
+\doxysubsubsection{\texorpdfstring{GetStudentByName()}{GetStudentByName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_user}{User}} User\+Repository.\+Get\+Student\+By\+Name (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{surname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a student by their full name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The student\textquotesingle{}s first name.\\
+\hline
+{\em surname} & The student\textquotesingle{}s surname.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matching student if found; null otherwise.
+\end{DoxyReturn}
+\Hypertarget{class_user_repository_a0a4517b47383cd80a1a4d727363a7f76}\label{class_user_repository_a0a4517b47383cd80a1a4d727363a7f76} 
+\index{UserRepository@{UserRepository}!GetStudentsByTeacherId@{GetStudentsByTeacherId}}
+\index{GetStudentsByTeacherId@{GetStudentsByTeacherId}!UserRepository@{UserRepository}}
+\doxysubsubsection{\texorpdfstring{GetStudentsByTeacherId()}{GetStudentsByTeacherId()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_user}{User}} $>$ User\+Repository.\+Get\+Students\+By\+Teacher\+Id (\begin{DoxyParamCaption}\item[{int}]{teacher\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all students enrolled in classes taught by a specific teacher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em teacher\+Id} & The ID of the teacher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A distinct list of students across all of the teacher\textquotesingle{}s classes.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_i_user_repository_a9041ba0da3cd8661eefd9016f201bb80}{IUser\+Repository}}.
+
+\Hypertarget{class_user_repository_a3389ea6336a2326465df772c8f5f6a6d}\label{class_user_repository_a3389ea6336a2326465df772c8f5f6a6d} 
+\index{UserRepository@{UserRepository}!GetUserByEmail@{GetUserByEmail}}
+\index{GetUserByEmail@{GetUserByEmail}!UserRepository@{UserRepository}}
+\doxysubsubsection{\texorpdfstring{GetUserByEmail()}{GetUserByEmail()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_user}{User}} User\+Repository.\+Get\+User\+By\+Email (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a user by their email address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email address to search for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matching user if found; null otherwise.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_i_user_repository_a5304b178df62c85c9ceff2c2305809b0}{IUser\+Repository}}.
+
+\Hypertarget{class_user_repository_a3fc07c833265bf96a3decc07e14821e8}\label{class_user_repository_a3fc07c833265bf96a3decc07e14821e8} 
+\index{UserRepository@{UserRepository}!GetUserByToken@{GetUserByToken}}
+\index{GetUserByToken@{GetUserByToken}!UserRepository@{UserRepository}}
+\doxysubsubsection{\texorpdfstring{GetUserByToken()}{GetUserByToken()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_user}{User}} User\+Repository.\+Get\+User\+By\+Token (\begin{DoxyParamCaption}\item[{string}]{token }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a user by their authentication token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em token} & The authentication token to search for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matching user if found; null otherwise.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_i_user_repository_aef717296dba4f3af4d032c4bf4038e62}{IUser\+Repository}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Catalogue\+Server/\+Repositories/User\+Repository.\+cs\end{DoxyCompactItemize}

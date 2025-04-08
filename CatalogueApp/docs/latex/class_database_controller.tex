@@ -1,0 +1,409 @@
+\doxysection{Database\+Controller Class Reference}
+\hypertarget{class_database_controller}{}\label{class_database_controller}\index{DatabaseController@{DatabaseController}}
+
+
+Controller responsible for managing core database operations in the school management system. Provides administrative endpoints for managing users, classes, assignments, and grades.  
+
+
+Inheritance diagram for Database\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_database_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_database_controller_ae5ac0dd12d507087a0214431ce8fa5a5}{Database\+Controller}} (\mbox{\hyperlink{class_database}{Database}} database)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_database_controller}{Database\+Controller}. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_acfb40b554aec54894845db8596df1f33}{Get\+Users}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all users in the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a32ddff30a69de28e330dd2f3baa71257}{Add\+User}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_user}{User}} user)
+\begin{DoxyCompactList}\small\item\em Creates a new user in the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a5a9189a35e57d3fd8285ece732564ba5}{Delete\+User}} (int id)
+\begin{DoxyCompactList}\small\item\em Deletes a user from the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a75b6468e6faa713a9470ef2b428f3577}{Get\+Classes}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all classes in the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a184efc4b7276f5e7c7ec15bd4525a72b}{Add\+Class}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_class}{Class}} new\+Class)
+\begin{DoxyCompactList}\small\item\em Creates a new class in the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_aa27901074f2af8e7084ca644e3952926}{Delete\+Class}} (int id)
+\begin{DoxyCompactList}\small\item\em Deletes a class from the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a39f8fef54e524f5835f3ea79c93b3d35}{Get\+Assignments}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all assignments in the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a066fb9fe66922f15d926bcb92d031764}{Add\+Assignment}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_assignment}{Assignment}} assignment)
+\begin{DoxyCompactList}\small\item\em Creates a new assignment in the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a958998e2e6a5c065e9dcd1208ef7258a}{Delete\+Assignment}} (int id)
+\begin{DoxyCompactList}\small\item\em Deletes an assignment from the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a8aec49253097fc42cd2368236c35ae4f}{Get\+Grades}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all grades in the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a933dc05d4905796701f7d5404f2ada88}{Add\+Grade}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_grade}{Grade}} grade)
+\begin{DoxyCompactList}\small\item\em Creates a new grade in the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a9eca3fe553c2f9555cf2116edb01a1f2}{Delete\+Grade}} (int id)
+\begin{DoxyCompactList}\small\item\em Deletes a grade from the system. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a6c19e2809e9333235066deabae7cc601}{Get\+Teacher\+Classes}} (int teacher\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all classes for a specific teacher. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_afafd8c2d558c6dae39994cc0b1295601}{Get\+Teacher\+Assignments}} (int teacher\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all assignments for a specific teacher. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a5ff1b35d4197159dc452fc1328c867f0}{Get\+Teacher\+Grades}} (int teacher\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all grades given by a specific teacher. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_aaafc666e5a537db632a10a5ef2cd13fb}{Get\+Student\+Classes}} (int student\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all classes for a specific student. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a33606046e75a2d8a7b9b4062f175064d}{Get\+Student\+Assignments}} (int student\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all assignments for a specific student. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_a2b6b588d186c760c2e55132816272200}{Get\+Student\+Grades}} (int student\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all grades for a specific student. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_database_controller_abd0a85187857a06ad5134b459cd0fe67}{Get\+Student\+Average\+Grades}} (int student\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves average grades for a specific student across all subjects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller responsible for managing core database operations in the school management system. Provides administrative endpoints for managing users, classes, assignments, and grades. 
+
+This controller handles system-\/wide operations and should be accessed with appropriate authorization. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_database_controller_ae5ac0dd12d507087a0214431ce8fa5a5}\label{class_database_controller_ae5ac0dd12d507087a0214431ce8fa5a5} 
+\index{DatabaseController@{DatabaseController}!DatabaseController@{DatabaseController}}
+\index{DatabaseController@{DatabaseController}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{DatabaseController()}{DatabaseController()}}
+{\footnotesize\ttfamily Database\+Controller.\+Database\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_database}{Database}}}]{database }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the \doxylink{class_database_controller}{Database\+Controller}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em database} & The database instance for data operations.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_database_controller_a066fb9fe66922f15d926bcb92d031764}\label{class_database_controller_a066fb9fe66922f15d926bcb92d031764} 
+\index{DatabaseController@{DatabaseController}!AddAssignment@{AddAssignment}}
+\index{AddAssignment@{AddAssignment}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{AddAssignment()}{AddAssignment()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Add\+Assignment (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_assignment}{Assignment}}}]{assignment }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new assignment in the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em assignment} & The assignment information to create.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+201 Created with the new assignment details.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a184efc4b7276f5e7c7ec15bd4525a72b}\label{class_database_controller_a184efc4b7276f5e7c7ec15bd4525a72b} 
+\index{DatabaseController@{DatabaseController}!AddClass@{AddClass}}
+\index{AddClass@{AddClass}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{AddClass()}{AddClass()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Add\+Class (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_class}{Class}}}]{new\+Class }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new class in the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Class} & The class information to create.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+201 Created with the new class details.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a933dc05d4905796701f7d5404f2ada88}\label{class_database_controller_a933dc05d4905796701f7d5404f2ada88} 
+\index{DatabaseController@{DatabaseController}!AddGrade@{AddGrade}}
+\index{AddGrade@{AddGrade}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{AddGrade()}{AddGrade()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Add\+Grade (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_grade}{Grade}}}]{grade }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new grade in the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grade} & The grade information to create.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+201 Created with the new grade details.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a32ddff30a69de28e330dd2f3baa71257}\label{class_database_controller_a32ddff30a69de28e330dd2f3baa71257} 
+\index{DatabaseController@{DatabaseController}!AddUser@{AddUser}}
+\index{AddUser@{AddUser}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{AddUser()}{AddUser()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Add\+User (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_user}{User}}}]{user }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new user in the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & The user information to create.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+201 Created with the new user details.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a958998e2e6a5c065e9dcd1208ef7258a}\label{class_database_controller_a958998e2e6a5c065e9dcd1208ef7258a} 
+\index{DatabaseController@{DatabaseController}!DeleteAssignment@{DeleteAssignment}}
+\index{DeleteAssignment@{DeleteAssignment}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{DeleteAssignment()}{DeleteAssignment()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Delete\+Assignment (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes an assignment from the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the assignment to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+204 No\+Content if deleted; 404 Not\+Found if assignment doesn\textquotesingle{}t exist.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_aa27901074f2af8e7084ca644e3952926}\label{class_database_controller_aa27901074f2af8e7084ca644e3952926} 
+\index{DatabaseController@{DatabaseController}!DeleteClass@{DeleteClass}}
+\index{DeleteClass@{DeleteClass}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{DeleteClass()}{DeleteClass()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Delete\+Class (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes a class from the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the class to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+204 No\+Content if deleted; 404 Not\+Found if class doesn\textquotesingle{}t exist.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a9eca3fe553c2f9555cf2116edb01a1f2}\label{class_database_controller_a9eca3fe553c2f9555cf2116edb01a1f2} 
+\index{DatabaseController@{DatabaseController}!DeleteGrade@{DeleteGrade}}
+\index{DeleteGrade@{DeleteGrade}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{DeleteGrade()}{DeleteGrade()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Delete\+Grade (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes a grade from the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the grade to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+204 No\+Content if deleted; 404 Not\+Found if grade doesn\textquotesingle{}t exist.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a5a9189a35e57d3fd8285ece732564ba5}\label{class_database_controller_a5a9189a35e57d3fd8285ece732564ba5} 
+\index{DatabaseController@{DatabaseController}!DeleteUser@{DeleteUser}}
+\index{DeleteUser@{DeleteUser}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{DeleteUser()}{DeleteUser()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Delete\+User (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deletes a user from the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the user to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+204 No\+Content if deleted; 404 Not\+Found if user doesn\textquotesingle{}t exist.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a39f8fef54e524f5835f3ea79c93b3d35}\label{class_database_controller_a39f8fef54e524f5835f3ea79c93b3d35} 
+\index{DatabaseController@{DatabaseController}!GetAssignments@{GetAssignments}}
+\index{GetAssignments@{GetAssignments}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{GetAssignments()}{GetAssignments()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Get\+Assignments (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all assignments in the system. 
+
+\begin{DoxyReturn}{Returns}
+200 OK with list of all assignments.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a75b6468e6faa713a9470ef2b428f3577}\label{class_database_controller_a75b6468e6faa713a9470ef2b428f3577} 
+\index{DatabaseController@{DatabaseController}!GetClasses@{GetClasses}}
+\index{GetClasses@{GetClasses}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{GetClasses()}{GetClasses()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Get\+Classes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all classes in the system. 
+
+\begin{DoxyReturn}{Returns}
+200 OK with list of all classes.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a8aec49253097fc42cd2368236c35ae4f}\label{class_database_controller_a8aec49253097fc42cd2368236c35ae4f} 
+\index{DatabaseController@{DatabaseController}!GetGrades@{GetGrades}}
+\index{GetGrades@{GetGrades}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{GetGrades()}{GetGrades()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Get\+Grades (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all grades in the system. 
+
+\begin{DoxyReturn}{Returns}
+200 OK with list of all grades.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a33606046e75a2d8a7b9b4062f175064d}\label{class_database_controller_a33606046e75a2d8a7b9b4062f175064d} 
+\index{DatabaseController@{DatabaseController}!GetStudentAssignments@{GetStudentAssignments}}
+\index{GetStudentAssignments@{GetStudentAssignments}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{GetStudentAssignments()}{GetStudentAssignments()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Get\+Student\+Assignments (\begin{DoxyParamCaption}\item[{int}]{student\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all assignments for a specific student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with list of student\textquotesingle{}s assignments.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_abd0a85187857a06ad5134b459cd0fe67}\label{class_database_controller_abd0a85187857a06ad5134b459cd0fe67} 
+\index{DatabaseController@{DatabaseController}!GetStudentAverageGrades@{GetStudentAverageGrades}}
+\index{GetStudentAverageGrades@{GetStudentAverageGrades}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{GetStudentAverageGrades()}{GetStudentAverageGrades()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Get\+Student\+Average\+Grades (\begin{DoxyParamCaption}\item[{int}]{student\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves average grades for a specific student across all subjects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with list of student\textquotesingle{}s average grades by subject.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_aaafc666e5a537db632a10a5ef2cd13fb}\label{class_database_controller_aaafc666e5a537db632a10a5ef2cd13fb} 
+\index{DatabaseController@{DatabaseController}!GetStudentClasses@{GetStudentClasses}}
+\index{GetStudentClasses@{GetStudentClasses}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{GetStudentClasses()}{GetStudentClasses()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Get\+Student\+Classes (\begin{DoxyParamCaption}\item[{int}]{student\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all classes for a specific student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with list of student\textquotesingle{}s classes.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a2b6b588d186c760c2e55132816272200}\label{class_database_controller_a2b6b588d186c760c2e55132816272200} 
+\index{DatabaseController@{DatabaseController}!GetStudentGrades@{GetStudentGrades}}
+\index{GetStudentGrades@{GetStudentGrades}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{GetStudentGrades()}{GetStudentGrades()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Get\+Student\+Grades (\begin{DoxyParamCaption}\item[{int}]{student\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all grades for a specific student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with list of student\textquotesingle{}s grades.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_afafd8c2d558c6dae39994cc0b1295601}\label{class_database_controller_afafd8c2d558c6dae39994cc0b1295601} 
+\index{DatabaseController@{DatabaseController}!GetTeacherAssignments@{GetTeacherAssignments}}
+\index{GetTeacherAssignments@{GetTeacherAssignments}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{GetTeacherAssignments()}{GetTeacherAssignments()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Get\+Teacher\+Assignments (\begin{DoxyParamCaption}\item[{int}]{teacher\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all assignments for a specific teacher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em teacher\+Id} & The ID of the teacher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with list of teacher\textquotesingle{}s assignments.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a6c19e2809e9333235066deabae7cc601}\label{class_database_controller_a6c19e2809e9333235066deabae7cc601} 
+\index{DatabaseController@{DatabaseController}!GetTeacherClasses@{GetTeacherClasses}}
+\index{GetTeacherClasses@{GetTeacherClasses}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{GetTeacherClasses()}{GetTeacherClasses()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Get\+Teacher\+Classes (\begin{DoxyParamCaption}\item[{int}]{teacher\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all classes for a specific teacher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em teacher\+Id} & The ID of the teacher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with list of teacher\textquotesingle{}s classes.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_a5ff1b35d4197159dc452fc1328c867f0}\label{class_database_controller_a5ff1b35d4197159dc452fc1328c867f0} 
+\index{DatabaseController@{DatabaseController}!GetTeacherGrades@{GetTeacherGrades}}
+\index{GetTeacherGrades@{GetTeacherGrades}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{GetTeacherGrades()}{GetTeacherGrades()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Get\+Teacher\+Grades (\begin{DoxyParamCaption}\item[{int}]{teacher\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all grades given by a specific teacher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em teacher\+Id} & The ID of the teacher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with list of grades given by the teacher.
+\end{DoxyReturn}
+\Hypertarget{class_database_controller_acfb40b554aec54894845db8596df1f33}\label{class_database_controller_acfb40b554aec54894845db8596df1f33} 
+\index{DatabaseController@{DatabaseController}!GetUsers@{GetUsers}}
+\index{GetUsers@{GetUsers}!DatabaseController@{DatabaseController}}
+\doxysubsubsection{\texorpdfstring{GetUsers()}{GetUsers()}}
+{\footnotesize\ttfamily IAction\+Result Database\+Controller.\+Get\+Users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all users in the system. 
+
+\begin{DoxyReturn}{Returns}
+200 OK with list of all users.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Catalogue\+Server/\+Controllers/Database\+Controller.\+cs\end{DoxyCompactItemize}

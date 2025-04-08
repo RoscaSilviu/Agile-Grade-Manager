@@ -1,0 +1,78 @@
+\doxysection{Catalogue\+Server.\+Controllers.\+Grade\+History\+Controller Class Reference}
+\hypertarget{class_catalogue_server_1_1_controllers_1_1_grade_history_controller}{}\label{class_catalogue_server_1_1_controllers_1_1_grade_history_controller}\index{CatalogueServer.Controllers.GradeHistoryController@{CatalogueServer.Controllers.GradeHistoryController}}
+
+
+Controller responsible for retrieving detailed grade history information for students. Provides endpoints for viewing grades by subject with detailed information.  
+
+
+Inheritance diagram for Catalogue\+Server.\+Controllers.\+Grade\+History\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_catalogue_server_1_1_controllers_1_1_grade_history_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_grade_history_controller_a7e0939347d39363028c3e9e4b632f715}{Grade\+History\+Controller}} (\mbox{\hyperlink{interface_i_user_repository}{IUser\+Repository}} user\+Repository, \mbox{\hyperlink{interface_i_grade_repository}{IGrade\+Repository}} grade\+Repository)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Grade\+History\+Controller. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_grade_history_controller_acef5e64b91b34bee783044b1348f5b93}{Get\+Grade\+History}} (string subject)
+\begin{DoxyCompactList}\small\item\em Retrieves the grade history for a specific subject for the authenticated student. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller responsible for retrieving detailed grade history information for students. Provides endpoints for viewing grades by subject with detailed information. 
+
+This controller requires authentication via Bearer token and is designed to work with student accounts to display their detailed grade history. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_grade_history_controller_a7e0939347d39363028c3e9e4b632f715}\label{class_catalogue_server_1_1_controllers_1_1_grade_history_controller_a7e0939347d39363028c3e9e4b632f715} 
+\index{CatalogueServer.Controllers.GradeHistoryController@{CatalogueServer.Controllers.GradeHistoryController}!GradeHistoryController@{GradeHistoryController}}
+\index{GradeHistoryController@{GradeHistoryController}!CatalogueServer.Controllers.GradeHistoryController@{CatalogueServer.Controllers.GradeHistoryController}}
+\doxysubsubsection{\texorpdfstring{GradeHistoryController()}{GradeHistoryController()}}
+{\footnotesize\ttfamily Catalogue\+Server.\+Controllers.\+Grade\+History\+Controller.\+Grade\+History\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_i_user_repository}{IUser\+Repository}}}]{user\+Repository,  }\item[{\mbox{\hyperlink{interface_i_grade_repository}{IGrade\+Repository}}}]{grade\+Repository }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Grade\+History\+Controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Repository} & Repository for user operations.\\
+\hline
+{\em grade\+Repository} & Repository for grade operations.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when any repository is null.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_grade_history_controller_acef5e64b91b34bee783044b1348f5b93}\label{class_catalogue_server_1_1_controllers_1_1_grade_history_controller_acef5e64b91b34bee783044b1348f5b93} 
+\index{CatalogueServer.Controllers.GradeHistoryController@{CatalogueServer.Controllers.GradeHistoryController}!GetGradeHistory@{GetGradeHistory}}
+\index{GetGradeHistory@{GetGradeHistory}!CatalogueServer.Controllers.GradeHistoryController@{CatalogueServer.Controllers.GradeHistoryController}}
+\doxysubsubsection{\texorpdfstring{GetGradeHistory()}{GetGradeHistory()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Grade\+History\+Controller.\+Get\+Grade\+History (\begin{DoxyParamCaption}\item[{string}]{subject }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the grade history for a specific subject for the authenticated student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em subject} & The name of the subject to get grades for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with detailed grade history; 401 Unauthorized if the authentication token is missing or invalid. 
+\end{DoxyReturn}
+
+
+The endpoint requires a valid Bearer token in the Authorization header. Returns detailed grade information including assignment names, dates, and teacher comments. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Catalogue\+Server/\+Controllers/Grade\+History\+Controller.\+cs\end{DoxyCompactItemize}

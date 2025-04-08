@@ -46,18 +46,31 @@
 </div>
 
 @code {
+    /// <summary>
+    /// ViewModel for managing the state and data of the class creation form.
+    /// </summary>
     private CreateClassViewModel viewModel = new CreateClassViewModel();
 
+    /// <summary>
+    /// Handles the submission of the new class form.
+    /// </summary>
+    /// <returns>A task representing the asynchronous operation.</returns>
     private async Task SubmitNewClass()
     {
+        // Attempt to create a new class using the class service.
         await viewModel.CreateClassAsync(ClassService);
+
         if (viewModel.Success)
         {
-            await Task.Delay(1500); // Show success message briefly
+            // Show the success message briefly before navigating to the "My Classes" page.
+            await Task.Delay(1500);
             Navigation.NavigateTo("/my-classes");
         }
     }
 
+    /// <summary>
+    /// Cancels the class creation process and navigates back to the "My Classes" page.
+    /// </summary>
     private void Cancel()
     {
         Navigation.NavigateTo("/my-classes");

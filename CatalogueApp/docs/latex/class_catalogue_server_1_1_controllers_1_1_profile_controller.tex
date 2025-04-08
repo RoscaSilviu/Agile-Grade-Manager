@@ -1,0 +1,93 @@
+\doxysection{Catalogue\+Server.\+Controllers.\+Profile\+Controller Class Reference}
+\hypertarget{class_catalogue_server_1_1_controllers_1_1_profile_controller}{}\label{class_catalogue_server_1_1_controllers_1_1_profile_controller}\index{CatalogueServer.Controllers.ProfileController@{CatalogueServer.Controllers.ProfileController}}
+
+
+Controller responsible for managing user profile operations. Provides endpoints for retrieving and updating user profile information.  
+
+
+Inheritance diagram for Catalogue\+Server.\+Controllers.\+Profile\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_catalogue_server_1_1_controllers_1_1_profile_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_profile_controller_abc305d4ff45c4722eb415859bb86691f}{Profile\+Controller}} (\mbox{\hyperlink{interface_i_user_repository}{IUser\+Repository}} user\+Repository)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Profile\+Controller. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_profile_controller_a90828f469161d5e6bc9c9c3b1f2cddc1}{Get\+Profile}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the profile information for the authenticated user. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_profile_controller_a4526e5cc3dc409613e91cbd055c14e74}{Change\+Password}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_change_password_request}{Change\+Password\+Request}} request)
+\begin{DoxyCompactList}\small\item\em Changes the password for the authenticated user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller responsible for managing user profile operations. Provides endpoints for retrieving and updating user profile information. 
+
+All endpoints in this controller require authentication via Bearer token. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_profile_controller_abc305d4ff45c4722eb415859bb86691f}\label{class_catalogue_server_1_1_controllers_1_1_profile_controller_abc305d4ff45c4722eb415859bb86691f} 
+\index{CatalogueServer.Controllers.ProfileController@{CatalogueServer.Controllers.ProfileController}!ProfileController@{ProfileController}}
+\index{ProfileController@{ProfileController}!CatalogueServer.Controllers.ProfileController@{CatalogueServer.Controllers.ProfileController}}
+\doxysubsubsection{\texorpdfstring{ProfileController()}{ProfileController()}}
+{\footnotesize\ttfamily Catalogue\+Server.\+Controllers.\+Profile\+Controller.\+Profile\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_i_user_repository}{IUser\+Repository}}}]{user\+Repository }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Profile\+Controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Repository} & Repository for user operations.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when user\+Repository is null.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_profile_controller_a4526e5cc3dc409613e91cbd055c14e74}\label{class_catalogue_server_1_1_controllers_1_1_profile_controller_a4526e5cc3dc409613e91cbd055c14e74} 
+\index{CatalogueServer.Controllers.ProfileController@{CatalogueServer.Controllers.ProfileController}!ChangePassword@{ChangePassword}}
+\index{ChangePassword@{ChangePassword}!CatalogueServer.Controllers.ProfileController@{CatalogueServer.Controllers.ProfileController}}
+\doxysubsubsection{\texorpdfstring{ChangePassword()}{ChangePassword()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Profile\+Controller.\+Change\+Password (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_change_password_request}{Change\+Password\+Request}}}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Changes the password for the authenticated user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The password change request containing current and new passwords.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK if password changed successfully; 400 Bad\+Request if the request is invalid or current password is incorrect; 401 Unauthorized if the authentication token is missing or invalid. 
+\end{DoxyReturn}
+
+
+The endpoint requires a valid Bearer token in the Authorization header. The current password must be verified before allowing the change. \Hypertarget{class_catalogue_server_1_1_controllers_1_1_profile_controller_a90828f469161d5e6bc9c9c3b1f2cddc1}\label{class_catalogue_server_1_1_controllers_1_1_profile_controller_a90828f469161d5e6bc9c9c3b1f2cddc1} 
+\index{CatalogueServer.Controllers.ProfileController@{CatalogueServer.Controllers.ProfileController}!GetProfile@{GetProfile}}
+\index{GetProfile@{GetProfile}!CatalogueServer.Controllers.ProfileController@{CatalogueServer.Controllers.ProfileController}}
+\doxysubsubsection{\texorpdfstring{GetProfile()}{GetProfile()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Profile\+Controller.\+Get\+Profile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the profile information for the authenticated user. 
+
+\begin{DoxyReturn}{Returns}
+200 OK with the user\textquotesingle{}s profile information; 401 Unauthorized if the authentication token is missing or invalid. 
+\end{DoxyReturn}
+
+
+The endpoint requires a valid Bearer token in the Authorization header. Returns a sanitized version of the user profile without sensitive information. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Catalogue\+Server/\+Controllers/Profile\+Controller.\+cs\end{DoxyCompactItemize}

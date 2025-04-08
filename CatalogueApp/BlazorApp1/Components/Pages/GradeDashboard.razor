@@ -46,13 +46,24 @@
 </div>
 
 @code {
+    /// <summary>
+    /// ViewModel for managing the state and data of the grade dashboard.
+    /// </summary>
     private GradeDashboardViewModel viewModel = new GradeDashboardViewModel();
 
+    /// <summary>
+    /// Initializes the component and loads grade data asynchronously.
+    /// </summary>
+    /// <returns>A task representing the asynchronous operation.</returns>
     protected override async Task OnInitializedAsync()
     {
         await viewModel.LoadGradesAsync(GradeService, Navigation);
     }
 
+    /// <summary>
+    /// Navigates to the grade history page for the specified subject.
+    /// </summary>
+    /// <param name="subject">The subject for which to view grade history.</param>
     private void NavigateToHistory(string subject)
     {
         Navigation.NavigateTo($"/grades/{Uri.EscapeDataString(subject)}");

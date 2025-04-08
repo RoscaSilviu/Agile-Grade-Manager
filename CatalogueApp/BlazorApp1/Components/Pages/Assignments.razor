@@ -46,19 +46,16 @@
 <div class="login-container">
     <div class="login-card">
         <h3 class="text-center mb-4" style="color: white;">Manage Class Assignments</h3>
-        
     </div>
 </div>
 
-
-    <div class="management-modal">
-        <div class="management-content">
-            <div class="flex justify-between mb-4">
+<div class="management-modal">
+    <div class="management-content">
+        <div class="flex justify-between mb-4">
             <h3>Assignments for @ClassName</h3>
-                
-            </div>
+        </div>
 
-            <!-- Add Assignment Form -->
+        <!-- Add Assignment Form -->
         <div class="mb-2">
             <label for="title">Title</label>
             <input id="title" class="form-control" @bind="newAssignment.Title" />
@@ -79,41 +76,39 @@
             <input id="maxPoints" type="number" class="form-control" @bind="newAssignment.MaxPoints" />
         </div>
 
-		<div class="mb-4">
-			<button class="btn btn-primary" @onclick="AddAssignment">Add Assignment</button>
-		</div>
+        <div class="mb-4">
+            <button class="btn btn-primary" @onclick="AddAssignment">Add Assignment</button>
+        </div>
 
-
-            <!-- Assignments List -->
-            <div class="space-y-2">
-                @foreach (var assignment in classAssignments)
-                {
-                    <div class="assignment-item">
-                        <div class="flex-1">
-                            <h4>@assignment.Title</h4>
-                            <p>@assignment.Description</p>
-                            <small>Due: @assignment.DueDate.ToString("f")</small>
-                            <span class="badge bg-secondary">@assignment.MaxPoints points</span>
-                        </div>
-                        <div class="flex gap-2">
-                            <button class="btn btn-sm btn-warning"
-                                    @onclick="() => EditAssignment(assignment)">
-                                ✏️ Edit
-                            </button>
-                            <button class="btn btn-sm btn-danger"
-                                    @onclick="() => DeleteAssignment(assignment.Id)">
-                                🗑️ Delete
-                            </button>
+        <!-- Assignments List -->
+        <div class="space-y-2">
+            @foreach (var assignment in classAssignments)
+            {
+                <div class="assignment-item">
+                    <div class="flex-1">
+                        <h4>@assignment.Title</h4>
+                        <p>@assignment.Description</p>
+                        <small>Due: @assignment.DueDate.ToString("f")</small>
+                        <span class="badge bg-secondary">@assignment.MaxPoints points</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="btn btn-sm btn-warning"
+                                @onclick="() => EditAssignment(assignment)">
+                            ✏️ Edit
+                        </button>
+                        <button class="btn btn-sm btn-danger"
+                                @onclick="() => DeleteAssignment(assignment.Id)">
+                            🗑️ Delete
+                        </button>
                         <button class="btn btn-secondary ml-2" @onclick="() => OpenGradeModal(assignment)">
                             🎓 Grade
                         </button>
-
-                        </div>
                     </div>
-                }
-            </div>
+                </div>
+            }
         </div>
     </div>
+</div>
 
 @if (showGradeModal)
 {
@@ -143,20 +138,52 @@
     </div>
 }
 
-
 @code {
+    /// <summary>
+    /// The name of the class for which assignments are being managed.
+    /// </summary>
     [Parameter]
     public string ClassName { get; set; }
 
+    /// <summary>
+    /// The current class being managed.
+    /// </summary>
     private ClassModel currentClass = new();
+
+    /// <summary>
+    /// The list of assignments for the current class.
+    /// </summary>
     private List<AssignmentModel> classAssignments = new();
+
+    /// <summary>
+    /// The new assignment being created.
+    /// </summary>
     private AssignmentModel newAssignment = new();
+
+    /// <summary>
+    /// The assignment being edited.
+    /// </summary>
     private AssignmentModel editAssignment = null;
 
+    /// <summary>
+    /// The assignment selected for grading.
+    /// </summary>
     private AssignmentModel selectedAssignmentForGrading;
-    private bool showGradeModal = false;
-    private List<StudentGradeModel> studentGrades = new(); // Define a model for student + grade
 
+    /// <summary>
+    /// Indicates whether the grade modal is visible.
+    /// </summary>
+    private bool showGradeModal = false;
+
+    /// <summary>
+    /// The list of student grades for the selected assignment.
+    /// </summary>
+    private List<StudentGradeModel> studentGrades = new();
+
+    /// <summary>
+    /// Opens the grade modal for the specified assignment.
+    /// </summary>
+    /// <param name="assignment">The assignment for which grades are being managed.</param>
     private async Task OpenGradeModal(AssignmentModel assignment)
     {
         selectedAssignmentForGrading = assignment;
@@ -164,6 +191,9 @@
         showGradeModal = true;
     }
 
+    /// <summary>
+    /// Closes the grade modal.
+    /// </summary>
     private void CloseGradeModal()
     {
         selectedAssignmentForGrading = null;
@@ -171,17 +201,25 @@
         showGradeModal = false;
     }
 
-	private async Task SaveGradesAsync()
-	{
-		await AssignmentService.SaveGradesAsync(selectedAssignmentForGrading.Id, studentGrades);
-		showGradeModal = false;
-		StateHasChanged();
-	}
+    /// <summary>
+    /// Saves the grades for the selected assignment asynchronously.
+    /// </summary>
+    private async Task SaveGradesAsync()
+    {
+        await AssignmentService.SaveGradesAsync(selectedAssignmentForGrading.Id, studentGrades);
+        showGradeModal = false;
+        StateHasChanged();
+    }
 
-
-	//on initial load, get the class name from the URL
+    /// <summary>
+    /// Indicates whether the component has been loaded.
+    /// </summary>
     private bool _loaded = false;
 
+    /// <summary>
+    /// Loads the class and its assignments after the component is rendered for the first time.
+    /// </summary>
+    /// <param name="firstRender">Indicates whether this is the first render of the component.</param>
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender && !_loaded && !string.IsNullOrEmpty(ClassName))
@@ -189,12 +227,13 @@
             currentClass = await ClassService.GetClassByNameAsync(ClassName);
             classAssignments = await ClassService.GetAssignmentsForClassAsync(ClassName);
             _loaded = true;
-            StateHasChanged(); // Refresh UI after data load
+            StateHasChanged();
         }
     }
 
-   
-
+    /// <summary>
+    /// Adds a new assignment to the current class.
+    /// </summary>
     private async Task AddAssignment()
     {
         if (!string.IsNullOrEmpty(newAssignment.Title))
@@ -207,6 +246,10 @@
         }
     }
 
+    /// <summary>
+    /// Deletes the specified assignment from the current class.
+    /// </summary>
+    /// <param name="assignmentId">The ID of the assignment to delete.</param>
     private async Task DeleteAssignment(int assignmentId)
     {
         await ClassService.DeleteAssignmentAsync(assignmentId);
@@ -214,6 +257,10 @@
         StateHasChanged();
     }
 
+    /// <summary>
+    /// Prepares the specified assignment for editing.
+    /// </summary>
+    /// <param name="assignment">The assignment to edit.</param>
     private void EditAssignment(AssignmentModel assignment)
     {
         editAssignment = assignment;
@@ -227,6 +274,9 @@
             };
     }
 
+    /// <summary>
+    /// Updates the currently edited assignment.
+    /// </summary>
     private async Task UpdateAssignment()
     {
         if (editAssignment != null)

@@ -38,18 +38,33 @@
 </div>
 
 @code {
+    /// <summary>
+    /// The login model containing the user's email and password.
+    /// </summary>
     private CatalogueApp.Components.Services.LoginRequest loginModel = new();
+
+    /// <summary>
+    /// The error message to display if login fails.
+    /// </summary>
     private string? errorMessage;
 
+    /// <summary>
+    /// Handles the login process when the form is submitted.
+    /// </summary>
+    /// <returns>A task representing the asynchronous operation.</returns>
     private async Task HandleLogin()
     {
         errorMessage = null;
-        var (token , role) = await AuthService.LoginAsync(loginModel.Email, loginModel.Password);
+
+        // Attempt to log in using the provided email and password.
+        var (token, role) = await AuthService.LoginAsync(loginModel.Email, loginModel.Password);
 
         if (!string.IsNullOrEmpty(token))
         {
+            // Store the authentication token in local storage.
             await LocalStorage.SetItemAsync("authToken", token);
 
+            // Navigate to the appropriate page based on the user's role.
             if (role == "teacher")
                 Navigation.NavigateTo("/teacher");
             else
@@ -57,6 +72,7 @@
         }
         else
         {
+            // Display an error message if login fails.
             errorMessage = "Invalid email or password";
         }
     }

@@ -4,8 +4,15 @@ using SQLite;
 
 namespace CatalogueServer.Repositories
 {
+    /// <summary>
+    /// Repository implementation for managing grades and grade-related operations.
+    /// </summary>
     public class GradeRepository : BaseRepository<Grade>, IGradeRepository
     {
+        /// <summary>
+        /// Initializes a new instance of the GradeRepository class.
+        /// </summary>
+        /// <param name="database">The database instance containing the connection.</param>
         public GradeRepository(Database database) : base(database.Connection) { }
 
         // Get all grades for a teacher
@@ -88,13 +95,39 @@ namespace CatalogueServer.Repositories
             return query.ToList();
         }
 
+        /// <summary>
+        /// Represents detailed information about a student's grade.
+        /// </summary>
         public class GradeDetail
         {
+            /// <summary>
+            /// Gets or sets the subject name.
+            /// </summary>
             public string Subject { get; set; } = string.Empty;
+
+            /// <summary>
+            /// Gets or sets the grade value.
+            /// </summary>
             public int Value { get; set; }
+
+            /// <summary>
+            /// Gets or sets the date when the grade was assigned.
+            /// </summary>
             public DateTime Date { get; set; }
+
+            /// <summary>
+            /// Gets or sets the name of the assignment.
+            /// </summary>
             public string AssignmentName { get; set; } = string.Empty;
+
+            /// <summary>
+            /// Gets or sets the name of the teacher.
+            /// </summary>
             public string TeacherName { get; set; } = string.Empty;
+
+            /// <summary>
+            /// Gets or sets any comments associated with the grade.
+            /// </summary>
             public string? Comments { get; set; }
         }
     }

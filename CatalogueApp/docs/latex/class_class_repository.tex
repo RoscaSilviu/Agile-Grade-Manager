@@ -1,0 +1,190 @@
+\doxysection{Class\+Repository Class Reference}
+\hypertarget{class_class_repository}{}\label{class_class_repository}\index{ClassRepository@{ClassRepository}}
+
+
+Repository implementation for managing classes and student enrollments.  
+
+
+Inheritance diagram for Class\+Repository\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_class_repository}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_class_repository_a736b67349e77eac708e890c2c6947cab}{Class\+Repository}} (\mbox{\hyperlink{class_database}{Database}} database)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \doxylink{class_class_repository}{Class\+Repository} class. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_class}{Class}} $>$ \mbox{\hyperlink{class_class_repository_a2899fc2bd4c253e5e1c6001c74b21393}{Get\+Classes\+By\+Teacher\+Id}} (int teacher\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all classes taught by a specific teacher. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_class_repository_ab40c0e062bf8b95340eb6e4d27a8d2d9}{Add\+Student\+To\+Class}} (int class\+Id, int student\+Id)
+\begin{DoxyCompactList}\small\item\em Enrolls a student in a specific class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_class_repository_ad44345902c1d5d857962ef633991c931}{Remove\+Student\+From\+Class}} (int class\+Id, int student\+Id)
+\begin{DoxyCompactList}\small\item\em Removes a student\textquotesingle{}s enrollment from a specific class. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{class_class_repository_a53464a371fef390dc23e97f4fd91f5bc}{Get\+Students\+In\+Class}} (int class\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all students enrolled in a specific class. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_class}{Class}} $>$ \mbox{\hyperlink{class_class_repository_a2ed992f67ab88f5ca96e2316c291cbcf}{Get\+Classes\+By\+Student\+Id}} (int student\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all classes in which a specific student is enrolled. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_class}{Class}} \mbox{\hyperlink{class_class_repository_addfd099511410491d7f6faf82f6abbf7}{Get\+Class\+By\+Name\+And\+Teacher\+Id}} (string name, int teacher\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves a specific class by its name and teacher. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository$<$ Class $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_ac987e2b265fe3ac5d014e68f6721d8ea}{Base\+Repository}} (SQLite\+Connection db)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Base\+Repository class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_accb38eb4bb1da6d7ab13c6aabc13f51e}{Insert}} (T entity)
+\begin{DoxyCompactList}\small\item\em Inserts a new entity into the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_ad6c8f9d46a3217576e5a931fd4bb3cbe}{Update}} (T entity)
+\begin{DoxyCompactList}\small\item\em Updates an existing entity in the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a9ef314ada88f8f55c73fa1d7ca66fac6}{Delete}} (T entity)
+\begin{DoxyCompactList}\small\item\em Deletes an entity from the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a6470872959018cdf913ae9e9fabbe3f8}{Delete\+All}} ()
+\begin{DoxyCompactList}\small\item\em Deletes all entities of type T from the database. \end{DoxyCompactList}\item 
+List$<$ T $>$ \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a8a0befc9493db3049c5417ecdf558b33}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all entities of type T from the database. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_abf482f27a78572fbeffe7d6e81555d05}{Get\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Retrieves an entity by its ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository$<$ Class $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+readonly SQLite\+Connection \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a216737b1c9b3d99cc8ba8374716b19c7}{\+\_\+db}}
+\begin{DoxyCompactList}\small\item\em The SQLite database connection used for all database operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Repository implementation for managing classes and student enrollments. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_class_repository_a736b67349e77eac708e890c2c6947cab}\label{class_class_repository_a736b67349e77eac708e890c2c6947cab} 
+\index{ClassRepository@{ClassRepository}!ClassRepository@{ClassRepository}}
+\index{ClassRepository@{ClassRepository}!ClassRepository@{ClassRepository}}
+\doxysubsubsection{\texorpdfstring{ClassRepository()}{ClassRepository()}}
+{\footnotesize\ttfamily Class\+Repository.\+Class\+Repository (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_database}{Database}}}]{database }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the \doxylink{class_class_repository}{Class\+Repository} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em database} & The database instance containing the connection.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_class_repository_ab40c0e062bf8b95340eb6e4d27a8d2d9}\label{class_class_repository_ab40c0e062bf8b95340eb6e4d27a8d2d9} 
+\index{ClassRepository@{ClassRepository}!AddStudentToClass@{AddStudentToClass}}
+\index{AddStudentToClass@{AddStudentToClass}!ClassRepository@{ClassRepository}}
+\doxysubsubsection{\texorpdfstring{AddStudentToClass()}{AddStudentToClass()}}
+{\footnotesize\ttfamily void Class\+Repository.\+Add\+Student\+To\+Class (\begin{DoxyParamCaption}\item[{int}]{class\+Id,  }\item[{int}]{student\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enrolls a student in a specific class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Id} & The ID of the class.\\
+\hline
+{\em student\+Id} & The ID of the student to enroll.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_class_repository_addfd099511410491d7f6faf82f6abbf7}\label{class_class_repository_addfd099511410491d7f6faf82f6abbf7} 
+\index{ClassRepository@{ClassRepository}!GetClassByNameAndTeacherId@{GetClassByNameAndTeacherId}}
+\index{GetClassByNameAndTeacherId@{GetClassByNameAndTeacherId}!ClassRepository@{ClassRepository}}
+\doxysubsubsection{\texorpdfstring{GetClassByNameAndTeacherId()}{GetClassByNameAndTeacherId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_class}{Class}} Class\+Repository.\+Get\+Class\+By\+Name\+And\+Teacher\+Id (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{int}]{teacher\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves a specific class by its name and teacher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the class.\\
+\hline
+{\em teacher\+Id} & The ID of the teacher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The matching class if found; null otherwise.
+\end{DoxyReturn}
+\Hypertarget{class_class_repository_a2ed992f67ab88f5ca96e2316c291cbcf}\label{class_class_repository_a2ed992f67ab88f5ca96e2316c291cbcf} 
+\index{ClassRepository@{ClassRepository}!GetClassesByStudentId@{GetClassesByStudentId}}
+\index{GetClassesByStudentId@{GetClassesByStudentId}!ClassRepository@{ClassRepository}}
+\doxysubsubsection{\texorpdfstring{GetClassesByStudentId()}{GetClassesByStudentId()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_class}{Class}} $>$ Class\+Repository.\+Get\+Classes\+By\+Student\+Id (\begin{DoxyParamCaption}\item[{int}]{student\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all classes in which a specific student is enrolled. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of classes the student is enrolled in.
+\end{DoxyReturn}
+\Hypertarget{class_class_repository_a2899fc2bd4c253e5e1c6001c74b21393}\label{class_class_repository_a2899fc2bd4c253e5e1c6001c74b21393} 
+\index{ClassRepository@{ClassRepository}!GetClassesByTeacherId@{GetClassesByTeacherId}}
+\index{GetClassesByTeacherId@{GetClassesByTeacherId}!ClassRepository@{ClassRepository}}
+\doxysubsubsection{\texorpdfstring{GetClassesByTeacherId()}{GetClassesByTeacherId()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_class}{Class}} $>$ Class\+Repository.\+Get\+Classes\+By\+Teacher\+Id (\begin{DoxyParamCaption}\item[{int}]{teacher\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all classes taught by a specific teacher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em teacher\+Id} & The ID of the teacher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of classes assigned to the specified teacher.
+\end{DoxyReturn}
+\Hypertarget{class_class_repository_a53464a371fef390dc23e97f4fd91f5bc}\label{class_class_repository_a53464a371fef390dc23e97f4fd91f5bc} 
+\index{ClassRepository@{ClassRepository}!GetStudentsInClass@{GetStudentsInClass}}
+\index{GetStudentsInClass@{GetStudentsInClass}!ClassRepository@{ClassRepository}}
+\doxysubsubsection{\texorpdfstring{GetStudentsInClass()}{GetStudentsInClass()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_user}{User}} $>$ Class\+Repository.\+Get\+Students\+In\+Class (\begin{DoxyParamCaption}\item[{int}]{class\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all students enrolled in a specific class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Id} & The ID of the class.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of users who are enrolled in the specified class.
+\end{DoxyReturn}
+\Hypertarget{class_class_repository_ad44345902c1d5d857962ef633991c931}\label{class_class_repository_ad44345902c1d5d857962ef633991c931} 
+\index{ClassRepository@{ClassRepository}!RemoveStudentFromClass@{RemoveStudentFromClass}}
+\index{RemoveStudentFromClass@{RemoveStudentFromClass}!ClassRepository@{ClassRepository}}
+\doxysubsubsection{\texorpdfstring{RemoveStudentFromClass()}{RemoveStudentFromClass()}}
+{\footnotesize\ttfamily void Class\+Repository.\+Remove\+Student\+From\+Class (\begin{DoxyParamCaption}\item[{int}]{class\+Id,  }\item[{int}]{student\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes a student\textquotesingle{}s enrollment from a specific class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em class\+Id} & The ID of the class.\\
+\hline
+{\em student\+Id} & The ID of the student to remove.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Catalogue\+Server/\+Repositories/Class\+Repository.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,14 @@
+var searchData=
+[
+  ['database_0',['Database',['../class_database.html#abc8e5d4912ff1167de3f17b09adb43be',1,'Database.Database()'],['../class_database.html',1,'Database']]],
+  ['databasecontroller_1',['DatabaseController',['../class_database_controller.html',1,'DatabaseController'],['../class_database_controller.html#ae5ac0dd12d507087a0214431ce8fa5a5',1,'DatabaseController.DatabaseController()']]],
+  ['date_2',['Date',['../class_catalogue_server_1_1_controllers_1_1_grade_history_result.html#afd6bb6e52921762958ca3305f966ee2a',1,'CatalogueServer.Controllers.GradeHistoryResult.Date'],['../class_grade.html#a3d70ebb53cb248c50e04814b97c82b07',1,'Grade.Date'],['../class_catalogue_server_1_1_repositories_1_1_grade_repository_1_1_grade_detail.html#aeb1747781f597fc1d9db86ba3b3aa08d',1,'CatalogueServer.Repositories.GradeRepository.GradeDetail.Date']]],
+  ['delete_3',['Delete',['../class_catalogue_server_1_1_repositories_1_1_base_repository.html#a9ef314ada88f8f55c73fa1d7ca66fac6',1,'CatalogueServer.Repositories.BaseRepository.Delete()'],['../interface_i_user_repository.html#ac707b46cbe493ac8101c7a1e2e0009c4',1,'IUserRepository.Delete(User entity)']]],
+  ['deleteall_4',['DeleteAll',['../interface_i_user_repository.html#ac84e22c3cab49bb168ff275421662619',1,'IUserRepository.DeleteAll()'],['../class_catalogue_server_1_1_repositories_1_1_base_repository.html#a6470872959018cdf913ae9e9fabbe3f8',1,'CatalogueServer.Repositories.BaseRepository.DeleteAll()']]],
+  ['deleteassignment_5',['DeleteAssignment',['../class_catalogue_server_1_1_controllers_1_1_class_controller.html#a4d1489b2d2273c0583f242f1fc7aebb0',1,'CatalogueServer.Controllers.ClassController.DeleteAssignment()'],['../class_database_controller.html#a958998e2e6a5c065e9dcd1208ef7258a',1,'DatabaseController.DeleteAssignment()']]],
+  ['deleteclass_6',['DeleteClass',['../class_catalogue_server_1_1_controllers_1_1_class_controller.html#ac1c80ff038e39a8f41e1331d081202d4',1,'CatalogueServer.Controllers.ClassController.DeleteClass()'],['../class_database_controller.html#aa27901074f2af8e7084ca644e3952926',1,'DatabaseController.DeleteClass(int id)']]],
+  ['deletegrade_7',['DeleteGrade',['../class_database_controller.html#a9eca3fe553c2f9555cf2116edb01a1f2',1,'DatabaseController']]],
+  ['deleteuser_8',['DeleteUser',['../class_database_controller.html#a5a9189a35e57d3fd8285ece732564ba5',1,'DatabaseController']]],
+  ['description_9',['Description',['../class_catalogue_server_1_1_controllers_1_1_assignment_response.html#aa2c37c7a8f42d340b9dc3f88bd71a4db',1,'CatalogueServer.Controllers.AssignmentResponse.Description'],['../class_assignment.html#acea32ab4e29aaec66e1bec234b79176d',1,'Assignment.Description']]],
+  ['duedate_10',['DueDate',['../class_catalogue_server_1_1_controllers_1_1_assignment_response.html#ac5bf58c8a7f980811069b43ece129c65',1,'CatalogueServer.Controllers.AssignmentResponse.DueDate'],['../class_assignment.html#a74a3c2481970d3586237b145de4afd4e',1,'Assignment.DueDate']]]
+];

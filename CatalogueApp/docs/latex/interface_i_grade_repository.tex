@@ -1,0 +1,195 @@
+\doxysection{IGrade\+Repository Interface Reference}
+\hypertarget{interface_i_grade_repository}{}\label{interface_i_grade_repository}\index{IGradeRepository@{IGradeRepository}}
+
+
+Interface defining operations for managing grades in the system.  
+
+
+Inheritance diagram for IGrade\+Repository\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_i_grade_repository}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{class_grade}{Grade}} $>$ \mbox{\hyperlink{interface_i_grade_repository_a1aaa799a034be9103a804023ae1a6fd6}{Get\+Grades\+By\+Teacher\+Id}} (int teacher\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all grades associated with a specific teacher. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_grade}{Grade}} $>$ \mbox{\hyperlink{interface_i_grade_repository_a5b23fe3523417bd45eb5f2b43b07f8da}{Get\+Grades\+By\+Student\+Id}} (int student\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all grades for a specific student. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_grade}{Grade}} $>$ \mbox{\hyperlink{interface_i_grade_repository_a776746f491f25de5ddc7539e51ce8199}{Get\+Grades\+By\+Assignment\+Id}} (int assignment\+Id)
+\begin{DoxyCompactList}\small\item\em Retrieves all grades for a specific assignment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_i_grade_repository_ad11d366bdfb2e70d8ea65925efdb96a2}{Grade\+Assignment}} (int student\+Id, int assignment\+Id, int grade\+Value)
+\begin{DoxyCompactList}\small\item\em Records a grade for a student\textquotesingle{}s assignment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{interface_i_grade_repository_a7402a58be9c1bc8332981ee3276477fd}{Bulk\+Grade\+Assignments}} (List$<$ \mbox{\hyperlink{class_grade}{Grade}} $>$ grades)
+\begin{DoxyCompactList}\small\item\em Records multiple grades at once. \end{DoxyCompactList}\item 
+List$<$(string Subject, double Average\+Grade, Date\+Time Last\+Graded)$>$ \mbox{\hyperlink{interface_i_grade_repository_ac3335a6c951c62c6b7e1b80f0b0392bd}{Get\+Student\+Average\+Grades}} (int student\+Id)
+\begin{DoxyCompactList}\small\item\em Calculates average grades per subject for a student. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_grade_repository_1_1_grade_detail}{Grade\+Repository.\+Grade\+Detail}} $>$ \mbox{\hyperlink{interface_i_grade_repository_a5aa47067685ca5f70ffaf8d8b6d77bed}{Get\+Student\+Grades\+By\+Subject}} (int student\+Id, string subject)
+\begin{DoxyCompactList}\small\item\em Retrieves detailed grade information for a student in a specific subject. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface defining operations for managing grades in the system. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_i_grade_repository_a7402a58be9c1bc8332981ee3276477fd}\label{interface_i_grade_repository_a7402a58be9c1bc8332981ee3276477fd} 
+\index{IGradeRepository@{IGradeRepository}!BulkGradeAssignments@{BulkGradeAssignments}}
+\index{BulkGradeAssignments@{BulkGradeAssignments}!IGradeRepository@{IGradeRepository}}
+\doxysubsubsection{\texorpdfstring{BulkGradeAssignments()}{BulkGradeAssignments()}}
+{\footnotesize\ttfamily void IGrade\+Repository.\+Bulk\+Grade\+Assignments (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{class_grade}{Grade}} $>$}]{grades }\end{DoxyParamCaption})}
+
+
+
+Records multiple grades at once. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grades} & The list of grades to record.\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_grade_repository_a91006372833028538a08ba264b87afd5}{Catalogue\+Server.\+Repositories.\+Grade\+Repository}}.
+
+\Hypertarget{interface_i_grade_repository_a776746f491f25de5ddc7539e51ce8199}\label{interface_i_grade_repository_a776746f491f25de5ddc7539e51ce8199} 
+\index{IGradeRepository@{IGradeRepository}!GetGradesByAssignmentId@{GetGradesByAssignmentId}}
+\index{GetGradesByAssignmentId@{GetGradesByAssignmentId}!IGradeRepository@{IGradeRepository}}
+\doxysubsubsection{\texorpdfstring{GetGradesByAssignmentId()}{GetGradesByAssignmentId()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_grade}{Grade}} $>$ IGrade\+Repository.\+Get\+Grades\+By\+Assignment\+Id (\begin{DoxyParamCaption}\item[{int}]{assignment\+Id }\end{DoxyParamCaption})}
+
+
+
+Retrieves all grades for a specific assignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em assignment\+Id} & The ID of the assignment.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of grades for the assignment.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_grade_repository_a8dbdc6fee73be5830b8244aa3bda0cf6}{Catalogue\+Server.\+Repositories.\+Grade\+Repository}}.
+
+\Hypertarget{interface_i_grade_repository_a5b23fe3523417bd45eb5f2b43b07f8da}\label{interface_i_grade_repository_a5b23fe3523417bd45eb5f2b43b07f8da} 
+\index{IGradeRepository@{IGradeRepository}!GetGradesByStudentId@{GetGradesByStudentId}}
+\index{GetGradesByStudentId@{GetGradesByStudentId}!IGradeRepository@{IGradeRepository}}
+\doxysubsubsection{\texorpdfstring{GetGradesByStudentId()}{GetGradesByStudentId()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_grade}{Grade}} $>$ IGrade\+Repository.\+Get\+Grades\+By\+Student\+Id (\begin{DoxyParamCaption}\item[{int}]{student\+Id }\end{DoxyParamCaption})}
+
+
+
+Retrieves all grades for a specific student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of the student\textquotesingle{}s grades.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_grade_repository_a51fea62be8febd6bdf04d14fd1d73113}{Catalogue\+Server.\+Repositories.\+Grade\+Repository}}.
+
+\Hypertarget{interface_i_grade_repository_a1aaa799a034be9103a804023ae1a6fd6}\label{interface_i_grade_repository_a1aaa799a034be9103a804023ae1a6fd6} 
+\index{IGradeRepository@{IGradeRepository}!GetGradesByTeacherId@{GetGradesByTeacherId}}
+\index{GetGradesByTeacherId@{GetGradesByTeacherId}!IGradeRepository@{IGradeRepository}}
+\doxysubsubsection{\texorpdfstring{GetGradesByTeacherId()}{GetGradesByTeacherId()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_grade}{Grade}} $>$ IGrade\+Repository.\+Get\+Grades\+By\+Teacher\+Id (\begin{DoxyParamCaption}\item[{int}]{teacher\+Id }\end{DoxyParamCaption})}
+
+
+
+Retrieves all grades associated with a specific teacher. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em teacher\+Id} & The ID of the teacher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of grades for assignments in the teacher\textquotesingle{}s classes.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_grade_repository_acb6c43232b8df0671848b99f588ce178}{Catalogue\+Server.\+Repositories.\+Grade\+Repository}}.
+
+\Hypertarget{interface_i_grade_repository_ac3335a6c951c62c6b7e1b80f0b0392bd}\label{interface_i_grade_repository_ac3335a6c951c62c6b7e1b80f0b0392bd} 
+\index{IGradeRepository@{IGradeRepository}!GetStudentAverageGrades@{GetStudentAverageGrades}}
+\index{GetStudentAverageGrades@{GetStudentAverageGrades}!IGradeRepository@{IGradeRepository}}
+\doxysubsubsection{\texorpdfstring{GetStudentAverageGrades()}{GetStudentAverageGrades()}}
+{\footnotesize\ttfamily List$<$(string Subject, double Average\+Grade, Date\+Time Last\+Graded)$>$ IGrade\+Repository.\+Get\+Student\+Average\+Grades (\begin{DoxyParamCaption}\item[{int}]{student\+Id }\end{DoxyParamCaption})}
+
+
+
+Calculates average grades per subject for a student. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of tuples containing subject name, average grade, and last graded date.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_grade_repository_abe5d507515740b70110cc5f53486d3a5}{Catalogue\+Server.\+Repositories.\+Grade\+Repository}}.
+
+\Hypertarget{interface_i_grade_repository_a5aa47067685ca5f70ffaf8d8b6d77bed}\label{interface_i_grade_repository_a5aa47067685ca5f70ffaf8d8b6d77bed} 
+\index{IGradeRepository@{IGradeRepository}!GetStudentGradesBySubject@{GetStudentGradesBySubject}}
+\index{GetStudentGradesBySubject@{GetStudentGradesBySubject}!IGradeRepository@{IGradeRepository}}
+\doxysubsubsection{\texorpdfstring{GetStudentGradesBySubject()}{GetStudentGradesBySubject()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_grade_repository_1_1_grade_detail}{Grade\+Repository.\+Grade\+Detail}} $>$ IGrade\+Repository.\+Get\+Student\+Grades\+By\+Subject (\begin{DoxyParamCaption}\item[{int}]{student\+Id,  }\item[{string}]{subject }\end{DoxyParamCaption})}
+
+
+
+Retrieves detailed grade information for a student in a specific subject. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student.\\
+\hline
+{\em subject} & The name of the subject.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of detailed grade information.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_grade_repository_a5b5ebd37fb6e37b6b60c698a5dc55f56}{Catalogue\+Server.\+Repositories.\+Grade\+Repository}}.
+
+\Hypertarget{interface_i_grade_repository_ad11d366bdfb2e70d8ea65925efdb96a2}\label{interface_i_grade_repository_ad11d366bdfb2e70d8ea65925efdb96a2} 
+\index{IGradeRepository@{IGradeRepository}!GradeAssignment@{GradeAssignment}}
+\index{GradeAssignment@{GradeAssignment}!IGradeRepository@{IGradeRepository}}
+\doxysubsubsection{\texorpdfstring{GradeAssignment()}{GradeAssignment()}}
+{\footnotesize\ttfamily void IGrade\+Repository.\+Grade\+Assignment (\begin{DoxyParamCaption}\item[{int}]{student\+Id,  }\item[{int}]{assignment\+Id,  }\item[{int}]{grade\+Value }\end{DoxyParamCaption})}
+
+
+
+Records a grade for a student\textquotesingle{}s assignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em student\+Id} & The ID of the student.\\
+\hline
+{\em assignment\+Id} & The ID of the assignment.\\
+\hline
+{\em grade\+Value} & The grade value to record.\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_grade_repository_a17c734e527d1bb0fac54ae7d37a5cdc2}{Catalogue\+Server.\+Repositories.\+Grade\+Repository}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Catalogue\+Server/\+Repositories/\+Interfaces/IGrade\+Repository.\+cs\end{DoxyCompactItemize}

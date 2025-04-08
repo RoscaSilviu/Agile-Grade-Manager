@@ -1,0 +1,67 @@
+\doxysection{Catalogue\+Server.\+Controllers.\+Auth\+Controller Class Reference}
+\hypertarget{class_catalogue_server_1_1_controllers_1_1_auth_controller}{}\label{class_catalogue_server_1_1_controllers_1_1_auth_controller}\index{CatalogueServer.Controllers.AuthController@{CatalogueServer.Controllers.AuthController}}
+
+
+Controller responsible for user authentication operations.  
+
+
+Inheritance diagram for Catalogue\+Server.\+Controllers.\+Auth\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_catalogue_server_1_1_controllers_1_1_auth_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_auth_controller_acaa05b215a7ef9aa12ca7f80bb7ebede}{Auth\+Controller}} (\mbox{\hyperlink{interface_i_user_repository}{IUser\+Repository}} user\+Repository)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Auth\+Controller. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_auth_controller_a92715bf3e273e2d4805cf8f1c0202aaf}{Login}} (\mbox{[}From\+Body\mbox{]} \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_login_request}{Login\+Request}} request)
+\begin{DoxyCompactList}\small\item\em Authenticates a user and generates an authentication token. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller responsible for user authentication operations. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_auth_controller_acaa05b215a7ef9aa12ca7f80bb7ebede}\label{class_catalogue_server_1_1_controllers_1_1_auth_controller_acaa05b215a7ef9aa12ca7f80bb7ebede} 
+\index{CatalogueServer.Controllers.AuthController@{CatalogueServer.Controllers.AuthController}!AuthController@{AuthController}}
+\index{AuthController@{AuthController}!CatalogueServer.Controllers.AuthController@{CatalogueServer.Controllers.AuthController}}
+\doxysubsubsection{\texorpdfstring{AuthController()}{AuthController()}}
+{\footnotesize\ttfamily Catalogue\+Server.\+Controllers.\+Auth\+Controller.\+Auth\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_i_user_repository}{IUser\+Repository}}}]{user\+Repository }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Auth\+Controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Repository} & The repository for user operations.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_auth_controller_a92715bf3e273e2d4805cf8f1c0202aaf}\label{class_catalogue_server_1_1_controllers_1_1_auth_controller_a92715bf3e273e2d4805cf8f1c0202aaf} 
+\index{CatalogueServer.Controllers.AuthController@{CatalogueServer.Controllers.AuthController}!Login@{Login}}
+\index{Login@{Login}!CatalogueServer.Controllers.AuthController@{CatalogueServer.Controllers.AuthController}}
+\doxysubsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Auth\+Controller.\+Login (\begin{DoxyParamCaption}\item[{\mbox{[}\+From\+Body\mbox{]} \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_login_request}{Login\+Request}}}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Authenticates a user and generates an authentication token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & The login credentials.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+200 OK with token and role if authentication successful; 401 Unauthorized if credentials are invalid. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Catalogue\+Server/\+Controllers/Auth\+Controller.\+cs\end{DoxyCompactItemize}

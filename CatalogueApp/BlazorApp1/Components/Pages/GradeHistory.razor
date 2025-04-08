@@ -57,16 +57,29 @@
 </div>
 
 @code {
+    /// <summary>
+    /// The subject for which the grade history is being displayed.
+    /// </summary>
     [Parameter]
     public string Subject { get; set; } = string.Empty;
 
+    /// <summary>
+    /// ViewModel for managing the state and data of the grade history page.
+    /// </summary>
     private GradeHistoryViewModel viewModel = new GradeHistoryViewModel();
 
+    /// <summary>
+    /// Loads the grade history data when the component's parameters are set.
+    /// </summary>
+    /// <returns>A task representing the asynchronous operation.</returns>
     protected override async Task OnParametersSetAsync()
     {
         await viewModel.LoadGradeHistoryAsync(GradeService, Subject, Navigation);
     }
 
+    /// <summary>
+    /// Navigates back to the grade dashboard.
+    /// </summary>
     private void NavigateBack()
     {
         Navigation.NavigateTo("/grades");

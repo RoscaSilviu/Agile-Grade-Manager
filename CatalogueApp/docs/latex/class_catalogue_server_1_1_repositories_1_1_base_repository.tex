@@ -1,0 +1,213 @@
+\doxysection{Catalogue\+Server.\+Repositories.\+Base\+Repository\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_catalogue_server_1_1_repositories_1_1_base_repository}{}\label{class_catalogue_server_1_1_repositories_1_1_base_repository}\index{CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}}
+
+
+Generic base repository providing common CRUD (Create, Read, Update, Delete) operations for entities.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_ac987e2b265fe3ac5d014e68f6721d8ea}{Base\+Repository}} (SQLite\+Connection db)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Base\+Repository class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_accb38eb4bb1da6d7ab13c6aabc13f51e}{Insert}} (T entity)
+\begin{DoxyCompactList}\small\item\em Inserts a new entity into the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_ad6c8f9d46a3217576e5a931fd4bb3cbe}{Update}} (T entity)
+\begin{DoxyCompactList}\small\item\em Updates an existing entity in the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a9ef314ada88f8f55c73fa1d7ca66fac6}{Delete}} (T entity)
+\begin{DoxyCompactList}\small\item\em Deletes an entity from the database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a6470872959018cdf913ae9e9fabbe3f8}{Delete\+All}} ()
+\begin{DoxyCompactList}\small\item\em Deletes all entities of type T from the database. \end{DoxyCompactList}\item 
+List$<$ T $>$ \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a8a0befc9493db3049c5417ecdf558b33}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves all entities of type T from the database. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_abf482f27a78572fbeffe7d6e81555d05}{Get\+By\+Id}} (int id)
+\begin{DoxyCompactList}\small\item\em Retrieves an entity by its ID. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly SQLite\+Connection \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository_a216737b1c9b3d99cc8ba8374716b19c7}{\+\_\+db}}
+\begin{DoxyCompactList}\small\item\em The SQLite database connection used for all database operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generic base repository providing common CRUD (Create, Read, Update, Delete) operations for entities. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of entity this repository manages. Must have a parameterless constructor.\\
+\hline
+\end{DoxyTemplParams}
+
+
+This base repository implements common database operations using SQLite. All entity-\/specific repositories should inherit from this class to maintain consistency in basic CRUD operations across the application. \begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T} : {\em new()}]\end{description}
+\end{Desc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_catalogue_server_1_1_repositories_1_1_base_repository_ac987e2b265fe3ac5d014e68f6721d8ea}\label{class_catalogue_server_1_1_repositories_1_1_base_repository_ac987e2b265fe3ac5d014e68f6721d8ea} 
+\index{CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}!BaseRepository@{BaseRepository}}
+\index{BaseRepository@{BaseRepository}!CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{BaseRepository()}{BaseRepository()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository}}$<$ T $>$.\mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Base\+Repository}} (\begin{DoxyParamCaption}\item[{SQLite\+Connection}]{db }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Base\+Repository class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em db} & An active SQLite database connection.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when the database connection is null.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_catalogue_server_1_1_repositories_1_1_base_repository_a9ef314ada88f8f55c73fa1d7ca66fac6}\label{class_catalogue_server_1_1_repositories_1_1_base_repository_a9ef314ada88f8f55c73fa1d7ca66fac6} 
+\index{CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}!Delete@{Delete}}
+\index{Delete@{Delete}!CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository}}$<$ T $>$.Delete (\begin{DoxyParamCaption}\item[{T}]{entity }\end{DoxyParamCaption})}
+
+
+
+Deletes an entity from the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity to delete.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when the entity is null.\\
+\hline
+{\em SQLite\+Exception} & Thrown when there\textquotesingle{}s an error deleting from the database.\\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_catalogue_server_1_1_repositories_1_1_base_repository_a6470872959018cdf913ae9e9fabbe3f8}\label{class_catalogue_server_1_1_repositories_1_1_base_repository_a6470872959018cdf913ae9e9fabbe3f8} 
+\index{CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}!DeleteAll@{DeleteAll}}
+\index{DeleteAll@{DeleteAll}!CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DeleteAll()}{DeleteAll()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository}}$<$ T $>$.Delete\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deletes all entities of type T from the database. 
+
+Use this method with caution as it will remove all records of type T. Consider implementing additional safety checks in derived repositories. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em SQLite\+Exception} & Thrown when there\textquotesingle{}s an error deleting from the database.\\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_catalogue_server_1_1_repositories_1_1_base_repository_a8a0befc9493db3049c5417ecdf558b33}\label{class_catalogue_server_1_1_repositories_1_1_base_repository_a8a0befc9493db3049c5417ecdf558b33} 
+\index{CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}!GetAll@{GetAll}}
+\index{GetAll@{GetAll}!CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetAll()}{GetAll()}}
+{\footnotesize\ttfamily List$<$ T $>$ \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository}}$<$ T $>$.Get\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retrieves all entities of type T from the database. 
+
+\begin{DoxyReturn}{Returns}
+A list containing all entities of type T. Returns an empty list if no entities exist.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em SQLite\+Exception} & Thrown when there\textquotesingle{}s an error reading from the database.\\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_catalogue_server_1_1_repositories_1_1_base_repository_abf482f27a78572fbeffe7d6e81555d05}\label{class_catalogue_server_1_1_repositories_1_1_base_repository_abf482f27a78572fbeffe7d6e81555d05} 
+\index{CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}!GetById@{GetById}}
+\index{GetById@{GetById}!CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetById()}{GetById()}}
+{\footnotesize\ttfamily T \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository}}$<$ T $>$.Get\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Retrieves an entity by its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The primary key ID of the entity to retrieve.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The entity with the specified ID if found; null otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em SQLite\+Exception} & Thrown when there\textquotesingle{}s an error reading from the database.\\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_catalogue_server_1_1_repositories_1_1_base_repository_accb38eb4bb1da6d7ab13c6aabc13f51e}\label{class_catalogue_server_1_1_repositories_1_1_base_repository_accb38eb4bb1da6d7ab13c6aabc13f51e} 
+\index{CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}!Insert@{Insert}}
+\index{Insert@{Insert}!CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Insert()}{Insert()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository}}$<$ T $>$.Insert (\begin{DoxyParamCaption}\item[{T}]{entity }\end{DoxyParamCaption})}
+
+
+
+Inserts a new entity into the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity to insert.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when the entity is null.\\
+\hline
+{\em SQLite\+Exception} & Thrown when there\textquotesingle{}s an error inserting into the database.\\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_catalogue_server_1_1_repositories_1_1_base_repository_ad6c8f9d46a3217576e5a931fd4bb3cbe}\label{class_catalogue_server_1_1_repositories_1_1_base_repository_ad6c8f9d46a3217576e5a931fd4bb3cbe} 
+\index{CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}!Update@{Update}}
+\index{Update@{Update}!CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository}}$<$ T $>$.Update (\begin{DoxyParamCaption}\item[{T}]{entity }\end{DoxyParamCaption})}
+
+
+
+Updates an existing entity in the database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & The entity to update.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when the entity is null.\\
+\hline
+{\em SQLite\+Exception} & Thrown when there\textquotesingle{}s an error updating the database.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_catalogue_server_1_1_repositories_1_1_base_repository_a216737b1c9b3d99cc8ba8374716b19c7}\label{class_catalogue_server_1_1_repositories_1_1_base_repository_a216737b1c9b3d99cc8ba8374716b19c7} 
+\index{CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}!\_db@{\_db}}
+\index{\_db@{\_db}!CatalogueServer.Repositories.BaseRepository$<$ T $>$@{CatalogueServer.Repositories.BaseRepository$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_db}{\_db}}
+{\footnotesize\ttfamily readonly SQLite\+Connection \mbox{\hyperlink{class_catalogue_server_1_1_repositories_1_1_base_repository}{Catalogue\+Server.\+Repositories.\+Base\+Repository}}$<$ T $>$.\+\_\+db\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The SQLite database connection used for all database operations. 
+
+Protected to allow derived repositories to perform custom queries. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Catalogue\+Server/\+Repositories/Base\+Repository.\+cs\end{DoxyCompactItemize}

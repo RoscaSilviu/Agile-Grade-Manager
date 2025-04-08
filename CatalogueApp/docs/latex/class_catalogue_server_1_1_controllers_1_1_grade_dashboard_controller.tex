@@ -1,0 +1,73 @@
+\doxysection{Catalogue\+Server.\+Controllers.\+Grade\+Dashboard\+Controller Class Reference}
+\hypertarget{class_catalogue_server_1_1_controllers_1_1_grade_dashboard_controller}{}\label{class_catalogue_server_1_1_controllers_1_1_grade_dashboard_controller}\index{CatalogueServer.Controllers.GradeDashboardController@{CatalogueServer.Controllers.GradeDashboardController}}
+
+
+Controller responsible for managing the grade dashboard functionality. Provides endpoints for retrieving student grade averages and summaries.  
+
+
+Inheritance diagram for Catalogue\+Server.\+Controllers.\+Grade\+Dashboard\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_catalogue_server_1_1_controllers_1_1_grade_dashboard_controller}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_grade_dashboard_controller_a33c89ac4d8a51f09b1bfe88bb02e368e}{Grade\+Dashboard\+Controller}} (\mbox{\hyperlink{interface_i_user_repository}{IUser\+Repository}} user\+Repository, \mbox{\hyperlink{interface_i_grade_repository}{IGrade\+Repository}} grade\+Repository)
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the Grade\+Dashboard\+Controller. \end{DoxyCompactList}\item 
+IAction\+Result \mbox{\hyperlink{class_catalogue_server_1_1_controllers_1_1_grade_dashboard_controller_a1c07f84bb749510cebab4c9c1e70ba21}{Get\+Grades}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves the average grades for all subjects for the authenticated student. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controller responsible for managing the grade dashboard functionality. Provides endpoints for retrieving student grade averages and summaries. 
+
+This controller requires authentication via Bearer token and is designed to work with student accounts to display their grade information. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_grade_dashboard_controller_a33c89ac4d8a51f09b1bfe88bb02e368e}\label{class_catalogue_server_1_1_controllers_1_1_grade_dashboard_controller_a33c89ac4d8a51f09b1bfe88bb02e368e} 
+\index{CatalogueServer.Controllers.GradeDashboardController@{CatalogueServer.Controllers.GradeDashboardController}!GradeDashboardController@{GradeDashboardController}}
+\index{GradeDashboardController@{GradeDashboardController}!CatalogueServer.Controllers.GradeDashboardController@{CatalogueServer.Controllers.GradeDashboardController}}
+\doxysubsubsection{\texorpdfstring{GradeDashboardController()}{GradeDashboardController()}}
+{\footnotesize\ttfamily Catalogue\+Server.\+Controllers.\+Grade\+Dashboard\+Controller.\+Grade\+Dashboard\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_i_user_repository}{IUser\+Repository}}}]{user\+Repository,  }\item[{\mbox{\hyperlink{interface_i_grade_repository}{IGrade\+Repository}}}]{grade\+Repository }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the Grade\+Dashboard\+Controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Repository} & Repository for user operations.\\
+\hline
+{\em grade\+Repository} & Repository for grade operations.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Argument\+Null\+Exception} & Thrown when any repository is null.\\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_catalogue_server_1_1_controllers_1_1_grade_dashboard_controller_a1c07f84bb749510cebab4c9c1e70ba21}\label{class_catalogue_server_1_1_controllers_1_1_grade_dashboard_controller_a1c07f84bb749510cebab4c9c1e70ba21} 
+\index{CatalogueServer.Controllers.GradeDashboardController@{CatalogueServer.Controllers.GradeDashboardController}!GetGrades@{GetGrades}}
+\index{GetGrades@{GetGrades}!CatalogueServer.Controllers.GradeDashboardController@{CatalogueServer.Controllers.GradeDashboardController}}
+\doxysubsubsection{\texorpdfstring{GetGrades()}{GetGrades()}}
+{\footnotesize\ttfamily IAction\+Result Catalogue\+Server.\+Controllers.\+Grade\+Dashboard\+Controller.\+Get\+Grades (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves the average grades for all subjects for the authenticated student. 
+
+\begin{DoxyReturn}{Returns}
+200 OK with a list of grade averages per subject; 401 Unauthorized if the authentication token is missing or invalid. 
+\end{DoxyReturn}
+
+
+The endpoint requires a valid Bearer token in the Authorization header. Returns average grades, including subjects with no grades as 0.\+0. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Catalogue\+Server/\+Controllers/Grade\+Dashboard\+Controller.\+cs\end{DoxyCompactItemize}

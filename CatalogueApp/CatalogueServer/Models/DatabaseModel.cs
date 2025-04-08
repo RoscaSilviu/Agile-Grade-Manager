@@ -2,10 +2,21 @@
 using System.IO;
 using SQLite;
 
+/// <summary>
+/// Manages the SQLite database connection and schema for the school management system.
+/// </summary>
 public class Database
 {
+    /// <summary>
+    /// Gets the SQLite database connection.
+    /// </summary>
     public SQLiteConnection Connection { get; }
 
+    /// <summary>
+    /// Initializes a new instance of the Database class.
+    /// Creates database tables if they don't exist and enables foreign key support.
+    /// </summary>
+    /// <param name="connection">Optional existing SQLite connection. If null, creates a new connection.</param>
     public Database(SQLiteConnection connection = null)
     {
         if (connection != null)

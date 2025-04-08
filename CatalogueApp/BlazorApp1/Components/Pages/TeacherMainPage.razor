@@ -77,9 +77,7 @@
 
 	private async void CreateLocalBackup()
 	{
-		var data = selectedBackupType == "everything"
-			? await ClassService.GetFullDatabaseBackupAsync()  // you implement this
-			: await ClassService.GetTeacherBackupAsync();      // related to current teacher
+		var data = selectedBackupType == "everything" ? await ClassService.GetFullDatabaseBackupAsync() : await ClassService.GetTeacherBackupAsync();      
 
 		string json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
 		string txt = FormatBackupAsReadableText(data);
