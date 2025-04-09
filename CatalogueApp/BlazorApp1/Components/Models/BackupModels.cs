@@ -20,6 +20,11 @@
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the unique identifier for the teacher email.
+        /// </summary>
+        public string Email { get; set; }
+
+        /// <summary>
         /// Gets or sets the collection of classes taught by the teacher.
         /// </summary>
         /// <remarks>
@@ -39,6 +44,11 @@
     /// </remarks>
     public class FullBackupModel
     {
+        /// <summary>
+        /// All teachers in the system, each with their classes and related data.
+        /// </summary>
+        public List<TeacherBackupModel> Teachers { get; set; } = new();
+
 
     }
 }

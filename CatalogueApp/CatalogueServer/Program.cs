@@ -16,6 +16,7 @@ builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<AssignmentRepository>();
 builder.Services.AddScoped<GradeRepository>();
 builder.Services.AddScoped<ClassRepository>();
+builder.Services.AddScoped<ClassStudentRepository>();
 
 
 builder.Services.AddSingleton<Database>();

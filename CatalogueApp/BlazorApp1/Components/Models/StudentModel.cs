@@ -27,5 +27,7 @@
         /// Used for display and alphabetical sorting in student lists.
         /// </remarks>
         public string Surname { get; set; } = string.Empty;
+
+        public List<GradeModel> Grades { get; set; } = new();
     }
 }

@@ -1,8 +1,13 @@
 ﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Text;
 using Blazored.LocalStorage;
 using CatalogueApp.Components.Models;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.JSInterop;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 
 namespace CatalogueApp.Components.Services
 {
@@ -18,6 +23,7 @@ namespace CatalogueApp.Components.Services
     {
         private readonly HttpClient _httpClient;
         private readonly ILocalStorageService _localStorage;
+        private readonly IJSRuntime _jsRuntime;
 
         /// <summary>
         /// Initializes a new instance of the ClassService.
@@ -25,26 +31,78 @@ namespace CatalogueApp.Components.Services
         /// <param name="httpClient">HTTP client for making API requests.</param>
         /// <param name="localStorage">Local storage service for managing authentication tokens.</param>
         /// <exception cref="ArgumentNullException">Thrown when either parameter is null.</exception>
-        public ClassService(HttpClient httpClient, ILocalStorageService localStorage)
+        public ClassService(HttpClient httpClient, ILocalStorageService localStorage, IJSRuntime jsRuntime)
         {
-            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+            _httpClient = httpClient;
             _localStorage = localStorage ?? throw new ArgumentNullException(nameof(localStorage));
+            _jsRuntime = jsRuntime ?? throw new ArgumentNullException(nameof(jsRuntime));
         }
+
 
         /// <summary>
         /// Retrieves a full backup of the database.
         /// </summary>
         /// <returns>Complete database backup model.</returns>
-        public async Task<FullBackupModel> GetFullDatabaseBackupAsync()
+        public async Task<string> GetFullBackupAsync()
         {
-            return await _httpClient.GetFromJsonAsync<FullBackupModel>("api/backup/full");
+            // Instead of trying to deserialize as JSON
+            var response = await _httpClient.GetAsync("api/Backup/text");
+            response.EnsureSuccessStatusCode();
+
+            await SaveToFile("FullBackup.txt", await response.Content.ReadAsStringAsync());
+
+            return await response.Content.ReadAsStringAsync();
         }
 
-        /// <summary>
-        /// Retrieves a backup of the current teacher's data.
-        /// </summary>
-        /// <returns>Teacher-specific backup model.</returns>
-        public async Task<TeacherBackupModel> GetTeacherBackupAsync()
+
+public async Task SaveToFile(string fileName, string content)
+    {
+        // Create a base64 representation of the content
+        var textBytes = Encoding.UTF8.GetBytes(content);
+        var base64Text = Convert.ToBase64String(textBytes);
+
+        // Create data URIs for text and CSV
+        var txtDataUri = $"data:text/plain;base64,{base64Text}";
+        var csvDataUri = $"data:text/csv;base64,{base64Text}";
+
+        // Get file names without extension
+        var fileNameWithoutExt = fileName.Contains(".")
+            ? fileName.Substring(0, fileName.LastIndexOf('.'))
+            : fileName;
+
+        // Save as TXT
+        await _jsRuntime.InvokeVoidAsync("eval", $@"
+        (function() {{
+            const link = document.createElement('a');
+            link.href = '{txtDataUri}';
+            link.download = '{fileNameWithoutExt}.txt';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }})();
+    ");
+
+        // Short delay to prevent browser blocking multiple downloads
+        await Task.Delay(100);
+
+        // Save as CSV
+        await _jsRuntime.InvokeVoidAsync("eval", $@"
+        (function() {{
+            const link = document.createElement('a');
+            link.href = '{csvDataUri}';
+            link.download = '{fileNameWithoutExt}.csv';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }})();
+    ");
+    }
+
+    /// <summary>
+    /// Retrieves a backup of the current teacher's data.
+    /// </summary>
+    /// <returns>Teacher-specific backup model.</returns>
+    public async Task<TeacherBackupModel> GetTeacherBackupAsync()
         {
             return await _httpClient.GetFromJsonAsync<TeacherBackupModel>("api/backup/teacher");
         }

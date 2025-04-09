@@ -1,11 +1,11 @@
 ﻿@page "/teacher"
 @inject NavigationManager Navigation
 @inject CatalogueApp.Components.Services.ClassService ClassService
+@inject IJSRuntime JS
 @using CatalogueApp.Components.Models
 @using System.Text.Json
-@using System.Text.Json.Serialization
 @using System.Text
-@using System.Text.Encodings.Web
+@using Microsoft.AspNetCore.Components
 @rendermode InteractiveServer
 
 <link href="css/teacher.css" rel="stylesheet" />
@@ -17,141 +17,84 @@
         <div class="button-group">
             <button class="btn btn-primary" @onclick="() => NavigateToPage(myClassesRoute)">My Classes</button>
             <button class="btn btn-success" @onclick="() => NavigateToPage(gradesRoute)">Grades</button>
-            @* <button class="btn btn-secondary" @onclick="() =>ShowBackupModal() ">Local Backup</button> *@
-
+            <button class="btn btn-secondary" @onclick="ShowBackupModal">Local Backup</button>
         </div>
     </div>
 </div>
 
 @if (showBackupModal)
 {
-	<div class="management-modal">
-		<div class="management-content">
-			<h3>Local Backup</h3>
-			<p>Choose what to include in the backup:</p>
+    <div class="management-modal">
+        <div class="management-content">
+            <h3>Local Backup</h3>
+            <p>This will export the <strong>entire database</strong> to .txt and .json formats.</p>
 
-			<div class="mb-2">
-				<input type="radio" id="everything" name="backupType" @bind="selectedBackupType" />
-				<label for="everything">Entire Database</label>
-			</div>
-
-			<div class="mb-4">
-				<input type="radio" id="teacherOnly" name="backupType" @bind="selectedBackupType" />
-				<label for="teacherOnly">Only My Data (Classes, Assignments, Grades)</label>
-			</div>
-
-@* 			<div class="flex justify-end gap-2">
-				<button class="btn btn-primary" @onclick="() => CreateLocalBackup()">Generate .txt & .json</button>
-				<button class="btn btn-secondary" @onclick="() => HideBackupModal()">Cancel</button>
-			</div> *@
-		</div>
-	</div>
-}
-
-
+            <div class="flex justify-end gap-2">
+                <button class="btn btn-primary" @onclick="CreateLocalBackup">Generate .txt & .json</button>
+                <button class="btn btn-secondary" @onclick="HideBackupModal">Cancel</button>
+            </div>
+        </div>
+    </div>}
 
 @code {
-
-
-	private string selectedBackupType = "teacherOnly"; // default
-
-	bool showBackupModal = false;
+    private bool showBackupModal = false;
     private string myClassesRoute = "/my-classes";
-	private string gradesRoute = "/teacher-grade-history";
-    private void NavigateToPage(string url)
+    private string gradesRoute = "/teacher-grade-history";
+
+    private void NavigateToPage(string url) => Navigation.NavigateTo(url);
+
+    private Task ShowBackupModal()
     {
-        Navigation.NavigateTo(url);
+        showBackupModal = true;
+        return Task.CompletedTask;
     }
 
-	// private async Task ShowBackupModal()
-	// {
-	// 	showBackupModal = true;
-	// 	await Task.Delay(1000); // Simulate some delay
-	// }
+    private Task HideBackupModal()
+    {
+        showBackupModal = false;
+        return Task.CompletedTask;
+    }
 
-	// private async Task HideBackupModal()
-	// {
-	// 	showBackupModal = false;
-	// 	await Task.Delay(1000); // Simulate some delay
-	// }
+    private async Task CreateLocalBackup()
+    {
+		await ClassService.GetFullBackupAsync();
+        showBackupModal = false;
+    }
 
-	// private async void CreateLocalBackup()
-	// {
-	// 	var data = selectedBackupType == "everything" ? await ClassService.GetFullDatabaseBackupAsync() : await ClassService.GetTeacherBackupAsync();      
+    private string FormatBackupAsReadableText(FullBackupModel full)
+    {
+        var sb = new StringBuilder();
 
-	// 	string json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
-	// 	string txt = FormatBackupAsReadableText(data);
+        sb.AppendLine("📦 FULL DATABASE BACKUP");
+        sb.AppendLine("========================\n");
 
-	// 	// Save both files
-	// 	await SaveToFile("backup.json", json);
-	// 	await SaveToFile("backup.txt", txt);
+        foreach (var teacher in full.Teachers)
+        {
+            sb.AppendLine($"👨‍🏫 Teacher: {teacher.Name} ({teacher.Email})");
 
-	// 	showBackupModal = false;
-	// }
+            foreach (var cls in teacher.Classes)
+            {
+                sb.AppendLine($"\n  📚 Class: {cls.Name}");
 
-	// private string FormatBackupAsReadableText(object backupData)
-	// {
-	// 	var sb = new StringBuilder();
+                foreach (var assignment in cls.Assignments)
+                {
+                    sb.AppendLine($"    📝 Assignment: {assignment.Title} | Due: {assignment.DueDate:d} | Max Points: {assignment.MaxPoints}");
+                }
 
-	// 	if (backupData is FullBackupModel full)
-	// 	{
-	// 		sb.AppendLine("📦 FULL DATABASE BACKUP");
-	// 		sb.AppendLine("========================\n");
+                foreach (var student in cls.Students)
+                {
+                    sb.AppendLine($"    👤 Student: {student.Name} {student.Surname}");
 
-	// 		foreach (var teacher in full.Teachers)
-	// 		{
-	// 			sb.AppendLine($"👨‍🏫 Teacher: {teacher.Name} ({teacher.Email})");
-	// 			foreach (var cls in teacher.Classes)
-	// 			{
-	// 				sb.AppendLine($"\n  📚 Class: {cls.Name}");
-	// 				foreach (var assignment in cls.Assignments)
-	// 				{
-	// 					sb.AppendLine($"    📝 Assignment: {assignment.Title} | Due: {assignment.DueDate:d} | Max Points: {assignment.MaxPoints}");
-	// 				}
-	// 				foreach (var student in cls.Students)
-	// 				{
-	// 					sb.AppendLine($"    👤 Student: {student.Name} {student.Surname}");
-	// 					foreach (var grade in student.Grades)
-	// 					{
-	// 						sb.AppendLine($"      🎓 Grade for {grade.AssignmentTitle}: {grade.Points ?? "N/A"}");
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// 	else if (backupData is TeacherBackupModel teacher)
-	// 	{
-	// 		sb.AppendLine("📦 TEACHER DATA BACKUP");
-	// 		sb.AppendLine("========================\n");
+                    foreach (var grade in student.Grades)
+                    {
+                        sb.AppendLine($"      🎓 Grade for {grade.AssignmentTitle}: {grade.Points ?? "N/A"}");
+                    }
+                }
+            }
+        }
 
-	// 		sb.AppendLine($"👨‍🏫 Name: {teacher.Name}");
-	// 		foreach (var cls in teacher.Classes)
-	// 		{
-	// 			sb.AppendLine($"\n📚 Class: {cls.Name}");
-	// 			foreach (var assignment in cls.Assignments)
-	// 			{
-	// 				sb.AppendLine($"  📝 Assignment: {assignment.Title} | Due: {assignment.DueDate:d} | Max Points: {assignment.MaxPoints}");
-	// 			}
-	// 			foreach (var student in cls.Students)
-	// 			{
-	// 				sb.AppendLine($"  👤 Student: {student.Name} {student.Surname}");
-	// 				foreach (var grade in student.Grades)
-	// 				{
-	// 					sb.AppendLine($"    🎓 {grade.AssignmentTitle}: {grade.Points ?? "N/A"}");
-	// 				}
-	// 			}
-	// 		}
-	// 	}
+        return sb.ToString();
+    }
 
-	// 	return sb.ToString();
-	// }
-
-	// private async Task SaveToFile(string fileName, string content)
-	// {
-	// 	var bytes = Encoding.UTF8.GetBytes(content);
-	// 	using var stream = new MemoryStream(bytes);
-	// 	using var streamRef = new DotNetStreamReference(stream);
-
-	// 	await JS.InvokeVoidAsync("downloadFileFromStream", fileName, streamRef);
-	// }
+    
 }

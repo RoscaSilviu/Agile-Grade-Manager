@@ -57,6 +57,17 @@ public class UserRepository : BaseRepository<User>, IUserRepository
     }
 
     /// <summary>
+    /// Retrieves all users with the teacher role.
+    /// </summary>
+    /// <returns>A list of all teachers in the system.</returns>
+    public List<User> GetAllTeachers()
+    {
+        return (from u in _db.Table<User>()
+                where u.Role == "teacher"
+                select u).ToList();
+    }
+
+    /// <summary>
     /// Retrieves a student by their full name.
     /// </summary>
     /// <param name="name">The student's first name.</param>

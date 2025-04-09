@@ -30,5 +30,7 @@
         /// Should be initialized to prevent null reference exceptions.
         /// </remarks>
         public List<StudentModel> Students { get; set; }
+
+        public List<AssignmentModel> Assignments { get; set; }
     }
 }
