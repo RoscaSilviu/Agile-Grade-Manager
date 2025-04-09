@@ -5,6 +5,7 @@
 @using System.IO
 @using Microsoft.AspNetCore.Components.Forms
 @using CatalogueServer.Controllers;
+@using System.ComponentModel.DataAnnotations
 @using static BlazorApp1.Components.ViewModels.TeacherGradeHistoryViewModel
 @inject TeacherGradeHistoryService GradeService
 @inject NavigationManager Navigation
@@ -20,6 +21,39 @@
         }
         else
         {
+             <div class="mb-4 p-3 border rounded">
+                <h5>Add Grade</h5>
+                <EditForm Model="@newGrade" OnValidSubmit="@HandleValidSubmit">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
+
+                    <div class="mb-3">
+                        <label for="studentName" class="form-label">Student Name</label>
+                        <InputText id="studentName" class="form-control" @bind-Value="newGrade.StudentName" />
+                        <ValidationMessage For="@(() => newGrade.StudentName)" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="assignmentName" class="form-label">Assignment Name</label>
+                        <InputText id="assignmentName" class="form-control" @bind-Value="newGrade.AssignmentName" />
+                        <ValidationMessage For="@(() => newGrade.AssignmentName)" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="grade" class="form-label">Grade</label>
+                        <InputNumber id="grade" class="form-control" @bind-Value="newGrade.Grade" min="0" max="100" />
+                        <ValidationMessage For="@(() => newGrade.Grade)" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="comments" class="form-label">Comments (Optional)</label>
+                        <InputTextArea id="comments" class="form-control" @bind-Value="newGrade.Comments" />
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Add Grade</button>
+                </EditForm>
+            </div>
+
             <div class="mb-4 p-3 border rounded">
                 <h5>Bulk Grade Upload</h5>
                 <div class="alert alert-info">
@@ -106,6 +140,20 @@
     private bool hasFile;
     private IBrowserFile? uploadedFile;
 
+    private GradeUploadModel newGrade = new();
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await viewModel.UploadGradesAsync(GradeService, new List<GradeUploadModel> { newGrade });
+            newGrade = new GradeUploadModel();
+        }
+        catch (Exception ex)
+        {
+        }
+    }
+
     private async Task HandleFileSelected(InputFileChangeEventArgs e)
     {
         uploadedFile = e.File;
@@ -150,7 +198,6 @@
         }
         catch (Exception ex)
         {
-            int x = 2;
         }
     }
 
