@@ -75,5 +75,24 @@ namespace BlazorApp1.Components.ViewModels
                 ErrorMessage = "Failed to delete grade. Please try again.";
             }
         }
+
+        public async Task UploadGradesAsync(TeacherGradeHistoryService service, List<GradeUploadModel> grades)
+        {
+            try
+            {
+                IsLoading = true;
+                ErrorMessage = null;
+                await service.UploadGradesAsync(grades);
+                await LoadGradesAsync(service, null!);
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = "Failed to upload grades. Please verify the CSV format and try again.";
+            }
+            finally
+            {
+                IsLoading = false;
+            }
+        }
     }
 }

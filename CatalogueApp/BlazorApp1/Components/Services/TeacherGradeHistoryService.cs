@@ -5,6 +5,7 @@ using System.Security.Claims;
 using Blazored.LocalStorage;
 using CatalogueServer.Controllers;
 using Microsoft.AspNetCore.Components.Authorization;
+using static BlazorApp1.Components.ViewModels.TeacherGradeHistoryViewModel;
 
 namespace BlazorApp1.Components.Services
 {
@@ -63,6 +64,15 @@ namespace BlazorApp1.Components.Services
         public async Task DeleteGradeAsync(int gradeId)
         {
             await _http.DeleteAsync($"api/gradehistory/teacher/{gradeId}");
+        }
+
+        public async Task UploadGradesAsync(List<GradeUploadModel> grades)
+        {
+            var teacherId = await GetTeacherId();
+            if (teacherId == null)
+                throw new UnauthorizedAccessException("User not authenticated or not a teacher");
+
+            await _http.PostAsJsonAsync($"api/gradehistory/teacher/bulk-upload", grades);
         }
     }
 }

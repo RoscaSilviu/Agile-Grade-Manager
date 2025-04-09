@@ -121,6 +121,18 @@ namespace CatalogueServer.Repositories
             return query.ToList();
         }
 
+        public Assignment GetAssignmentByNameAndTeacher(string assignmentName, int teacherId)
+        {
+            return _db.Table<Assignment>()
+                .Join(_db.Table<Class>(),
+                    a => a.ClassId,
+                    c => c.Id,
+                    (a, c) => new { Assignment = a, Class = c })
+                .Where(ac => ac.Class.TeacherId == teacherId && ac.Assignment.Name == assignmentName)
+                .Select(ac => ac.Assignment)
+                .FirstOrDefault();
+        }
+
         /// <summary>
         /// Updates the grade value for a specific grade entry.
         /// </summary>

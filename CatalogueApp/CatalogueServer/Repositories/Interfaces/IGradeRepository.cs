@@ -57,6 +57,15 @@ public interface IGradeRepository
     /// <returns>A list of detailed grade information.</returns>
     List<GradeRepository.GradeDetail> GetStudentGradesBySubject(int studentId, string subject);
     List<TeacherGradeDetail> GetTeacherGradeDetails(int teacherId);
+
+    /// <summary>
+    /// Gets an assignment by its name for a specific teacher.
+    /// </summary>
+    /// <param name="assignmentName">Name of the assignment.</param>
+    /// <param name="teacherId">ID of the teacher.</param>
+    /// <returns>The assignment if found; null otherwise.</returns>
+    Assignment GetAssignmentByNameAndTeacher(string assignmentName, int teacherId);
+
     void UpdateGrade(int gradeId, int newValue);
     void DeleteGrade(int gradeId);
 }

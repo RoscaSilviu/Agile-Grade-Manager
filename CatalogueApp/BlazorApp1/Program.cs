@@ -6,6 +6,7 @@ using CatalogueApp.Components.Pages;
 using CatalogueApp.Components.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
+using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,11 @@ builder.Services.AddScoped<ClassModel>();
 builder.Services.AddScoped<ClassService>();
 builder.Services.AddScoped<AssignmentService>();
 
+
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 1024 * 1024; // 1MB
+});
 
 
 var app = builder.Build();

@@ -2,6 +2,7 @@
 using CatalogueServer.Repositories;
 using static CatalogueServer.Repositories.GradeRepository;
 
+
 namespace CatalogueServer.Controllers
 {
     /// <summary>
@@ -95,6 +96,55 @@ namespace CatalogueServer.Controllers
         {
             _gradeRepository.DeleteGrade(gradeId);
             return Ok();
+        }
+
+        [HttpPost("teacher/bulk-upload")]
+        public async Task<IActionResult> BulkUploadGrades([FromBody] List<GradeUploadModel> grades)
+        {
+            try
+            {
+                string authHeader = Request.Headers["Authorization"];
+                if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+                {
+                    return Unauthorized("Missing or invalid token");
+                }
+
+                string token = authHeader.Substring("Bearer ".Length).Trim();
+                var teacher = _userRepository.GetUserByToken(token);
+                if (teacher == null || teacher.Role != "teacher")
+                {
+                    return Unauthorized("Invalid token or not a teacher");
+                }
+
+                var gradeEntities = new List<Grade>();
+                foreach (var grade in grades)
+                {
+                    // Look up student by name using the repository
+                    var student = _userRepository.GetStudentsByTeacherId(teacher.Id)
+                        .FirstOrDefault(s => $"{s.Name} {s.Surname}" == grade.StudentName);
+                    if (student == null) continue;
+
+                    // Look up assignment using the repository method (to be added to IGradeRepository)
+                    var assignment = _gradeRepository.GetAssignmentByNameAndTeacher(grade.AssignmentName, teacher.Id);
+                    if (assignment == null) continue;
+
+                    gradeEntities.Add(new Grade
+                    {
+                        StudentId = student.Id,
+                        AssignmentId = assignment.Id,
+                        Value = grade.Grade,
+                        Date = DateTime.Now
+                    });
+                }
+
+                // Use the repository's bulk insert method
+                _gradeRepository.BulkGradeAssignments(gradeEntities);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Failed to process grades");
+            }
         }
     }
 
@@ -209,6 +259,38 @@ namespace CatalogueServer.Controllers
         /// <remarks>
         /// Comments can include feedback or notes about the student's performance.
         /// </remarks>
+        public string? Comments { get; set; }
+    }
+
+    /// <summary>
+    /// Represents a grade entry for bulk upload operations.
+    /// </summary>
+    public class GradeUploadModel
+    {
+        /// <summary>
+        /// Gets or sets the full name of the student.
+        /// </summary>
+        /// <remarks>
+        /// Must match the format "FirstName Surname" as stored in the database.
+        /// </remarks>
+        public string StudentName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the name of the assignment.
+        /// </summary>
+        /// <remarks>
+        /// Must match an existing assignment name in the teacher's classes.
+        /// </remarks>
+        public string AssignmentName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Gets or sets the numerical grade value.
+        /// </summary>
+        public int Grade { get; set; }
+
+        /// <summary>
+        /// Gets or sets any comments about the grade.
+        /// </summary>
         public string? Comments { get; set; }
     }
 }

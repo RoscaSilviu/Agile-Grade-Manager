@@ -2,6 +2,10 @@
 @using BlazorApp1.Components.ViewModels
 @using BlazorApp1.Components.Services
 @using CatalogueServer.Repositories
+@using System.IO
+@using Microsoft.AspNetCore.Components.Forms
+@using CatalogueServer.Controllers;
+@using static BlazorApp1.Components.ViewModels.TeacherGradeHistoryViewModel
 @inject TeacherGradeHistoryService GradeService
 @inject NavigationManager Navigation
 @rendermode InteractiveServer
@@ -16,6 +20,17 @@
         }
         else
         {
+            <div class="mb-4 p-3 border rounded">
+                <h5>Bulk Grade Upload</h5>
+                <div class="alert alert-info">
+                    Expected CSV format: StudentName,AssignmentName,Grade,Comments
+                </div>
+                <InputFile OnChange="@HandleFileSelected" class="form-control mb-2" accept=".csv" />
+                <button class="btn btn-primary" @onclick="ProcessUpload" disabled="@(!hasFile)">
+                    Upload Grades
+                </button>
+            </div>
+
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -39,7 +54,7 @@
                                     @if (viewModel.EditingGradeId == grade.GradeId)
                                     {
                                         <input type="number" @bind="viewModel.EditValue"
-                                               class="form-control" min="0" max="100" />
+                                        class="form-control" min="0" max="100" />
                                     }
                                     else
                                     {
@@ -51,22 +66,22 @@
                                     @if (viewModel.EditingGradeId == grade.GradeId)
                                     {
                                         <button class="btn btn-success btn-sm"
-                                                @onclick="async () => await viewModel.SaveEditAsync(GradeService)">
+                                        @onclick="async () => await viewModel.SaveEditAsync(GradeService)">
                                             Save
                                         </button>
                                         <button class="btn btn-secondary btn-sm"
-                                                @onclick="() => viewModel.CancelEdit()">
+                                        @onclick="() => viewModel.CancelEdit()">
                                             Cancel
                                         </button>
                                     }
                                     else
                                     {
                                         <button class="btn btn-primary btn-sm"
-                                                @onclick="() => viewModel.StartEdit(grade)">
+                                        @onclick="() => viewModel.StartEdit(grade)">
                                             Edit
                                         </button>
                                         <button class="btn btn-danger btn-sm"
-                                                @onclick="async () => await viewModel.DeleteGradeAsync(GradeService, grade.GradeId)">
+                                        @onclick="async () => await viewModel.DeleteGradeAsync(GradeService, grade.GradeId)">
                                             Delete
                                         </button>
                                     }
@@ -87,6 +102,57 @@
 
 @code {
     private TeacherGradeHistoryViewModel viewModel = new();
+
+    private bool hasFile;
+    private IBrowserFile? uploadedFile;
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        uploadedFile = e.File;
+        hasFile = true;
+    }
+
+    private async Task ProcessUpload()
+    {
+        if (uploadedFile == null) return;
+
+        try
+        {
+            // Create a buffer for reading the file
+            using var stream = uploadedFile.OpenReadStream(maxAllowedSize: 1024 * 1024); // 1MB max size
+            using var reader = new StreamReader(stream);
+            var grades = new List<GradeUploadModel>();
+
+            // Skip header row
+            await reader.ReadLineAsync();
+
+            string? line;
+            while ((line = await reader.ReadLineAsync()) != null)
+            {
+                if (string.IsNullOrEmpty(line)) continue;
+
+                var values = line.Split(',');
+                if (values.Length >= 3)
+                {
+                    grades.Add(new GradeUploadModel
+                        {
+                            StudentName = values[0].Trim(),
+                            AssignmentName = values[1].Trim(),
+                            Grade = int.Parse(values[2].Trim()),
+                            Comments = values.Length > 3 ? values[3].Trim() : null
+                        });
+                }
+            }
+
+            await viewModel.UploadGradesAsync(GradeService, grades);
+            hasFile = false;
+            uploadedFile = null;
+        }
+        catch (Exception ex)
+        {
+            int x = 2;
+        }
+    }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
